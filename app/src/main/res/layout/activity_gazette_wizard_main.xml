@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.80"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        tools:context=".MainActivity">
+
+        <com.dev.sacot41.scviewpager.SCViewPager
+            android:id="@+id/viewpager_main_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.dev.sacot41.scviewpager.SCViewPager>
+
+        <com.dev.sacot41.scviewpager.DotsView
+            android:id="@+id/dotsview_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal" />
+
+
+        <ImageView
+            android:id="@+id/imageview_main_activity_name_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="105dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="50dp"
+            android:rotation="-10"
+            android:src="@drawable/wizard11" />
+
+        <TextView
+            android:id="@+id/imageview_main_activity_currently_work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textview_main_linkedin_link"
+            android:layout_below="@+id/imageview_main_activity_name_tag"
+            android:layout_marginLeft="10dp"
+            android:text="We are Happy Family"
+            android:textColor="@android:color/white"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/imageview_main_activity_commonly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/imageview_main_activity_mobile"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="55dp"
+            android:text="Family has lots of household devices and documents "
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/imageview_main_activity_django_python"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="380dp"
+            android:src="@drawable/gazette_logo" />
+
+        <ImageView
+            android:id="@+id/imageview_main_activity_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/wizard22" />
+
+        <TextView
+            android:id="@+id/imageview_main_activity_but"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageview_main_activity_commonly"
+            android:text="If Something broke we need suffer"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:layout_alignStart="@+id/imageview_main_activity_diploma" />
+
+        <ImageView
+            android:id="@+id/imageview_main_activity_diploma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dp"
+            android:src="@drawable/wizard33" />
+
+        <TextView
+            android:id="@+id/imageview_main_activity_why"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:text="Why?"
+            android:textColor="@android:color/white"
+            android:textSize="75sp" />
+
+        <TextView
+            android:id="@+id/imageview_main_future"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Because we wont organize our products and get warranty or insurance."
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:layout_alignTop="@+id/imageview_main_check_out"
+            android:layout_toEndOf="@+id/textview_main_github_link"
+            android:layout_alignStart="@+id/imageview_main_activity_but" />
+
+        <ImageView
+            android:id="@+id/imageview_main_arduino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/wizard44"
+            android:layout_alignBottom="@+id/imageview_main_activity_name_tag"
+            android:layout_alignEnd="@+id/imageview_main_activity_mobile" />
+
+        <ImageView
+            android:id="@+id/imageview_main_raspberry_pi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/gazette_logo"
+            android:layout_below="@+id/imageview_main_activity_mobile"
+            android:layout_toEndOf="@+id/imageview_main_activity_django_python" />
+
+        <TextView
+            android:id="@+id/imageview_main_connected_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="But no Worries we organize your products and get warranty or insurance."
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:layout_below="@+id/imageview_main_activity_name_tag"
+            android:layout_toStartOf="@+id/imageview_main_raspberry_pi" />
+
+        <TextView
+            android:id="@+id/imageview_main_check_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checkout Gazette Applictaion which takecare of warranty Expiry and keep you updated."
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:layout_above="@+id/imageview_main_arduino"
+            android:layout_alignStart="@+id/imageview_main_activity_commonly" />
+
+        <TextView
+            android:id="@+id/textview_main_github_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageview_main_check_out"
+            android:layout_centerHorizontal="true"
+            android:autoLink="web"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="https://github.com/sacot41"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@color/theme_700"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/textview_main_linkedin_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_main_github_link"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/wizard55" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/varification_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="0.20"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/layout_border"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:text="+91"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:background="@android:color/transparent"
+                android:hint="Enter your mobile number"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/get_started"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorAccent"
+            android:text="Get Started"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</LinearLayout>
