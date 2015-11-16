@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -11,31 +12,99 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.gazette.app.GazetteLoginActivity">
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avloadingIndicatorView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_gravity="center"
-        app:indicator="BallGridPulse"
-        app:indicator_color="@color/colorAccent" />
+    <RelativeLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24sp"
+            android:text="@string/app_name"
+            android:layout_above="@+id/imageView2"
+            android:layout_alignStart="@+id/avloadingIndicatorView" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@drawable/gazette_logo"
+            android:id="@+id/imageView2" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/avloadingIndicatorView"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="51dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="Verifying" />
+
+            <TextView
+                android:id="@+id/verify_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91 7090606857"
+                android:textColor="#59d1de" />
+        </LinearLayout>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avloadingIndicatorView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            app:indicator="BallGridPulse"
+            app:indicator_color="#00b9cc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avloadingIndicatorView"
+            android:layout_centerHorizontal="true"
+            android:textColor="#757f7e"
+            android:layout_marginTop="51dp"
+            android:text=".. this Could take few moments." />
+    </RelativeLayout>
+
 
     <ScrollView
+        android:visibility="visible"
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
 
         <LinearLayout
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avloadingIndicatorView"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="24sp"
+                    android:text="@string/app_name" />
 
                 <ImageView
                     android:id="@+id/logo"

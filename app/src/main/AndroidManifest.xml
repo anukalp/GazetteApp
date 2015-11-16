@@ -49,7 +49,8 @@
             android:label=""></activity>
         <activity
             android:name=".GazetteLoginActivity"
-            android:label=""></activity>
+            android:label="Sign In"
+            android:theme="@style/SplsahAppTheme"></activity>
 
         <provider
             android:name=".provider.GazetteContentProvider"

@@ -32,6 +32,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,7 +79,8 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
     private EditText mMobileView;
     private EditText mNameView;
     private View mLoginFormView;
-    private AVLoadingIndicatorView mAvLoadingIndicatorView;
+    private RelativeLayout loadingView;
+    private TextView mVerifyMobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +104,8 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         });
 
         mLoginFormView = findViewById(R.id.login_form);
-        mAvLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avloadingIndicatorView);
+        loadingView = (RelativeLayout) findViewById(R.id.loadingView);
+        mVerifyMobile = (TextView)findViewById(R.id.verify_number);
     }
 
     private void populateAutoComplete() {
@@ -201,6 +204,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
+            mVerifyMobile.setText("+91"+mobile);
             InputMethodManager inputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             showProgress(true);
@@ -256,9 +260,9 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
         if (show) {
-            mAvLoadingIndicatorView.setVisibility(View.VISIBLE);
+            loadingView.setVisibility(View.VISIBLE);
         } else {
-            mAvLoadingIndicatorView.setVisibility(View.GONE);
+            loadingView.setVisibility(View.GONE);
         }
     }
 
