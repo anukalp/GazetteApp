@@ -204,7 +204,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            mVerifyMobile.setText("+91"+mobile);
+            mVerifyMobile.setText("+91 "+mobile);
             InputMethodManager inputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             showProgress(true);

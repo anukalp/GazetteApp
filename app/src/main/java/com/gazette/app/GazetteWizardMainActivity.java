@@ -38,11 +38,11 @@ public class GazetteWizardMainActivity extends GazetteBaseActivity {
         mGetStarted = (Button) findViewById(R.id.get_started);
         mViewPager = (SCViewPager) findViewById(R.id.viewpager_main_activity);
         mDotsView = (DotsView) findViewById(R.id.dotsview_main);
-        mDotsView.setDotRessource(R.drawable.page_indiactor_selected, R.drawable.page_indiactor_normal);
+        mDotsView.setDotRessource(R.drawable.page_indicator_selected_layer, R.drawable.page_indicator_normal_layer);
         mDotsView.setNumberOfPage(NUM_PAGES);
         mPageAdapter = new SCViewPagerAdapter(getSupportFragmentManager());
         mPageAdapter.setNumberOfPage(NUM_PAGES);
-        mPageAdapter.setFragmentBackgroundColor(R.color.colorPrimary);
+        mPageAdapter.setFragmentBackgroundColor(R.color.colorWizard);
         mViewPager.setAdapter(mPageAdapter);
 
 
