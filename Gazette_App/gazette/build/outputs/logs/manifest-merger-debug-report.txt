@@ -1,0 +1,218 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:2:1-80:12
+	package
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:3:5-30
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+uses-permission#android.permission.CAMERA
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:5:22-62
+uses-feature#android.hardware.camera
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:7:5-60
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:7:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:8:5-70
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:8:19-67
+uses-feature#android.hardware.camera.front
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:9:5-11:36
+	android:required
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:11:9-33
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:10:9-53
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:14:5-71
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:14:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:15:5-71
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:15:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:16:5-72
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:16:22-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:17:5-67
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:17:22-64
+uses-permission#android.permission.RECEIVE_SMS
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:18:5-70
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:18:22-67
+uses-permission#android.permission.READ_SMS
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:19:5-67
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:19:22-64
+uses-permission#android.permission.CALL_PHONE
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:20:5-69
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:20:22-66
+application
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:22:5-78:19
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\design\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [uk.co.chrisjenx:calligraphy:2.1.0] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\uk.co.chrisjenx\calligraphy\2.1.0\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [me.dm7.barcodescanner:zbar:1.8.3] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\me.dm7.barcodescanner\zbar\1.8.3\AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.8.3] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\me.dm7.barcodescanner\core\1.8.3\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.dev.sacot41:scviewpager:0.0.4] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.dev.sacot41\scviewpager\0.0.4\AndroidManifest.xml:11:5-14:19
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.wang.avi:library:1.0.0] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.wang.avi\library\1.0.0\AndroidManifest.xml:11:5-14:19
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:26:9-41
+	android:supportsRtl
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:27:9-35
+	android:allowBackup
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:24:9-35
+	android:icon
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:25:9-43
+	android:theme
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:28:9-40
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:23:9-43
+activity#com.gazette.app.GazetteSplashActivity
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:29:9-34:20
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:31:13-45
+	android:theme
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:32:13-50
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:30:13-50
+activity#com.gazette.app.GazetteMainActivity
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:35:9-38:59
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:37:13-45
+	android:theme
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:38:13-56
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:36:13-48
+activity#com.gazette.app.GazetteBarCodeScanActivity
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:39:9-42:59
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:41:13-29
+	android:theme
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:42:13-56
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:40:13-55
+activity#com.gazette.app.GazetteAddProductActivity
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:43:9-46:68
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:45:13-29
+	android:theme
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:46:13-56
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:44:13-54
+activity#com.gazette.app.GazetteSettingsActivity
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:47:9-49:41
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:49:13-29
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:48:13-52
+activity#com.gazette.app.GazetteLoginActivity
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:50:9-53:62
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:52:13-36
+	android:theme
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:53:13-50
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:51:13-49
+provider#com.gazette.app.provider.GazetteContentProvider
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:55:9-59:48
+	android:authorities
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:57:13-55
+	android:enabled
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:58:13-35
+	android:exported
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:59:13-36
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:56:13-60
+activity#com.gazette.app.GazetteWizardMainActivity
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:60:9-68:20
+	android:label
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:62:13-45
+	android:theme
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:63:13-50
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:61:13-54
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:64:13-67:29
+action#android.intent.action.MAIN
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:65:17-69
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:65:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:66:17-77
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:66:27-74
+receiver#com.gazette.app.broadcastreceiver.SMSBroadcastReceiver
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:70:9-74:20
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:70:19-73
+intent-filter#android.provider.Telephony.SMS_RECEIVED
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:71:13-73:29
+	android:priority
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:71:28-52
+action#android.provider.Telephony.SMS_RECEIVED
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:72:17-82
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:72:25-79
+service#com.gazette.app.services.OTPVerificationService
+ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:75:9-77:40
+	android:exported
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:77:13-37
+	android:name
+		ADDED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml:76:13-60
+uses-sdk
+INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\design\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [uk.co.chrisjenx:calligraphy:2.1.0] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\uk.co.chrisjenx\calligraphy\2.1.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [me.dm7.barcodescanner:zbar:1.8.3] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\me.dm7.barcodescanner\zbar\1.8.3\AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.8.3] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\me.dm7.barcodescanner\core\1.8.3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.dev.sacot41:scviewpager:0.0.4] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.dev.sacot41\scviewpager\0.0.4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.wang.avi:library:1.0.0] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.wang.avi\library\1.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\Gazette\Android_App\Gazette_App\gazette\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml
+		INJECTED from D:\Gazette\Android_App\Gazette_App\gazette\src\main\AndroidManifest.xml

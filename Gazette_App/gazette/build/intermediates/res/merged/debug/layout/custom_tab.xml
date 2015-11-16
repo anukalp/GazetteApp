@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/profile_pic"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/profile_placeholder" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white" />
+</LinearLayout><!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/layout/custom_tab.xml -->

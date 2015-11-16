@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <solid android:color="#ffba03" />
+
+    <size
+        android:width="10dp"
+        android:height="10dp" />
+    <padding
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="10dp" />
+</shape><!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/drawable/page_indiactor_selected.xml -->

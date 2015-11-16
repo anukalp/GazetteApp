@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_products"
+            android:icon="@drawable/my_products_icon"
+            android:title="Products" />
+        <item
+            android:id="@+id/nav_add_products"
+            android:icon="@drawable/add_warranty_icon"
+            android:title="Add a New Warranty" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/settings_icon"
+            android:title="Settings" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_rate_us"
+                android:icon="@drawable/rate_us"
+                android:title="Rate Us" />
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/feedback_icon"
+                android:title="Feedback" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/share_us"
+                android:title="Share" />
+        </menu>
+    </item>
+
+</menu><!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/menu/activity_gazette_main_drawer.xml -->

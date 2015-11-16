@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    android:left="6dp"
+    android:right="6dp"
+
+    <solid
+        android:color="#778391" />
+
+    <size
+        android:width="10dp"
+        android:height="10dp" />
+    <padding
+        android:bottom="3dp"
+        android:left="3dp"
+        android:right="3dp"
+        android:top="3dp" />
+</shape><!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/drawable/page_indiactor_normal.xml -->
