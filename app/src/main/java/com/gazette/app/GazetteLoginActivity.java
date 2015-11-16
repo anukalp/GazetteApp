@@ -6,6 +6,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -26,6 +27,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -38,6 +40,7 @@ import com.gazette.app.model.opt.OTPRequestModel;
 import com.gazette.app.model.opt.OTPVerificationResponseModel;
 import com.gazette.app.utils.RetrofitManagerClass;
 import com.gazette.app.utils.SharedPreferenceManager;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONObject;
 
@@ -74,8 +77,8 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
     private AutoCompleteTextView mEmailView;
     private EditText mMobileView;
     private EditText mNameView;
-    private View mProgressView;
     private View mLoginFormView;
+    private AVLoadingIndicatorView mAvLoadingIndicatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +102,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         });
 
         mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+        mAvLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avloadingIndicatorView);
     }
 
     private void populateAutoComplete() {
@@ -198,6 +201,8 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
+            InputMethodManager inputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             showProgress(true);
             OTPRequestModel otpRequest = new OTPRequestModel();
             otpRequest.setName(name);
@@ -234,9 +239,9 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
             mLoginFormView.animate().setDuration(shortAnimTime).alpha(
                     show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
@@ -245,20 +250,15 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
                     mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
                 }
             });
-
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
         } else {
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+        if (show) {
+            mAvLoadingIndicatorView.setVisibility(View.VISIBLE);
+        } else {
+            mAvLoadingIndicatorView.setVisibility(View.GONE);
         }
     }
 
@@ -331,7 +331,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
             public void success(JSONObject data, retrofit.client.Response response) {
                 pref.setIsWaitingForSms(true);
                 Log.e("Anil", "success ");
-                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -345,7 +345,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
 
     @Override
     public void OnOTPSuccess(OTPVerificationResponseModel verificationResponseModel) {
-        showProgress(false);
+        // showProgress(false);
         GazetteApplication.getInstance().launchMainActivity(this);
         finish();
     }

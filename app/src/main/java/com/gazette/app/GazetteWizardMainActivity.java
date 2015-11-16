@@ -64,7 +64,7 @@ public class GazetteWizardMainActivity extends GazetteBaseActivity {
             @Override
             public void onClick(View v) {
                 GazetteApplication.getInstance().launchLoginActivity(GazetteWizardMainActivity.this);
-                //  pref.setUser("test", "test@gmail.com", mobilenumber);
+                finish();
             }
         });
 
