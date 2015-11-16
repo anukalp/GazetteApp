@@ -8,7 +8,6 @@ import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
 import android.content.CursorLoader;
@@ -32,18 +31,32 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.gazette.app.callbacks.OTPVerifySuccessListener;
+import com.gazette.app.model.opt.OTPRequestModel;
+import com.gazette.app.model.opt.OTPVerificationResponseModel;
+import com.gazette.app.utils.RetrofitManagerClass;
+import com.gazette.app.utils.SharedPreferenceManager;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderCallbacks<Cursor> {
+public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderCallbacks<Cursor>, OTPVerifySuccessListener {
 
+    private RetrofitManagerClass mRetrofitManagerClass;
+    private SharedPreferenceManager pref;
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -56,37 +69,27 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
-    private UserLoginTask mAuthTask = null;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView;
+    private EditText mMobileView;
+    private EditText mNameView;
     private View mProgressView;
     private View mLoginFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mRetrofitManagerClass = new RetrofitManagerClass(this);
+        pref = new SharedPreferenceManager(this);
+        GazetteApplication.getInstance().addotpVerifySuccessListener(this);
         setContentView(R.layout.activity_gazette_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+        mNameView = (EditText) findViewById(R.id.name);
 
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });
-
+        mMobileView = (EditText) findViewById(R.id.mobilenumber);
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -150,25 +153,23 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
-
         // Reset errors.
         mEmailView.setError(null);
-        mPasswordView.setError(null);
+        mMobileView.setError(null);
 
         // Store values at the time of the login attempt.
+        String name = mNameView.getText().toString();
         String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        String mobile = mMobileView.getText().toString();
+        pref.setUser(name, email, mobile);
 
         boolean cancel = false;
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
+        if (!TextUtils.isEmpty(mobile) && !isValidPhoneNumber(mobile)) {
+            mMobileView.setError(getString(R.string.error_invalid_mobile));
+            focusView = mMobileView;
             cancel = true;
         }
 
@@ -183,6 +184,13 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
             cancel = true;
         }
 
+        // Check for a valid email address.
+        if (TextUtils.isEmpty(name)) {
+            mNameView.setError(getString(R.string.error_field_required));
+            focusView = mNameView;
+            cancel = true;
+        }
+
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
@@ -191,8 +199,12 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            OTPRequestModel otpRequest = new OTPRequestModel();
+            otpRequest.setName(name);
+            otpRequest.setEmail(email);
+            otpRequest.setMobile(mobile);
+            pref.setUser(name, email, mobile);
+            requestForSMS(otpRequest);
         }
     }
 
@@ -201,9 +213,17 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         return email.contains("@");
     }
 
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
+
+    /**
+     * Regex to validate the mobile number
+     * mobile number should be of 10 digits length
+     *
+     * @param mobile
+     * @return
+     */
+    private static boolean isValidPhoneNumber(String mobile) {
+        String regEx = "^[0-9]{10}$";
+        return mobile.matches(regEx);
     }
 
     /**
@@ -304,61 +324,36 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         mEmailView.setAdapter(adapter);
     }
 
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+    private void requestForSMS(final OTPRequestModel request) {
+        mRetrofitManagerClass.getmOtpRequestInterface().requestOTP(request, new Callback<JSONObject>() {
+            @Override
+            public void success(JSONObject data, retrofit.client.Response response) {
+                pref.setIsWaitingForSms(true);
+                Log.e("Anil", "success ");
+                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
+            @Override
+            public void failure(RetrofitError retrofitError) {
+                Log.e("Anil", "Failed ", retrofitError);
+                showProgress(false);
+                mMobileView.setError(getString(R.string.error_invalid_mobile));
             }
+        });
+    }
 
-            // TODO: register the new account here.
-            return true;
-        }
+    @Override
+    public void OnOTPSuccess(OTPVerificationResponseModel verificationResponseModel) {
+        showProgress(false);
+        GazetteApplication.getInstance().launchMainActivity(this);
+        finish();
+    }
 
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if (success) {
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        GazetteApplication.getInstance().removeonotpVerifySuccessListener(this);
     }
 }
 

@@ -20,10 +20,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gazette.app.fragments.adapters.FragmentAdapter;
 import com.gazette.app.utils.GazetteConstants;
+import com.gazette.app.utils.SharedPreferenceManager;
 
 import net.sourceforge.zbar.Symbol;
 
@@ -38,18 +40,19 @@ public class GazetteMainActivity extends GazetteBaseActivity
     private android.support.v7.widget.Toolbar mToolbar;
     private ViewPager mPager;
     private ProgressDialog progressDialog;
-    private Button loginbtn;
+    private TextView username;
+    private TextView navigationusername;
     private List<String> mCollections = null;
     private static final int ZBAR_SCANNER_REQUEST = 0;
     private static final int ZBAR_QR_SCANNER_REQUEST = 1;
-
+    private SharedPreferenceManager pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gazette_main);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-
+        pref = new SharedPreferenceManager(this);
         setSupportActionBar(mToolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +107,10 @@ public class GazetteMainActivity extends GazetteBaseActivity
     }
 
     private void _init() {
+        navigationusername = (TextView) findViewById(R.id.headerusername);
+        if (null != navigationusername && pref.isLoggedIn() && null != pref.getName()) {
+            navigationusername.setText(pref.getName());
+        }
         mCollections = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.Tabs)));
         adapter = new FragmentAdapter(GazetteMainActivity.this, getSupportFragmentManager(), mCollections);
         mPager.setOffscreenPageLimit(2);
@@ -113,13 +120,10 @@ public class GazetteMainActivity extends GazetteBaseActivity
             public void run() {
                 mTabLayout.setupWithViewPager(mPager);
                 LinearLayout tabOne = (LinearLayout) LayoutInflater.from(GazetteMainActivity.this).inflate(R.layout.custom_tab, null);
-                loginbtn = (Button) tabOne.findViewById(R.id.loginbtn);
-                loginbtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        GazetteApplication.getInstance().launchLoginActivity(GazetteMainActivity.this);
-                    }
-                });
+                username = (TextView) tabOne.findViewById(R.id.username);
+                if (pref.isLoggedIn() && null != pref.getName()) {
+                    username.setText(pref.getName());
+                }
                 mTabLayout.getTabAt(0).setCustomView(tabOne);
             }
         });

@@ -16,15 +16,14 @@
         android:layout_gravity="center_vertical"
         android:src="@drawable/profile_placeholder" />
 
-    <Button
-        android:id="@+id/loginbtn"
+    <TextView
+        android:id="@+id/headerusername"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_gravity="center_vertical"
-        android:background="@color/colorAccent"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
-        android:textSize="10sp"
-        android:text="Login"
+        android:textSize="15sp"
         android:textColor="@android:color/white" />
 
 </LinearLayout>

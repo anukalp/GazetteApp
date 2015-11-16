@@ -14,6 +14,7 @@ import com.dev.sacot41.scviewpager.SCViewAnimation;
 import com.dev.sacot41.scviewpager.SCViewAnimationUtil;
 import com.dev.sacot41.scviewpager.SCViewPager;
 import com.dev.sacot41.scviewpager.SCViewPagerAdapter;
+import com.gazette.app.utils.SharedPreferenceManager;
 
 public class GazetteWizardMainActivity extends GazetteBaseActivity {
 
@@ -23,21 +24,27 @@ public class GazetteWizardMainActivity extends GazetteBaseActivity {
     private SCViewPagerAdapter mPageAdapter;
     private DotsView mDotsView;
     private Button mGetStarted;
+    private SharedPreferenceManager pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pref = new SharedPreferenceManager(this);
+        if (pref.isLoggedIn()) {
+            GazetteApplication.getInstance().launchSpalshActivity(this);
+            finish();
+        }
         setContentView(R.layout.activity_gazette_wizard_main);
         mGetStarted = (Button) findViewById(R.id.get_started);
         mViewPager = (SCViewPager) findViewById(R.id.viewpager_main_activity);
         mDotsView = (DotsView) findViewById(R.id.dotsview_main);
         mDotsView.setDotRessource(R.drawable.page_indiactor_selected, R.drawable.page_indiactor_normal);
         mDotsView.setNumberOfPage(NUM_PAGES);
-
         mPageAdapter = new SCViewPagerAdapter(getSupportFragmentManager());
         mPageAdapter.setNumberOfPage(NUM_PAGES);
         mPageAdapter.setFragmentBackgroundColor(R.color.colorPrimary);
         mViewPager.setAdapter(mPageAdapter);
+
 
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -53,13 +60,14 @@ public class GazetteWizardMainActivity extends GazetteBaseActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
-
         mGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GazetteApplication.getInstance().launchSpalshActivity(GazetteWizardMainActivity.this);
+                GazetteApplication.getInstance().launchLoginActivity(GazetteWizardMainActivity.this);
+                //  pref.setUser("test", "test@gmail.com", mobilenumber);
             }
         });
+
         final Point size = SCViewAnimationUtil.getDisplaySize(this);
 
         View nameTag = findViewById(R.id.imageview_main_activity_name_tag);
