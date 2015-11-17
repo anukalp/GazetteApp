@@ -39,7 +39,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".GazetteBarCodeScanActivity"
-            android:label=""
+            android:label="Product Details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".GazetteAddProductActivity"
