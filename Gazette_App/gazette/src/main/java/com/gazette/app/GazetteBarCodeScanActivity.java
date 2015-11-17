@@ -1,28 +1,15 @@
 package com.gazette.app;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.os.Vibrator;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-
-import net.sourceforge.zbar.Config;
-import net.sourceforge.zbar.Image;
-import net.sourceforge.zbar.ImageScanner;
-import net.sourceforge.zbar.Symbol;
-import net.sourceforge.zbar.SymbolSet;
-
-import com.gazette.app.utils.GazetteConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +20,6 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
 public class GazetteBarCodeScanActivity extends GazetteBaseActivity implements
         ZBarScannerView.ResultHandler {
-    //private CameraPreview mPreview;
     private static final String FLASH_STATE = "FLASH_STATE";
     private static final String AUTO_FOCUS_STATE = "AUTO_FOCUS_STATE";
     private static final String SELECTED_FORMATS = "SELECTED_FORMATS";
@@ -63,11 +49,7 @@ public class GazetteBarCodeScanActivity extends GazetteBaseActivity implements
         setContentView(R.layout.activity_gazette_bar_code_scan);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // mPreview = (CameraPreview) findViewById(R.id.camera_preview);
-        //mPreview.setup(this, autoFocusCB);
         mScannerView = (ZBarScannerView) findViewById(R.id.scannerview);
-
-
     }
 
     public boolean isCameraAvailable() {
@@ -127,11 +109,24 @@ public class GazetteBarCodeScanActivity extends GazetteBaseActivity implements
     @Override
     public void handleResult(Result rawResult) {
         try {
-            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-            r.play();
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            // Vibrate for 500 milliseconds
+            v.vibrate(500);
         } catch (Exception e) {
+            Log.i("Anil", "exception");
         }
         Log.i("Anil", "Contents = " + rawResult.getContents() + ", Format = " + rawResult.getBarcodeFormat().getName());
+        barcodeScannedConfimation(rawResult.getContents());
+    }
+
+    public boolean barcodeScannedConfimation(String barcode) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this,
+                    R.style.alertdialog_style);
+            builder.setTitle(getString(R.string.barcode_scanned));
+            builder.setMessage(barcode);
+            builder.setPositiveButton(getString(R.string.scan_again), null);
+            builder.setNegativeButton(getString(R.string.thats_right), null);
+            builder.show();
+            return false;
     }
 }
