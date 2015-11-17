@@ -212,4 +212,7 @@
     </string>
     <string name="title_activity_gazette_wizard_main">GazetteWizardMainActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="scan_again">Scan Again</string>
+    <string name="thats_right">Thats Right</string>
+    <string name="barcode_scanned">New BarCode Scanned</string>
 </resources>

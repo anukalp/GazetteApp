@@ -27,8 +27,6 @@ import com.gazette.app.fragments.adapters.FragmentAdapter;
 import com.gazette.app.utils.GazetteConstants;
 import com.gazette.app.utils.SharedPreferenceManager;
 
-import net.sourceforge.zbar.Symbol;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -58,8 +56,9 @@ public class GazetteMainActivity extends GazetteBaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+             //   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+               //         .setAction("Action", null).show();
+                launchScanner();
             }
         });
 
@@ -171,10 +170,9 @@ public class GazetteMainActivity extends GazetteBaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_products) {
-            // Handle the camera action
-            launchScanner();
+
         } else if (id == R.id.nav_add_products) {
-            launchQRScanner();
+
         } else if (id == R.id.nav_rate_us) {
 
         } else if (id == R.id.nav_feedback) {
@@ -207,7 +205,6 @@ public class GazetteMainActivity extends GazetteBaseActivity
     public void launchQRScanner() {
         if (isCameraAvailable()) {
             Intent intent = new Intent(this, GazetteBarCodeScanActivity.class);
-            intent.putExtra(GazetteConstants.SCAN_MODES, new int[]{Symbol.QRCODE});
             startActivityForResult(intent, ZBAR_SCANNER_REQUEST);
         } else {
             Toast.makeText(this, "Rear Facing Camera Unavailable", Toast.LENGTH_SHORT).show();
