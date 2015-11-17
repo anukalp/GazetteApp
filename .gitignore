@@ -1,37 +1,37 @@
 # Built application files
-/*/build/
+Gazette_App/*/build/
 
 # Crashlytics configuations
 com_crashlytics_export_strings.xml
 
 # Local configuration file (sdk path, etc)
-local.properties
+Gazette_App/local.properties
 
 # Gradle generated files
-.gradle/
+Gazette_App/.gradle/
 
 # Signing files
-.signing/
+Gazette_App/.signing/
 
 # User-specific configurations
-.idea/libraries/
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/.name
-.idea/compiler.xml
-.idea/copyright/profiles_settings.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/scopes/scope_settings.xml
-.idea/vcs.xml
-*.iml
+Gazette_App/.idea/libraries/
+Gazette_App/.idea/workspace.xml
+Gazette_App/.idea/tasks.xml
+Gazette_App/.idea/.name
+Gazette_App/.idea/compiler.xml
+Gazette_App/.idea/copyright/profiles_settings.xml
+Gazette_App/.idea/encodings.xml
+Gazette_App/.idea/misc.xml
+Gazette_App/.idea/modules.xml
+Gazette_App/.idea/scopes/scope_settings.xml
+Gazette_App/.idea/vcs.xml
+Gazette_App/*.iml
 
 # OS-specific files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+Gazette_App/.DS_Store
+Gazette_App/.DS_Store?
+Gazette_App/._*
+Gazette_App/.Spotlight-V100
+Gazette_App/.Trashes
+Gazette_App/ehthumbs.db
+Gazette_App/Thumbs.db
