@@ -1,50 +1,30 @@
 package com.gazette.app;
 
-import android.app.DatePickerDialog;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageView;
 
-import com.google.zxing.ResultPoint;
-import com.journeyapps.barcodescanner.BarcodeCallback;
-import com.journeyapps.barcodescanner.BarcodeResult;
-import com.journeyapps.barcodescanner.CompoundBarcodeView;
-
-import java.util.List;
+import com.gazette.app.fragments.ProductDetailsFillFragment;
+import com.gazette.app.fragments.ProductInvoiceScanFragment;
+import com.gazette.app.fragments.ProductScanBarCodeFragment;
+import com.gazette.app.fragments.ProductWarrantyFragment;
 
 public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
-    private CompoundBarcodeView barcodeScannerView;
     private android.support.v7.widget.Toolbar mToolbar;
-    private boolean flashToggle = false;
+    private static final int NUM_PAGES = 4;
+    private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (!isCameraAvailable()) {
-            // Cancel request if there is no rear-facing camera.
-            return;
-        }
-
         setContentView(R.layout.activity_gazette_bar_code_scan);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.flash_fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchFlashlight();
-            }
-        });
-        if (!hasFlash()) {
-            fab.setVisibility(View.GONE);
-        }
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,92 +35,51 @@ public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
                 onBackPressed();
             }
         });
-        barcodeScannerView = (CompoundBarcodeView) findViewById(R.id.zxing_barcode_scanner);
-        triggerScan();
+        // Instantiate a ViewPager and a PagerAdapter.
+        mPager = (ViewPager) findViewById(R.id.ifl_pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
     }
 
-    public boolean isCameraAvailable() {
-        PackageManager pm = getPackageManager();
-        return pm.hasSystemFeature(PackageManager.FEATURE_CAMERA);
-    }
-
-    private BarcodeCallback callback = new BarcodeCallback() {
-        @Override
-        public void barcodeResult(BarcodeResult result) {
-            if (result.getText() != null) {
-                //barcodeScannerView.setStatusText(result.getText());
-                barcodeScannedConfimation(result.getText());
-            }
-            //Added preview of scanned barcode
-            ImageView imageView = (ImageView) findViewById(R.id.barcodePreview);
-            imageView.setImageBitmap(result.getBitmapWithResultPoints(Color.YELLOW));
+    @Override
+    public void onBackPressed() {
+        if (mPager.getCurrentItem() == 0) {
+            // If the user is currently looking at the first step, allow the system to handle the
+            // Back button. This calls finish() on this activity and pops the back stack.
+            super.onBackPressed();
+        } else {
+            // Otherwise, select the previous step.
+            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
-
-        @Override
-        public void possibleResultPoints(List<ResultPoint> resultPoints) {
-        }
-    };
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        barcodeScannerView.resume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        barcodeScannerView.pause();
-    }
-
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return barcodeScannerView.onKeyDown(keyCode, event) || super.onKeyDown(keyCode, event);
-    }
-
-    public void triggerScan() {
-        barcodeScannerView.decodeSingle(callback);
     }
 
     /**
-     * Check if the device's camera has a Flashlight.
-     *
-     * @return true if there is Flashlight, otherwise false.
+     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
+     * sequence.
      */
-    private boolean hasFlash() {
-        return getApplicationContext().getPackageManager()
-                .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-    }
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        public ScreenSlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
-    public void switchFlashlight() {
-        if (!flashToggle) {
-            barcodeScannerView.setTorchOn();
-            flashToggle = true;
-        } else {
-            barcodeScannerView.setTorchOff();
-            flashToggle = false;
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new ProductScanBarCodeFragment();
+                case 1:
+                    return new ProductDetailsFillFragment();
+                case 2:
+                    return new ProductInvoiceScanFragment();
+                case 3:
+                    return new ProductWarrantyFragment();
+            }
+            return new ProductScanBarCodeFragment();
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_PAGES;
         }
     }
-
-    public boolean barcodeScannedConfimation(String barcode) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this,
-                R.style.alertdialog_style);
-        builder.setTitle(getString(R.string.barcode_scanned));
-        builder.setMessage(barcode);
-        builder.setPositiveButton(getString(R.string.scan_again),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        triggerScan();
-                    }
-                });
-        builder.setNegativeButton(getString(R.string.thats_right), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                /* User clicked OK so do some stuff */
-            }
-        });
-        builder.show();
-        return false;
-    }
-
 }
