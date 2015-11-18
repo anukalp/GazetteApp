@@ -14,10 +14,10 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
      * Gazette DB version ranges:
      * 
      * <pre>
-     *   0-9 Gazette Test Builds
+     *   1-9 Gazette Test Builds
      * </pre>
      */
-    public static final int DATABASE_VERSION = 0;
+    public static final int DATABASE_VERSION = 1;
 
     private final Context mContext;
 
