@@ -18,21 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/flash_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="bottom|end"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:src="@drawable/ic_flash_on_white_24dp"
-                app:backgroundTint="@color/colorButton" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
 
                 <FrameLayout
@@ -79,6 +67,7 @@
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
                 </FrameLayout>
+
                 <FrameLayout
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -94,23 +83,153 @@
                         android:textStyle="bold" />
                 </FrameLayout>
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:text="Add Product Details"
+                android:textColor="@android:color/white" />
         </RelativeLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/zxing_barcode_scanner"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.50"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_margin="10dp"
+        android:layout_weight="0.60"
+        android:background="@color/colorWizard_bottom">
 
+        <LinearLayout
+            android:id="@+id/product_details_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/product_barcode_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.80">
+
+                    <EditText
+                        android:id="@+id/product_barcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Product Barcode"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:drawableLeft="@drawable/ic_scan_stock"
+                    android:drawableTintMode="multiply"
+                    android:paddingLeft="5dp"
+                    android:text="scan"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/product_brand_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/product_brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Product Brand"
+                    android:singleLine="true" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/product_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Product Name"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/product_serial_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.80">
+
+                    <EditText
+                        android:id="@+id/product_serial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Serial Number"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:drawableLeft="@drawable/ic_add_tag"
+                    android:drawableTintMode="multiply"
+                    android:paddingLeft="5dp"
+                    android:text="scan"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.20"
+        android:layout_weight="0.10"
         android:background="@color/colorPrimary"
         android:padding="10dp">
 
@@ -120,40 +239,14 @@
             android:layout_height="200dp"
             android:background="@color/colorPrimary"
             android:orientation="horizontal"
-            android:paddingTop="20dp"
             android:weightSum="1">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <Button
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.50"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Scan Product"
-                    android:textColor="@android:color/white" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" Product barcode compased of a group of lines and usually appears on the product box or on the product itself."
-                    android:textColor="@android:color/white"
-                    android:textSize="9sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.20" />
-
-            <ImageView
-                android:id="@+id/barcodePreview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.30"
-                android:background="@drawable/large_barcode" />
+                android:background="@drawable/rounded_corner_yellow"
+                android:text="Next"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
     </RelativeLayout>

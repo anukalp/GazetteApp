@@ -122,6 +122,7 @@ public class ProductScanBarCodeFragment extends Fragment {
                 R.style.alertdialog_style);
         builder.setTitle(getString(R.string.barcode_scanned));
         builder.setMessage(barcode);
+        builder.setIcon(R.drawable.ic_other_product);
         builder.setPositiveButton(getString(R.string.scan_again),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {

@@ -20,7 +20,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
 
                 <FrameLayout
@@ -83,6 +83,15 @@
                         android:textStyle="bold" />
                 </FrameLayout>
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:text="Scan Product Invoice"
+                android:textColor="@android:color/white" />
         </RelativeLayout>
 
 
@@ -124,7 +133,7 @@
                 android:layout_width="200dp"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
-                android:background="@color/colorButton"
+                android:background="@drawable/rounded_corner_yellow"
                 android:text="Take Invoice Photo"
                 android:textColor="@android:color/white" />
 
@@ -133,12 +142,22 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.5"
-                android:background="@color/colorButton"
+                android:background="@drawable/rounded_corner_yellow"
                 android:text="Choose From Gallery"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/skip_button"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:text="Skip"
+            android:textAllCaps="false"
+            android:textColor="@color/colorButton" />
     </RelativeLayout>
 
 </LinearLayout>
