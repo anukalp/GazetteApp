@@ -19,6 +19,69 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
      */
     public static final int DATABASE_VERSION = 1;
 
+    public static final String CATEGORY_CONCRETE_ID =
+            Tables.CATEGORIES + "." + CategoryColumns._ID;
+
+    public static final String BRAND_CONCRETE_ID =
+            Tables.BRAND + "." + BrandColumns._ID;
+
+    public static final String INSURANCE_CONCRETE_ID =
+            Tables.INSURANCE + "." + InsuranceColumns._ID;
+
+    public static final String RETAILER_CONCRETE_ID =
+            Tables.RETAILER + "." + RetailerColumns._ID;
+
+    public static final String WARRANTY_CONCRETE_ID =
+            Tables.WARRANTY + "." + WarrantyColumns._ID;
+
+    public static final String INVOICE_CONCRETE_ID =
+            Tables.INVOICE + "." + InvoiceColumns._ID;
+
+    public static final String CATEGORY_CONCRETE_NAME =
+            Tables.CATEGORIES + "." + CategoryColumns.NAME;
+
+    public static final String BRAND_CONCRETE_NAME =
+            Tables.BRAND + "." + BrandColumns.NAME;
+
+    public static final String INVOICE_CONCRETE_PHOTO =
+            Tables.INVOICE + "." + InvoiceColumns.PHOTO;
+
+    public static final String INVOICE_CONCRETE_AMOUNT =
+            Tables.INVOICE + "." + InvoiceColumns.AMOUNT;
+
+    public static final String INVOICE_CONCRETE_PLACE =
+            Tables.INVOICE + "." + InvoiceColumns.PLACE_PURCHASE;
+
+    public static final String INSURANCE_CONCRETE_STARTDATE =
+            Tables.INSURANCE + "." + InsuranceColumns.START_DATE;
+
+    public static final String INSURANCE_CONCRETE_ENDDATE =
+            Tables.INSURANCE + "." + InsuranceColumns.END_DATE;
+
+    private static final String WARRANTY_CONCRETE_STARTDATE =
+            Tables.WARRANTY + "." + WarrantyColumns.START_DATE;
+
+    private static final String WARRANTY_CONCRETE_ENDDATE =
+            Tables.WARRANTY + "." + WarrantyColumns.END_DATE;
+
+    private static final String PRODUCT_CONCRETE_RATING =
+            Tables.PRODUCT_INFO + "." + ProductColumns.RATING;
+
+    private static final String PRODUCT_CONCRETE_BRAND_ID =
+            Tables.PRODUCT_INFO + "." + ProductColumns.BRAND_ID;
+
+    private static final String PRODUCT_CONCRETE_INOVICE_ID =
+            Tables.PRODUCT_INFO + "." + ProductColumns.INOVICE_ID;
+
+    private static final String PRODUCT_CONCRETE_INSURANCE_ID =
+            Tables.PRODUCT_INFO + "." + ProductColumns.INSURANCE_ID;
+
+    private static final String INSURANCE_CONCRETE_RETAILER_ID =
+            Tables.INSURANCE + "." + InsuranceColumns.RETAILER_ID;
+
+    private static final String PRODUCT_CONCRETE_WARRANTY_ID =
+            Tables.PRODUCT_INFO + "." + ProductColumns.WARRANTY_ID;
+
     private final Context mContext;
 
     public interface Tables {
@@ -188,6 +251,8 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
                 + ProductColumns.CATEGORY_ID + " INTEGER REFERENCES category(_id),"
                 + ProductColumns.USER_ID + " INTEGER REFERENCES user(_id),"
                 + ProductColumns.INOVICE_ID + " INTEGER REFERENCES invoice(_id),"
+                + ProductColumns.WARRANTY_ID + " INTEGER REFERENCES warranty(_id),"
+                + ProductColumns.INSURANCE_ID + " INTEGER REFERENCES insurance(_id),"
                 + ProductColumns.BARCODE + " TEXT," + ProductColumns.DATE_OF_PURCHASE + " TEXT,"
                 + ProductColumns.RATING + " INTEGER" + ");");
         db.execSQL("CREATE TABLE " + Tables.INVOICE + " (" + InvoiceColumns._ID
@@ -205,11 +270,12 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + CategoryColumns.NAME + " TEXT" + ");");
         db.execSQL("CREATE TABLE " + Tables.WARRANTY + " (" + WarrantyColumns._ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + WarrantyColumns.BRAND_ID
-                + " INTEGER REFERENCES brand(_id)" + WarrantyColumns.START_DATE + " INTEGER, "
+                + " INTEGER REFERENCES brand(_id), " + WarrantyColumns.START_DATE + " INTEGER, "
                 + WarrantyColumns.END_DATE + " INTEGER" + ");");
         db.execSQL("CREATE TABLE " + Tables.INSURANCE + " (" + InsuranceColumns._ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + InsuranceColumns.BRAND_ID
-                + " INTEGER REFERENCES brand(_id)" + InsuranceColumns.START_DATE + " INTEGER, "
+                + " INTEGER REFERENCES brand(_id), " + InsuranceColumns.RETAILER_ID
+                + " INTEGER REFERENCES retailer(_id), " + InsuranceColumns.START_DATE + " INTEGER, "
                 + InsuranceColumns.END_DATE + " INTEGER" + ");");
 
         /**
@@ -238,20 +304,23 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
 
     private void createProductView(SQLiteDatabase db) {
         db.execSQL("DROP VIEW IF EXISTS " + Views.PRODUCT_DATA + ";");
-        String productSelect = "SELECT " + ProductColumns._ID + ", " + CategoryColumns.NAME + ","
-                + InvoiceColumns.PHOTO + ", " + InvoiceColumns.AMOUNT + ", "
-                + InvoiceColumns.PLACE_PURCHASE + ", " + ProductColumns.PRODUCT_CODE + ", "
-                + WarrantyColumns.START_DATE + ", " + WarrantyColumns.END_DATE + ", "
-                + ProductColumns.BARCODE + ", " + BrandColumns.NAME + ", "
-                + ProductColumns.DATE_OF_PURCHASE + ", " + ProductColumns.RATING + " FROM "
+        String productSelect = "SELECT " + CATEGORY_CONCRETE_NAME + " AS category, "
+                + INVOICE_CONCRETE_PHOTO + " AS photo, " + INVOICE_CONCRETE_AMOUNT + " AS amount, "
+                + INVOICE_CONCRETE_PLACE + " AS purchase_place, " + ProductColumns.PRODUCT_CODE + ", "
+                + INSURANCE_CONCRETE_STARTDATE + " AS insured_start_date, " + INSURANCE_CONCRETE_ENDDATE + " AS insured_end_date, "
+                + WARRANTY_CONCRETE_STARTDATE + " AS start_date, " + WARRANTY_CONCRETE_ENDDATE + " AS end_date, "
+                + ProductColumns.BARCODE + ", " + BRAND_CONCRETE_NAME + " AS brand, "
+                + ProductColumns.DATE_OF_PURCHASE + ", " + PRODUCT_CONCRETE_RATING + " FROM "
                 + Tables.PRODUCT_INFO + " JOIN " + Tables.CATEGORIES + " ON ("
-                + ProductColumns.CATEGORY_ID + "=" + CategoryColumns._ID + ")" + " JOIN "
-                + Tables.BRAND + " ON (" + ProductColumns.BRAND_ID + "=" + BrandColumns._ID + ")"
-                + " LEFT OUTER JOIN " + Tables.INSURANCE + " ON (" + ProductColumns.INSURANCE_ID
-                + "=" + InsuranceColumns._ID + ")" + " LEFT OUTER JOIN " + Tables.RETAILER + " ON ("
-                + InsuranceColumns.RETAILER_ID + "=" + RetailerColumns._ID + ")"
-                + " LEFT OUTER JOIN " + Tables.WARRANTY + " ON (" + ProductColumns.WARRANTY_ID + "="
-                + WarrantyColumns._ID + ")";
+                + ProductColumns.CATEGORY_ID + "=" + CATEGORY_CONCRETE_ID + ")" + " LEFT OUTER JOIN "
+                + Tables.BRAND + " ON (" + PRODUCT_CONCRETE_BRAND_ID + "=" + BRAND_CONCRETE_ID + ")"
+                + " LEFT OUTER JOIN " + Tables.INSURANCE + " ON (" + PRODUCT_CONCRETE_INSURANCE_ID
+                + "=" + INSURANCE_CONCRETE_ID + ")" + " LEFT OUTER JOIN " + Tables.RETAILER + " ON ("
+                + INSURANCE_CONCRETE_RETAILER_ID + "=" + RETAILER_CONCRETE_ID + ")"
+                + " LEFT OUTER JOIN " + Tables.WARRANTY + " ON (" + PRODUCT_CONCRETE_WARRANTY_ID + "="
+                + WARRANTY_CONCRETE_ID + ")"
+                + " LEFT OUTER JOIN " + Tables.INVOICE + " ON (" + PRODUCT_CONCRETE_INOVICE_ID
+                + "=" + INVOICE_CONCRETE_ID + ")";
         db.execSQL("CREATE VIEW " + Views.PRODUCT_DATA + " AS " + productSelect);
     }
 
