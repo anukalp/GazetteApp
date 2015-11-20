@@ -90,7 +90,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:textSize="14sp"
-                android:text="Scan Product Invoice"
+                android:text="Add proof of purchase"
                 android:textColor="@android:color/white" />
         </RelativeLayout>
 

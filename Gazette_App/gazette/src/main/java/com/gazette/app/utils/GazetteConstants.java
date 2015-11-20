@@ -16,6 +16,8 @@ public class GazetteConstants {
 
     public static final String SERVICE_API_BASE_URL = "http://192.168.1.47:8080/GazetteWebApp/api/v1";
 
+    public static final String OUTPAN_SERVICE_API_BASE_URL = "https://api.outpan.com/";
+    public static final String OUTPAN_APIKEY = "840331c0a3841485828e10b7e521dbf4";
 
     public static class UserDetails {
         public static final String NAME = "name";

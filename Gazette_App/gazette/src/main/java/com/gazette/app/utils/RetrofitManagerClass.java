@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.gazette.app.apirequest.OTPRequestInterface;
+import com.gazette.app.apirequest.ProductInfoFromBarCodeRequestInterface;
 
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
@@ -15,6 +16,8 @@ public class RetrofitManagerClass {
 
     private RequestInterceptor mRequestInterceptor;
     private RestAdapter mRestAdapter;
+    private RestAdapter mUPCInfoRestAdapter;
+    private ProductInfoFromBarCodeRequestInterface mProductInfoFromBarCodeRequestInterface;
     private OTPRequestInterface mOtpRequestInterface;
     private SharedPreferenceManager pref;
 
@@ -35,19 +38,21 @@ public class RetrofitManagerClass {
         mOtpRequestInterface =
                 mRestAdapter.create(OTPRequestInterface.class);
 
+        mUPCInfoRestAdapter = new RestAdapter.Builder()
+                .setEndpoint(GazetteConstants.OUTPAN_SERVICE_API_BASE_URL)
+                .setRequestInterceptor(mRequestInterceptor)
+                .build();
+
+        mProductInfoFromBarCodeRequestInterface = mUPCInfoRestAdapter.create(ProductInfoFromBarCodeRequestInterface.class);
     }
-
-    public RequestInterceptor getmRequestInterceptor() {
-        return mRequestInterceptor;
-    }
-
-
-    public RestAdapter getmRestAdapter() {
-        return mRestAdapter;
-    }
-
 
     public OTPRequestInterface getmOtpRequestInterface() {
         return mOtpRequestInterface;
     }
+
+    public ProductInfoFromBarCodeRequestInterface getmProductInfoFromBarCodeRequestInterface() {
+        return mProductInfoFromBarCodeRequestInterface;
+    }
+
+
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +15,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.gazette.app.R;
+import com.gazette.app.model.opt.OTPRequestModel;
+import com.gazette.app.model.productInfo.ProductInfoResponse;
+import com.gazette.app.utils.GazetteConstants;
+import com.gazette.app.utils.RetrofitManagerClass;
 import com.google.zxing.ResultPoint;
 import com.journeyapps.barcodescanner.BarcodeCallback;
 import com.journeyapps.barcodescanner.BarcodeResult;
 import com.journeyapps.barcodescanner.CompoundBarcodeView;
 
+import org.json.JSONObject;
+
 import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
 
 /**
  * Created by Anil Gudigar on 11/18/2015.
@@ -27,7 +37,14 @@ import java.util.List;
 public class ProductScanBarCodeFragment extends Fragment {
     private CompoundBarcodeView barcodeScannerView;
     private boolean flashToggle = false;
-    ImageView imageView ;
+    private ImageView imageView;
+    private RetrofitManagerClass mRetrofitManagerClass;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mRetrofitManagerClass = new RetrofitManagerClass(getActivity());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -106,7 +123,8 @@ public class ProductScanBarCodeFragment extends Fragment {
         public void barcodeResult(BarcodeResult result) {
             if (result.getText() != null) {
                 //barcodeScannerView.setStatusText(result.getText());
-                barcodeScannedConfimation(result.getText());
+                Log.e("Anil", "barcode: " + result.getText());
+                requestProductInfo(result.getText());
             }
             //Added preview of scanned barcode
             imageView.setImageBitmap(result.getBitmapWithResultPoints(Color.YELLOW));
@@ -136,6 +154,23 @@ public class ProductScanBarCodeFragment extends Fragment {
         });
         builder.show();
         return false;
+    }
+
+
+    private void requestProductInfo(final String productUPC) {
+        mRetrofitManagerClass.getmProductInfoFromBarCodeRequestInterface().requestProductInfo(productUPC, GazetteConstants.OUTPAN_APIKEY, new Callback<ProductInfoResponse>() {
+            @Override
+            public void success(ProductInfoResponse data, retrofit.client.Response response) {
+                Log.e("Anil", "success " + data.getName());
+                barcodeScannedConfimation(productUPC + "\n Product : " + data.getName());
+            }
+
+            @Override
+            public void failure(RetrofitError retrofitError) {
+                Log.e("Anil", "Failed ", retrofitError);
+                barcodeScannedConfimation(productUPC + "\n Product Not Found ");
+            }
+        });
     }
 
 }

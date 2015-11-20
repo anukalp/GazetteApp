@@ -18,7 +18,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".GazetteApplication"
@@ -30,6 +30,7 @@
         <activity
             android:name=".GazetteSplashActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/SplsahAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,21 +40,26 @@
         <activity
             android:name=".GazetteMainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".GazetteBarCodeScanActivity"
             android:label="Product Details"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".GazetteAddProductActivity"
             android:label=""
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".GazetteSettingsActivity"
-            android:label=""></activity>
+            android:label=""
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".GazetteLoginActivity"
             android:label="Sign In"
+            android:screenOrientation="portrait"
             android:theme="@style/SplsahAppTheme"></activity>
 
         <provider
@@ -64,6 +70,7 @@
         <activity
             android:name=".GazetteWizardMainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/SplsahAppTheme">
 
         </activity>
