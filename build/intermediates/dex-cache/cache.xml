@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\IBM_ADMIN\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.4.0\5b72bf48563ea8410e650de14aa33ff69a3e8c35\okio-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5b72bf48563ea8410e650de14aa33ff69a3e8c35">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\okio-1.4.0-055c456fa97a689f0dfa6fd7937a829ef4984b19.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.android.support\design\23.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-16f6ecd7bde371db5de340c919fa9533ce2c4512.jar" />
+    </item>
+    <item
+        jar="C:\Users\IBM_ADMIN\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\library-2.4.0-181b6ed3dd044fc460c542ece0e846a9c5530a27.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\zbar\1.8.3\jars\libs\zbar.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b7350ba6ec0fd2beac4e95d75410da582cec5baa">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\zbar-68b4a4e4bdd0176cea6cfdc554baf4628d1fcc3b.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.wang.avi\library\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="476390e81d32f9d08f9f5aab6c2b28f314a37828">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-87f53070e4c2bd339d073fab434b271afed4213c.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\core\1.8.3\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2acb8f25e91dc79b3e9fe3e4fc059d491756efcd">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-26c8f92dd5cda6ad3c6d4f6c16fbf6b19f66ea2f.jar" />
+    </item>
+    <item
+        jar="C:\Users\IBM_ADMIN\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.4.0\40340c0748190fe897baf7bffbc1b282734294e5\okhttp-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\okhttp-2.4.0-a4a858d036fc25dfa9af19b6fc26525139a3005c.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\uk.co.chrisjenx\calligraphy\2.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e653e15e62e8a59ddd76cc7f827bf8bce38ae7bb">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-eebf46165d383a583252225ad1ec40175156804c.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-79a3aca418d87349ec6be2f533f89e619a2e3414.jar" />
+    </item>
+    <item
+        jar="C:\Users\IBM_ADMIN\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\gson-2.3.1-db7be5231fa13674283a4c51809a7fdb87b52ad2.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-3b78cd601b66b270da1c27cf66cefef293fb382b.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d96886efea7cc74fbb3abd0e3b51d5638fc57be0">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-a5c9b54ec25f29e4bb31c699e1a04179b64ad112.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\zbar\1.8.3\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="99ec7a15c96670fc376811136c027fbd4dbc26e9">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-d6af4d4285446ad329a3216c9e9da555d25dce9f.jar" />
+    </item>
+    <item
+        jar="C:\Users\IBM_ADMIN\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.0\support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.0-6adf65af4535d92d80117b3f7be44fc95424318f.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\libs\internal_impl-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.0-815711cc8b4f65ae0e8c3058d530f3828dd8f57a.jar" />
+    </item>
+    <item
+        jar="C:\Users\IBM_ADMIN\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\retrofit-1.9.0-fcd88ebfe23bbe1b0acbab7f051256805d752c8f.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-4709f60c7f27dcbbcdfc3fbc2df2ddc453e8045b.jar" />
+    </item>
+    <item
+        jar="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\exploded-aar\com.dev.sacot41\scviewpager\0.0.4\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4747fb10a7d8577c5df0044df302f2cbfc437aa7">
+        <dex dex="C:\AndroidStudioProjects\GazetteApp\app\build\intermediates\pre-dexed\debug\classes-10578eda711b28284c16a3f58df4cdf0cfcd0b2c.jar" />
+    </item>
+
+</items>
