@@ -8,14 +8,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.R;
-import com.gazette.app.model.opt.OTPRequestModel;
 import com.gazette.app.model.productInfo.ProductInfoResponse;
 import com.gazette.app.utils.GazetteConstants;
 import com.gazette.app.utils.RetrofitManagerClass;
@@ -23,8 +22,6 @@ import com.google.zxing.ResultPoint;
 import com.journeyapps.barcodescanner.BarcodeCallback;
 import com.journeyapps.barcodescanner.BarcodeResult;
 import com.journeyapps.barcodescanner.CompoundBarcodeView;
-
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -149,7 +146,7 @@ public class ProductScanBarCodeFragment extends Fragment {
                 });
         builder.setNegativeButton(getString(R.string.thats_right), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                /* User clicked OK so do some stuff */
+                ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(1);
             }
         });
         builder.show();

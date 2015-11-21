@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -16,17 +17,12 @@ import java.util.Set;
 public class Product {
 
     private int productId;
-
-
     private String title;
-
-
     private String vendor;
-
     private String productType;
 
-    private List<Image> images;
 
+    private List<Image> images;
 
     private String tags;
 
@@ -48,9 +44,6 @@ public class Product {
         this.productType = productType;
     }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
 
     public void setTags(String tags) {
         this.tags = tags;
@@ -99,11 +92,17 @@ public class Product {
         return tagSet;
     }
 
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
 
     /**
      * @return A list of {@link Image} objects, each one representing an image associated with this product.
      */
     public List<Image> getImages() {
+        if (null == images) {
+            this.images = new ArrayList<>();
+        }
         return images;
     }
 

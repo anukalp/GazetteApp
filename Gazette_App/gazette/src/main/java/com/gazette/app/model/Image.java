@@ -1,6 +1,6 @@
 package com.gazette.app.model;
 
-import android.text.TextUtils;
+import android.graphics.Bitmap;
 
 
 /**
@@ -10,6 +10,8 @@ public class Image {
     private long productId;
 
     private int src;
+
+    private Bitmap bitmap;
 
     /**
      * @return Specifies the location of the product image.
@@ -28,5 +30,13 @@ public class Image {
 
     public void setSrc(int src) {
         this.src = src;
+    }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 }

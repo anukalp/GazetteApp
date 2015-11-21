@@ -13,18 +13,22 @@ import com.gazette.app.fragments.ProductDetailsFillFragment;
 import com.gazette.app.fragments.ProductInvoiceScanFragment;
 import com.gazette.app.fragments.ProductScanBarCodeFragment;
 import com.gazette.app.fragments.ProductWarrantyFragment;
+import com.gazette.app.model.Product;
+
 
 public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
     private android.support.v7.widget.Toolbar mToolbar;
     private static final int NUM_PAGES = 4;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    private Product mProduct;
+    private static final int REQUEST_CODE = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gazette_bar_code_scan);
-
+        mProduct = new Product();
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -82,4 +86,32 @@ public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
             return NUM_PAGES;
         }
     }
+
+    public void moveToNextPage(int position) {
+        mPager.setCurrentItem(position);
+    }
+
+  /*  @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i("Anil","onActivityResult requestCode "+requestCode);
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            Uri uri = data.getExtras().getParcelable(ScanConstants.SCANNED_RESULT);
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                getContentResolver().delete(uri, null, null);
+                Image image = new Image();
+                image.setBitmap(bitmap);
+                mProduct.getImages().add(image);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }*/
+
+    public Product getmProduct() {
+        return mProduct;
+    }
+
 }
