@@ -1,1 +1,1 @@
-include ':gazette'
+include ':gazette', ':scanlibrary'
