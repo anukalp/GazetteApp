@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.gazette.app.callbacks.OTPVerifySuccessListener;
+import com.gazette.app.callbacks.ProductScannerListener;
 import com.gazette.app.model.Product;
 import com.gazette.app.model.opt.OTPVerificationResponseModel;
 import com.gazette.app.utils.GazetteConstants;
@@ -21,6 +22,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 public class GazetteApplication extends Application {
     private static GazetteApplication _instance;
     private ArrayList<OTPVerifySuccessListener> otpVerifySuccessListenerArrayList = null;
+    private ArrayList<ProductScannerListener> productScannerListenersList = null;
 
     @Override
     public void onCreate() {
@@ -32,6 +34,7 @@ public class GazetteApplication extends Application {
                         .build()
         );
         otpVerifySuccessListenerArrayList = new ArrayList<>();
+        productScannerListenersList = new ArrayList<>();
         _instance = this;
     }
 
@@ -73,6 +76,20 @@ public class GazetteApplication extends Application {
     public void notifyAllonotpVerifySuccessListener(OTPVerificationResponseModel otpVerificationResponseModel) {
         for (OTPVerifySuccessListener callback : otpVerifySuccessListenerArrayList) {
             callback.OnOTPSuccess(otpVerificationResponseModel);
+        }
+    }
+
+    public void addProductScannerListener(ProductScannerListener onProductScannerListener) {
+        productScannerListenersList.add(onProductScannerListener);
+    }
+
+    public void removeProductScannerListener(ProductScannerListener onProductScannerListener) {
+        productScannerListenersList.remove(onProductScannerListener);
+    }
+
+    public void notifyAllProductScannerListener() {
+        for (ProductScannerListener callback : productScannerListenersList) {
+            callback.OnProductInfoUpdate();
         }
     }
 }

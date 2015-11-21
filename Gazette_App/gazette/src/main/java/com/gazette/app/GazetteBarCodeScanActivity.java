@@ -9,17 +9,19 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.gazette.app.callbacks.ProductScannerListener;
 import com.gazette.app.fragments.ProductDetailsFillFragment;
 import com.gazette.app.fragments.ProductInvoiceScanFragment;
 import com.gazette.app.fragments.ProductScanBarCodeFragment;
 import com.gazette.app.fragments.ProductWarrantyFragment;
 import com.gazette.app.model.Product;
+import com.gazette.app.views.NonSwipeableViewPager;
 
 
 public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
     private android.support.v7.widget.Toolbar mToolbar;
     private static final int NUM_PAGES = 4;
-    private ViewPager mPager;
+    private NonSwipeableViewPager mPager;
     private PagerAdapter mPagerAdapter;
     private Product mProduct;
     private static final int REQUEST_CODE = 99;
@@ -40,7 +42,7 @@ public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
             }
         });
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.ifl_pager);
+        mPager = (NonSwipeableViewPager) findViewById(R.id.ifl_pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
     }
@@ -56,6 +58,7 @@ public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
     }
+
 
     /**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
@@ -91,27 +94,9 @@ public class GazetteBarCodeScanActivity extends GazetteBaseActivity {
         mPager.setCurrentItem(position);
     }
 
-  /*  @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Log.i("Anil","onActivityResult requestCode "+requestCode);
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            Uri uri = data.getExtras().getParcelable(ScanConstants.SCANNED_RESULT);
-            Bitmap bitmap = null;
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                getContentResolver().delete(uri, null, null);
-                Image image = new Image();
-                image.setBitmap(bitmap);
-                mProduct.getImages().add(image);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
-
     public Product getmProduct() {
         return mProduct;
     }
+
 
 }

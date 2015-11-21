@@ -119,7 +119,10 @@ public class PickImageFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.d("", "onActivityResult" + resultCode);
+        Log.d("Anil", "onActivityResult" + resultCode);
+        if (resultCode == Activity.RESULT_CANCELED) {
+            getActivity().finish();
+        }
         Bitmap bitmap = null;
         if (resultCode == Activity.RESULT_OK) {
             try {

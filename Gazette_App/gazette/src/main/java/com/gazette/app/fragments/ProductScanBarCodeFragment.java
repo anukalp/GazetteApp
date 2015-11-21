@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.R;
 import com.gazette.app.model.productInfo.ProductInfoResponse;
@@ -119,9 +120,13 @@ public class ProductScanBarCodeFragment extends Fragment {
         @Override
         public void barcodeResult(BarcodeResult result) {
             if (result.getText() != null) {
-                //barcodeScannerView.setStatusText(result.getText());
                 Log.e("Anil", "barcode: " + result.getText());
+                if (flashToggle) {
+                    barcodeScannerView.setTorchOff();
+                }
+                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductCode(result.getText());
                 requestProductInfo(result.getText());
+                GazetteApplication.getInstance().notifyAllProductScannerListener();
             }
             //Added preview of scanned barcode
             imageView.setImageBitmap(result.getBitmapWithResultPoints(Color.YELLOW));
@@ -155,6 +160,7 @@ public class ProductScanBarCodeFragment extends Fragment {
 
 
     private void requestProductInfo(final String productUPC) {
+
         mRetrofitManagerClass.getmProductInfoFromBarCodeRequestInterface().requestProductInfo(productUPC, GazetteConstants.OUTPAN_APIKEY, new Callback<ProductInfoResponse>() {
             @Override
             public void success(ProductInfoResponse data, retrofit.client.Response response) {
@@ -165,7 +171,7 @@ public class ProductScanBarCodeFragment extends Fragment {
             @Override
             public void failure(RetrofitError retrofitError) {
                 Log.e("Anil", "Failed ", retrofitError);
-                barcodeScannedConfimation(productUPC + "\n Product Not Found ");
+                barcodeScannedConfimation(productUPC + "\n Product Name Not Found ");
             }
         });
     }

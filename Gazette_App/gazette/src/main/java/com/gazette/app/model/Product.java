@@ -20,12 +20,10 @@ public class Product {
     private String title;
     private String vendor;
     private String productType;
-
-
+    private String productCode;
+    private String productSerialNumber;
     private List<Image> images;
-
     private String tags;
-
     private Set<String> tagSet;
 
     public void setProductId(int productId) {
@@ -113,5 +111,19 @@ public class Product {
         return images != null && !images.isEmpty();
     }
 
+    public String getProductCode() {
+        return productCode;
+    }
 
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public String getProductSerialNumber() {
+        return productSerialNumber;
+    }
+
+    public void setProductSerialNumber(String productSerialNumber) {
+        this.productSerialNumber = productSerialNumber;
+    }
 }

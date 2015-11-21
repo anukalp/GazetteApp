@@ -19,7 +19,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
+    <com.gazette.app.views.NonSwipeableViewPager
         android:id="@+id/ifl_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
