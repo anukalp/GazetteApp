@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.R;
 import com.gazette.app.model.Image;
@@ -90,6 +91,7 @@ public class ProductInvoiceScanFragment extends Fragment {
                 Image image = new Image();
                 image.setBitmap(bitmap);
                 ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductInvoice(image);
+                GazetteApplication.getInstance().notifyAllProductScannerListener();
                 scannedImageView.setImageBitmap(bitmap);
                 ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(3);
             } catch (IOException e) {

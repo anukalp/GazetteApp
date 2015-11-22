@@ -2,6 +2,7 @@ package com.gazette.app.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,7 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(2);
+                goForward();
             }
         });
         return rootView;
@@ -74,5 +75,60 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
     public void onDestroy() {
         super.onDestroy();
         GazetteApplication.getInstance().removeProductScannerListener(this);
+    }
+
+    private void goForward() {
+        // Reset errors.
+        product_barcode.setError(null);
+        product_name.setError(null);
+        product_serial.setError(null);
+        product_brand.setError(null);
+
+        String barcode = product_barcode.getText().toString();
+        String name = product_name.getText().toString();
+        String serial = product_serial.getText().toString();
+        String brand = product_brand.getText().toString();
+        String category = category_spinner.getSelectedItem().toString();
+
+        boolean cancel = false;
+        View focusView = null;
+
+        // Check for a valid password, if the user entered one.
+        if (TextUtils.isEmpty(barcode)) {
+            product_barcode.setError(getString(R.string.error_field_required));
+            focusView = product_barcode;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(name)) {
+            product_name.setError(getString(R.string.error_field_required));
+            focusView = product_name;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(brand)) {
+            product_brand.setError(getString(R.string.error_field_required));
+            focusView = product_brand;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(serial)) {
+            product_serial.setError(getString(R.string.error_field_required));
+            focusView = product_serial;
+            cancel = true;
+        }
+
+
+        if (cancel) {
+            focusView.requestFocus();
+        } else {
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductBarCode(barcode);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductName(name);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductBrand(brand);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductSerialNumber(serial);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductCategory(category);
+            GazetteApplication.getInstance().notifyAllProductScannerListener();
+            ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(2);
+        }
     }
 }

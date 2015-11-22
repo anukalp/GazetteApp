@@ -1,9 +1,10 @@
 package com.gazette.app.fragments;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,27 +12,29 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.gazette.app.GazetteApplication;
+import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.R;
 import com.gazette.app.callbacks.ProductScannerListener;
 import com.gazette.app.utils.GazetteUtils;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
-import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
-import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Anil Gudigar on 11/18/2015.
  */
 public class ProductWarrantyFragment extends Fragment implements ProductScannerListener,
-        TimePickerDialog.OnTimeSetListener,
         DatePickerDialog.OnDateSetListener {
     private Spinner warranty_period_spinner;
     private Spinner warranty_provider_spinner;
+    private EditText product_price;
+    private EditText place_of_purchase;
     private EditText purchase_date;
     private Button date_picker;
+    private Button Done_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,6 +59,16 @@ public class ProductWarrantyFragment extends Fragment implements ProductScannerL
         purchase_date = (EditText) rootView.findViewById(R.id.purchase_date);
         purchase_date.setText(GazetteUtils.gettodatDate() + " " + getActivity().getResources().getString(R.string.today));
 
+        product_price = (EditText) rootView.findViewById(R.id.price);
+        place_of_purchase = (EditText) rootView.findViewById(R.id.place_of_purchase);
+
+        Done_btn = (Button) rootView.findViewById(R.id.done_btn);
+        Done_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveProduct();
+            }
+        });
         date_picker = (Button) rootView.findViewById(R.id.date_picker);
         date_picker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +108,41 @@ public class ProductWarrantyFragment extends Fragment implements ProductScannerL
         purchase_date.setText(date);
     }
 
-    @Override
-    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int second) {
 
+    private void saveProduct() {
+        // Reset errors.
+        String purchasedate = purchase_date.getText().toString();
+        String warranty_period = warranty_period_spinner.getSelectedItem().toString();
+        String warranty_provider = warranty_provider_spinner.getSelectedItem().toString();
+        String price = product_price.getText().toString();
+        String placeofpurchase = place_of_purchase.getText().toString();
+
+        boolean cancel = false;
+        View focusView = null;
+
+        // Check for a valid password, if the user entered one.
+        if (TextUtils.isEmpty(placeofpurchase)) {
+            place_of_purchase.setError(getString(R.string.error_field_required));
+            focusView = place_of_purchase;
+            cancel = true;
+        }
+
+        if (warranty_provider.equalsIgnoreCase("select warranty provider")) {
+            Snackbar.make(warranty_provider_spinner, "Please select warranty provider", Snackbar.LENGTH_SHORT).show();
+            cancel = true;
+        }
+
+
+        if (cancel) {
+            if (null != focusView)
+                focusView.requestFocus();
+        } else {
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductVendor(placeofpurchase);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductPrice(price);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductWarrantyDuration(warranty_period);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductWarrantyProvider(warranty_provider);
+            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductPurchaseDate(purchasedate);
+            GazetteApplication.getInstance().notifyAllProductScannerListener();
+        }
     }
 }
