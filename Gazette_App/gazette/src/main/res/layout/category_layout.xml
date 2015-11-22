@@ -4,6 +4,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
     <include
-        android:id="@+id/submenu_item"
-        layout="@layout/product_item" />
+        android:id="@+id/category_item"
+        layout="@layout/category_item" />
 </LinearLayout>

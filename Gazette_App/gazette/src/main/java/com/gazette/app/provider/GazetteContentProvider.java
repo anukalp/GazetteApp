@@ -13,8 +13,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.Process;
+import android.util.Log;
 
-import com.gazette.app.GazetteApplication;
 import com.gazette.app.R;
 import com.gazette.app.utils.GazeteDBUtils;
 
@@ -44,9 +44,9 @@ public class GazetteContentProvider extends ContentProvider {
         // DO NOT use constants such as Contacts.CONTENT_URI here.  This is the only place
         // where one can see all supported URLs at a glance, and using constants will reduce
         // readability.
-        URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "product", PRODUCT);
-        URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "categories", CATEGORIES);
-        URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "brands", BRANDS);
+        URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "product_info", PRODUCT);
+        URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "category", CATEGORIES);
+        URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "brand", BRANDS);
         URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "retailer", RETAILER);
         URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "insurance", INSURANCE);
         URI_MATCHER.addURI(GazetteContracts.AUTHORITY, "invoice", INVOICE);
@@ -85,14 +85,21 @@ public class GazetteContentProvider extends ContentProvider {
     }
 
     protected void scheduleBackgroundTask(int task) {
+        Log.i("Anil", "scheduleBackgroundTask Fill" + task);
         mBackgroundHandler.sendEmptyMessage(task);
     }
 
     private void performBackgroundTask(int what, Object obj) {
         switch (what) {
             case BACKGROUND_TASK_FILL_CATEGORIES:
-                String[] Categories = getContext().getResources().getStringArray(R.array.categories);
-                GazeteDBUtils.loadCategory(getContext(),Categories);
+                Cursor cursor = GazeteDBUtils.getCategory(getContext());
+                if (null != cursor && cursor.getCount() >0){
+                    Log.i("Anil", "Categories already loaded");
+                }else{
+                    Log.i("Anil", "Categories Fill");
+                    String[] Categories = getContext().getResources().getStringArray(R.array.categories);
+                    GazeteDBUtils.loadCategory(getContext(), Categories);
+                }
                 break;
         }
 
@@ -113,7 +120,6 @@ public class GazetteContentProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        // TODO: Implement this to handle requests to insert a new row.
         SQLiteDatabase sqLiteDatabase = mDatabaseHelper.getWritableDatabase();
         long id;
         Uri InsertedURI = null;

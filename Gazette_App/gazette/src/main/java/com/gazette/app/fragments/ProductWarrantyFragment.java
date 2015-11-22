@@ -1,10 +1,14 @@
 package com.gazette.app.fragments;
 
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +16,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.R;
 import com.gazette.app.callbacks.ProductScannerListener;
+import com.gazette.app.model.Product;
+import com.gazette.app.utils.GazeteDBUtils;
 import com.gazette.app.utils.GazetteUtils;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
@@ -35,6 +40,7 @@ public class ProductWarrantyFragment extends Fragment implements ProductScannerL
     private EditText purchase_date;
     private Button date_picker;
     private Button Done_btn;
+    private UIHandler uiHandler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -94,6 +100,7 @@ public class ProductWarrantyFragment extends Fragment implements ProductScannerL
                 dpd.show(getActivity().getFragmentManager(), getActivity().getResources().getString(R.string.app_name));
             }
         });
+        uiHandler = new UIHandler();
         return rootView;
     }
 
@@ -137,12 +144,33 @@ public class ProductWarrantyFragment extends Fragment implements ProductScannerL
             if (null != focusView)
                 focusView.requestFocus();
         } else {
-            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductVendor(placeofpurchase);
-            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductPrice(price);
-            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductWarrantyDuration(warranty_period);
-            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductWarrantyProvider(warranty_provider);
-            ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductPurchaseDate(purchasedate);
+            Product product = ((GazetteBarCodeScanActivity) getActivity()).getmProduct();
+            product.setProductVendor(placeofpurchase);
+            product.setProductPrice(price);
+            product.setProductWarrantyDuration(warranty_period);
+            product.setProductWarrantyProvider(warranty_provider);
+            product.setProductPurchaseDate(purchasedate);
             GazetteApplication.getInstance().notifyAllProductScannerListener();
+            //Save in DB
+            Uri producturi = GazeteDBUtils.persistProduct(getActivity(), product);
+            Log.i("Anil", "producturi :" + producturi.toString());
+            if (null != producturi) {
+                Snackbar.make(purchase_date, "Product saved!", Snackbar.LENGTH_SHORT).show();
+                GazetteApplication.getInstance().notifyAllonProductAddedListenerr();
+                uiHandler.sendEmptyMessageDelayed(1, 1000);
+            }
         }
     }
+
+    class UIHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    getActivity().finish();
+                    break;
+            }
+        }
+    }
+
 }

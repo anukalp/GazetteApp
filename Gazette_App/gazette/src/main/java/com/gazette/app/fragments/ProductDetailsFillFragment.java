@@ -1,7 +1,9 @@
 package com.gazette.app.fragments;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.R;
 import com.gazette.app.callbacks.ProductScannerListener;
+import com.gazette.app.utils.GazeteDBUtils;
 
 /**
  * Created by Anil Gudigar on 11/18/2015.
@@ -39,11 +42,16 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
         product_serial = (EditText) rootView.findViewById(R.id.product_serial);
         nextBtn = (Button) rootView.findViewById(R.id.nextBtn);
         category_spinner = (Spinner) rootView.findViewById(R.id.category_spinner);
-        String[] category = getActivity().getResources().getStringArray(R.array.categories);
-        ArrayAdapter<String> category_spinner_adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),
-                R.layout.spinner_item, category);
-        category_spinner_adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
-        category_spinner.setAdapter(category_spinner_adapter);
+        Cursor cursor = GazeteDBUtils.getCategory(getActivity());
+        if (null != cursor) {
+            Log.i("Anil", "Category :" + cursor.getCount());
+            String[] queryCols = new String[]{"_id", "name"};
+            String[] adapterCols = new String[]{"name"};
+            int[] adapterRowViews = new int[]{android.R.id.text1};
+            SimpleCursorAdapter sca = new SimpleCursorAdapter(getActivity(), android.R.layout.simple_spinner_item, cursor, adapterCols, adapterRowViews, 0);
+            sca.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+            category_spinner.setAdapter(sca);
+        }
 
         GazetteApplication.getInstance().addProductScannerListener(this);
         nextBtn.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +96,8 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
         String name = product_name.getText().toString();
         String serial = product_serial.getText().toString();
         String brand = product_brand.getText().toString();
-        String category = category_spinner.getSelectedItem().toString();
+        String category = ((Cursor) category_spinner.getSelectedItem())
+                .getString(1).toString();
 
         boolean cancel = false;
         View focusView = null;

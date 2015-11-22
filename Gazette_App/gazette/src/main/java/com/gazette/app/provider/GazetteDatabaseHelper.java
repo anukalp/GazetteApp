@@ -12,7 +12,7 @@ import android.util.Log;
 public class GazetteDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Gazette DB version ranges:
-     * 
+     * <p/>
      * <pre>
      *   1-9 Gazette Test Builds
      * </pre>
@@ -29,7 +29,7 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
             GazetteContracts.Insurance.TABLE_NAME + "." + GazetteContracts.Insurance._ID;
 
     public static final String RETAILER_CONCRETE_ID =
-            GazetteContracts.Retailer.TABLE_NAME+ "." +  GazetteContracts.Retailer._ID;
+            GazetteContracts.Retailer.TABLE_NAME + "." + GazetteContracts.Retailer._ID;
 
     public static final String WARRANTY_CONCRETE_ID =
             GazetteContracts.Warranty.TABLE_NAME + "." + GazetteContracts.Warranty._ID;
@@ -123,10 +123,11 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
          */
         db.execSQL("CREATE TABLE " + GazetteContracts.User.TABLE_NAME + " (" + GazetteContracts.User._ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.User.ACCOUNT_NAME + " TEXT, "
-                + GazetteContracts.User.ACCOUNT_TYPE + " TEXT, " +GazetteContracts.User.DATA_SET + " TEXT" + ");");
+                + GazetteContracts.User.ACCOUNT_TYPE + " TEXT, " + GazetteContracts.User.DATA_SET + " TEXT" + ");");
 
-        db.execSQL("CREATE TABLE " +  GazetteContracts.Product_Info.TABLE_NAME + " (" + GazetteContracts.Product_Info._ID
+        db.execSQL("CREATE TABLE " + GazetteContracts.Product_Info.TABLE_NAME + " (" + GazetteContracts.Product_Info._ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Product_Info.PRODUCT_CODE + " TEXT, "
+                + GazetteContracts.Product_Info.NAME + " TEXT, "
                 + GazetteContracts.Product_Info.BRAND_ID + " INTEGER REFERENCES brand(_id),"
                 + GazetteContracts.Product_Info.CATEGORY_ID + " INTEGER REFERENCES category(_id),"
                 + GazetteContracts.Product_Info.USER_ID + " INTEGER REFERENCES user(_id),"
@@ -136,18 +137,18 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
                 + GazetteContracts.Product_Info.BARCODE + " TEXT," + GazetteContracts.Product_Info.DATE_OF_PURCHASE + " TEXT,"
                 + GazetteContracts.Product_Info.RATING + " INTEGER" + ");");
 
-        db.execSQL("CREATE TABLE " +  GazetteContracts.Invoice.TABLE_NAME + " (" + GazetteContracts.Invoice._ID
+        db.execSQL("CREATE TABLE " + GazetteContracts.Invoice.TABLE_NAME + " (" + GazetteContracts.Invoice._ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Invoice.PHOTO + " BLOB, "
                 + GazetteContracts.Invoice.PLACE_PURCHASE + " TEXT, " + GazetteContracts.Invoice.AMOUNT + " TEXT,"
                 + GazetteContracts.Invoice.PRODUCT_ID + " INTEGER REFERENCES product(_id),"
                 + GazetteContracts.Invoice.RETAILER_ID + " INTEGER REFERENCES retailer(_id)" + ");");
 
-        db.execSQL("CREATE TABLE " +  GazetteContracts.Retailer.TABLE_NAME + " (" + GazetteContracts.Retailer._ID
+        db.execSQL("CREATE TABLE " + GazetteContracts.Retailer.TABLE_NAME + " (" + GazetteContracts.Retailer._ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Retailer.NAME + " TEXT, "
-                + GazetteContracts.Invoice.AMOUNT + " TEXT," + GazetteContracts.Retailer.ADDRESS + " TEXT,"
+                + GazetteContracts.Retailer.ADDRESS + " TEXT,"
                 + GazetteContracts.Retailer.RATING + " INTEGER REFERENCES retailer(_id)" + ");");
 
-        db.execSQL("CREATE TABLE " +  GazetteContracts.Brand.TABLE_NAME + " (" + GazetteContracts.Brand._ID
+        db.execSQL("CREATE TABLE " + GazetteContracts.Brand.TABLE_NAME + " (" + GazetteContracts.Brand._ID
                 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Brand.NAME + " TEXT" + ");");
 
         db.execSQL("CREATE TABLE " + GazetteContracts.Category.TABLE_NAME + " (" + GazetteContracts.Category._ID
@@ -213,7 +214,7 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
     private void createUserTriggers(SQLiteDatabase db) {
         // Automatically delete Data rows when a raw contact is deleted.
         db.execSQL("DROP TRIGGER IF EXISTS " + GazetteContracts.User.TABLE_NAME + "_deleted;");
-        db.execSQL("CREATE TRIGGER " +GazetteContracts.User.TABLE_NAME + "_deleted " + "   BEFORE DELETE ON "
+        db.execSQL("CREATE TRIGGER " + GazetteContracts.User.TABLE_NAME + "_deleted " + "   BEFORE DELETE ON "
                 + GazetteContracts.User.TABLE_NAME + " BEGIN " + " DELETE FROM " + GazetteContracts.Product_Info.TABLE_NAME + " WHERE "
                 + GazetteContracts.Product_Info.USER_ID + "=OLD." + GazetteContracts.User._ID + ";" + " END");
     }

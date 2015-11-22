@@ -6,7 +6,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,6 +37,7 @@ public class ProductInvoiceScanFragment extends Fragment {
     private ImageView scannedImageView;
     private static final int REQUEST_CODE = 99;
     private TextView skip_button;
+    private UIHandler uiHandler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +56,7 @@ public class ProductInvoiceScanFragment extends Fragment {
                 ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(3);
             }
         });
+        uiHandler = new UIHandler();
         return rootView;
     }
 
@@ -93,7 +98,10 @@ public class ProductInvoiceScanFragment extends Fragment {
                 ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductInvoice(image);
                 GazetteApplication.getInstance().notifyAllProductScannerListener();
                 scannedImageView.setImageBitmap(bitmap);
-                ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(3);
+                if (null != bitmap) {
+                    Snackbar.make(scannedImageView, "Invoice Scanned!", Snackbar.LENGTH_SHORT).show();
+                    uiHandler.sendEmptyMessageDelayed(1, 5000);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -104,5 +112,15 @@ public class ProductInvoiceScanFragment extends Fragment {
         return BitmapFactory.decodeByteArray(data, 0, data.length);
     }
 
+    class UIHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(3);
+                    break;
+            }
+        }
+    }
 
 }

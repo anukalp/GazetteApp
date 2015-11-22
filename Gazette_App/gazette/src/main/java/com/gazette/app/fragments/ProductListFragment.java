@@ -3,34 +3,37 @@ package com.gazette.app.fragments;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gazette.app.GazetteApplication;
 import com.gazette.app.R;
-import com.gazette.app.fragments.adapters.ProductAdapter;
+import com.gazette.app.callbacks.OnProductAddedListener;
+import com.gazette.app.fragments.adapters.CategoryAdapter;
 import com.gazette.app.model.Category;
 import com.gazette.app.model.Image;
-import com.gazette.app.model.Product;
 import com.gazette.app.utils.DividerItemDecoration;
+import com.gazette.app.utils.GazeteDBUtils;
 import com.gazette.app.utils.GazetteConstants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProductListFragment extends Fragment {
+public class ProductListFragment extends Fragment implements OnProductAddedListener {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ProductAdapter mAdapter;
+    private CategoryAdapter mAdapter;
     private String mColletion_ID = null;
-    protected boolean isFetching = false;
     private ProgressDialog progressDialog;
     private List<Category> products = null;
 
@@ -41,17 +44,25 @@ public class ProductListFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mColletion_ID = (String) getArguments().get(GazetteConstants.COLLECTION_ID);
+        GazetteApplication.getInstance().addOnProductAddedListener(this);
         _init();
         initializeProgressDialog();
     }
 
     private void _init() {
         products = new ArrayList<Category>();
-        String[] Products = getActivity().getResources().getStringArray(R.array.categories);
+        String[] Category = getActivity().getResources().getStringArray(R.array.categories);
         TypedArray images = getActivity().getResources().obtainTypedArray(R.array.products_images);
-        for (int i = 0; i < Products.length; i++) {
+        for (int i = 0; i < Category.length; i++) {
             Category category = new Category();
-            category.setName(Products[i]);
+            category.setName(Category[i]);
+            long category_id = i + 1;
+            Cursor cursor = GazeteDBUtils.getProductByCategory(getActivity(), category_id);
+            if (null != cursor && cursor.getCount() > 0) {
+                category.setCount(cursor.getCount());
+            } else {
+                category.setCount(0);
+            }
             category.setId(i);
             Image image = new Image();
             image.setProductId(category.getId());
@@ -59,7 +70,7 @@ public class ProductListFragment extends Fragment {
             category.setImage(image);
             products.add(category);
         }
-        mAdapter = new ProductAdapter(getActivity(), products);
+        mAdapter = new CategoryAdapter(getActivity(), products);
     }
 
 
@@ -135,5 +146,12 @@ public class ProductListFragment extends Fragment {
             public void onCancel(DialogInterface dialog) {
             }
         });
+    }
+
+    @Override
+    public void OnProductAdded() {
+        Log.i("Anil","Product Added");
+        _init();
+        mRecyclerView.setAdapter(mAdapter);
     }
 }

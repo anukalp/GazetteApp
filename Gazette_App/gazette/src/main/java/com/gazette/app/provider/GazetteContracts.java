@@ -27,6 +27,7 @@ public class GazetteContracts {
         public static final Uri CONTENT_URI = Uri.withAppendedPath(
                 GazetteContracts.CONTENT_URI, "product_info");
         public static final String TABLE_NAME = "product_info";
+        public static final String NAME = "name";
         public static final String PRODUCT_CODE = "code";
         public static final String BRAND_ID = "brand_id";
         public static final String CATEGORY_ID = "category_id";
