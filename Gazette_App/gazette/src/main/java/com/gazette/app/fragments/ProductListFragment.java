@@ -5,19 +5,16 @@ import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 
 import com.gazette.app.R;
 import com.gazette.app.fragments.adapters.ProductAdapter;
+import com.gazette.app.model.Category;
 import com.gazette.app.model.Image;
 import com.gazette.app.model.Product;
 import com.gazette.app.utils.DividerItemDecoration;
@@ -35,7 +32,7 @@ public class ProductListFragment extends Fragment {
     private String mColletion_ID = null;
     protected boolean isFetching = false;
     private ProgressDialog progressDialog;
-    private List<Product> products = null;
+    private List<Category> products = null;
 
     private static String TAG = ProductListFragment.class
             .getName();
@@ -49,18 +46,18 @@ public class ProductListFragment extends Fragment {
     }
 
     private void _init() {
-        products = new ArrayList<Product>();
-        String[] Products = getActivity().getResources().getStringArray(R.array.products);
+        products = new ArrayList<Category>();
+        String[] Products = getActivity().getResources().getStringArray(R.array.categories);
         TypedArray images = getActivity().getResources().obtainTypedArray(R.array.products_images);
         for (int i = 0; i < Products.length; i++) {
-            Product product = new Product();
-            product.setProductName(Products[i]);
-            product.setProductId(i);
+            Category category = new Category();
+            category.setName(Products[i]);
+            category.setId(i);
             Image image = new Image();
-            image.setProductId(product.getProductId());
+            image.setProductId(category.getId());
             image.setSrc(images.getResourceId(i, -1));
-            product.setProductImage(image);
-            products.add(product);
+            category.setImage(image);
+            products.add(category);
         }
         mAdapter = new ProductAdapter(getActivity(), products);
     }

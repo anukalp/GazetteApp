@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.gazette.app.GazetteApplication;
 import com.gazette.app.R;
+import com.gazette.app.model.Category;
 import com.gazette.app.model.Product;
 
 import java.text.NumberFormat;
@@ -25,10 +26,10 @@ public class ProductAdapter extends
     private Activity mActivity;
     private TextView mName;
     private ListOnclickListener mListener;
-    private List<Product> mProductLists;
+    private List<Category> mProductLists;
     private ImageView mBaselineJpegView;
 
-    public ProductAdapter(Activity activity, List<Product> productsList) {
+    public ProductAdapter(Activity activity, List<Category> productsList) {
         mActivity = activity;
         mProductLists = productsList;
         mListener = new ListOnclickListener();
@@ -60,12 +61,12 @@ public class ProductAdapter extends
         Typeface font = Typeface.createFromAsset(mActivity.getAssets(), "fonts/ProximaNova-Semibold.otf");
         mName.setTypeface(font);
         if (null != mProductLists.get(position)) {
-            mName.setText(mProductLists.get(position).getProductName());
+            mName.setText(mProductLists.get(position).getName());
             if (null != mProductLists.get(position)) {
                 NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("en", "in"));
             }
-            if (null != mProductLists.get(position).getProductImage()) {
-                mBaselineJpegView.setImageResource(mProductLists.get(position).getProductImage().getSrc());
+            if (null != mProductLists.get(position).getImage()) {
+                mBaselineJpegView.setImageResource(mProductLists.get(position).getImage().getSrc());
             }
             holder.mProductCard.setTag(mProductLists.get(position));
         }

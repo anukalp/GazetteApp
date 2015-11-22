@@ -39,7 +39,7 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
         product_serial = (EditText) rootView.findViewById(R.id.product_serial);
         nextBtn = (Button) rootView.findViewById(R.id.nextBtn);
         category_spinner = (Spinner) rootView.findViewById(R.id.category_spinner);
-        String[] category = getActivity().getResources().getStringArray(R.array.products);
+        String[] category = getActivity().getResources().getStringArray(R.array.categories);
         ArrayAdapter<String> category_spinner_adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),
                 R.layout.spinner_item, category);
         category_spinner_adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);

@@ -20,89 +20,70 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
 
     public static final String CATEGORY_CONCRETE_ID =
-            Tables.CATEGORIES + "." + CategoryColumns._ID;
+            GazetteContracts.Category.TABLE_NAME + "." + GazetteContracts.Category._ID;
 
     public static final String BRAND_CONCRETE_ID =
-            Tables.BRAND + "." + BrandColumns._ID;
+            GazetteContracts.Brand.TABLE_NAME + "." + GazetteContracts.Brand._ID;
 
     public static final String INSURANCE_CONCRETE_ID =
-            Tables.INSURANCE + "." + InsuranceColumns._ID;
+            GazetteContracts.Insurance.TABLE_NAME + "." + GazetteContracts.Insurance._ID;
 
     public static final String RETAILER_CONCRETE_ID =
-            Tables.RETAILER + "." + RetailerColumns._ID;
+            GazetteContracts.Retailer.TABLE_NAME+ "." +  GazetteContracts.Retailer._ID;
 
     public static final String WARRANTY_CONCRETE_ID =
-            Tables.WARRANTY + "." + WarrantyColumns._ID;
+            GazetteContracts.Warranty.TABLE_NAME + "." + GazetteContracts.Warranty._ID;
 
     public static final String INVOICE_CONCRETE_ID =
-            Tables.INVOICE + "." + InvoiceColumns._ID;
+            GazetteContracts.Insurance.TABLE_NAME + "." + GazetteContracts.Invoice._ID;
 
     public static final String CATEGORY_CONCRETE_NAME =
-            Tables.CATEGORIES + "." + CategoryColumns.NAME;
+            GazetteContracts.Category.TABLE_NAME + "." + GazetteContracts.Category.NAME;
 
     public static final String BRAND_CONCRETE_NAME =
-            Tables.BRAND + "." + BrandColumns.NAME;
+            GazetteContracts.Brand.TABLE_NAME + "." + GazetteContracts.Brand.NAME;
 
     public static final String INVOICE_CONCRETE_PHOTO =
-            Tables.INVOICE + "." + InvoiceColumns.PHOTO;
+            GazetteContracts.Invoice.TABLE_NAME + "." + GazetteContracts.Invoice.PHOTO;
 
     public static final String INVOICE_CONCRETE_AMOUNT =
-            Tables.INVOICE + "." + InvoiceColumns.AMOUNT;
+            GazetteContracts.Invoice.TABLE_NAME + "." + GazetteContracts.Invoice.AMOUNT;
 
     public static final String INVOICE_CONCRETE_PLACE =
-            Tables.INVOICE + "." + InvoiceColumns.PLACE_PURCHASE;
+            GazetteContracts.Invoice.TABLE_NAME + "." + GazetteContracts.Invoice.PLACE_PURCHASE;
 
     public static final String INSURANCE_CONCRETE_STARTDATE =
-            Tables.INSURANCE + "." + InsuranceColumns.START_DATE;
+            GazetteContracts.Insurance.TABLE_NAME + "." + GazetteContracts.Insurance.START_DATE;
 
     public static final String INSURANCE_CONCRETE_ENDDATE =
-            Tables.INSURANCE + "." + InsuranceColumns.END_DATE;
+            GazetteContracts.Insurance.TABLE_NAME + "." + GazetteContracts.Insurance.END_DATE;
 
     private static final String WARRANTY_CONCRETE_STARTDATE =
-            Tables.WARRANTY + "." + WarrantyColumns.START_DATE;
+            GazetteContracts.Warranty.TABLE_NAME + "." + GazetteContracts.Warranty.START_DATE;
 
     private static final String WARRANTY_CONCRETE_ENDDATE =
-            Tables.WARRANTY + "." + WarrantyColumns.END_DATE;
+            GazetteContracts.Warranty.TABLE_NAME + "." + GazetteContracts.Warranty.END_DATE;
 
     private static final String PRODUCT_CONCRETE_RATING =
-            Tables.PRODUCT_INFO + "." + ProductColumns.RATING;
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.RATING;
 
     private static final String PRODUCT_CONCRETE_BRAND_ID =
-            Tables.PRODUCT_INFO + "." + ProductColumns.BRAND_ID;
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.BRAND_ID;
 
     private static final String PRODUCT_CONCRETE_INOVICE_ID =
-            Tables.PRODUCT_INFO + "." + ProductColumns.INOVICE_ID;
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.INOVICE_ID;
 
     private static final String PRODUCT_CONCRETE_INSURANCE_ID =
-            Tables.PRODUCT_INFO + "." + ProductColumns.INSURANCE_ID;
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.INSURANCE_ID;
 
     private static final String INSURANCE_CONCRETE_RETAILER_ID =
-            Tables.INSURANCE + "." + InsuranceColumns.RETAILER_ID;
+            GazetteContracts.Insurance.TABLE_NAME + "." + GazetteContracts.Insurance.RETAILER_ID;
 
     private static final String PRODUCT_CONCRETE_WARRANTY_ID =
-            Tables.PRODUCT_INFO + "." + ProductColumns.WARRANTY_ID;
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.WARRANTY_ID;
 
     private final Context mContext;
 
-    public interface Tables {
-        public static final String PRODUCT_INFO = "product_info";
-
-        public static final String WARRANTY = "warranty";
-
-        public static final String INSURANCE = "insurance";
-
-        public static final String BRAND = "brand";
-
-        public static final String CATEGORIES = "category";
-
-        public static final String RETAILER = "retailer";
-
-        public static final String SEARCH_INDEX = "search_index";
-
-        public static final String USER = "user";
-
-        public static final String INVOICE = "invoice";
-    }
 
     public interface Views {
         public static final String PRODUCT_DATA = "view_data";
@@ -134,159 +115,64 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
         return writable ? getWritableDatabase() : getReadableDatabase();
     }
 
-    public interface UserColumns {
-        public static final String _ID = "_id";
-
-        public static final String ACCOUNT_NAME = "account_name";
-
-        public static final String ACCOUNT_TYPE = "account_type";
-
-        public static final String DATA_SET = "data_set";
-    }
-
-    public interface ProductColumns {
-        public static final String _ID = "_id";
-
-        public static final String PRODUCT_CODE = "code";
-
-        public static final String BRAND_ID = "brand_id";
-
-        public static final String CATEGORY_ID = "category_id";
-
-        public static final String USER_ID = "user_id";
-
-        public static final String INOVICE_ID = "invoice_id";
-
-        public static final String BARCODE = "barcode";
-
-        public static final String DATE_OF_PURCHASE = "purchase_date";
-
-        public static final String WARRANTY_ID = "warranty_id";
-
-        public static final String INSURANCE_ID = "insurance_id";
-
-        public static final String RATING = "rating";
-    }
-
-    public interface InvoiceColumns {
-        public static final String _ID = "_id";
-
-        public static final String PHOTO = "photo";
-
-        public static final String PLACE_PURCHASE = "place_purchase";
-
-        public static final String AMOUNT = "amount";
-
-        public static final String PRODUCT_ID = "product_id";
-
-        public static final String RETAILER_ID = "retailer_id";
-    }
-
-    public interface RetailerColumns {
-        public static final String _ID = "_id";
-
-        public static final String NAME = "name";
-
-        public static final String ADDRESS = "address";
-
-        public static final String RATING = "rating";
-    }
-
-    public interface BrandColumns {
-        public static final String _ID = "_id";
-
-        public static final String NAME = "name";
-    }
-
-    public interface CategoryColumns {
-        public static final String _ID = "_id";
-
-        public static final String NAME = "name";
-    }
-
-    public interface WarrantyColumns {
-        public static final String _ID = "_id";
-
-        public static final String BRAND_ID = "brand_id";
-
-        public static final String START_DATE = "start_date";
-
-        public static final String END_DATE = "end_date";
-    }
-
-    public interface InsuranceColumns {
-        public static final String _ID = "_id";
-
-        public static final String RETAILER_ID = "retailer_id";
-
-        public static final String BRAND_ID = "brand_id";
-
-        public static final String START_DATE = "start_date";
-
-        public static final String END_DATE = "end_date";
-    }
-
-    public interface SearchIndexColumns {
-        public static final String CONTACT_ID = "contact_id";
-
-        public static final String CONTENT = "content";
-
-        public static final String NAME = "name";
-
-        public static final String TOKENS = "tokens";
-    }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i(TAG, "OnCreate database version: " + DATABASE_VERSION);
         /**
          * CREATE TABLES
          */
-        db.execSQL("CREATE TABLE " + Tables.USER + " (" + UserColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + UserColumns.ACCOUNT_NAME + " TEXT, "
-                + UserColumns.ACCOUNT_TYPE + " TEXT, " + UserColumns.DATA_SET + " TEXT" + ");");
-        db.execSQL("CREATE TABLE " + Tables.PRODUCT_INFO + " (" + ProductColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ProductColumns.PRODUCT_CODE + " TEXT, "
-                + ProductColumns.BRAND_ID + " INTEGER REFERENCES brand(_id),"
-                + ProductColumns.CATEGORY_ID + " INTEGER REFERENCES category(_id),"
-                + ProductColumns.USER_ID + " INTEGER REFERENCES user(_id),"
-                + ProductColumns.INOVICE_ID + " INTEGER REFERENCES invoice(_id),"
-                + ProductColumns.WARRANTY_ID + " INTEGER REFERENCES warranty(_id),"
-                + ProductColumns.INSURANCE_ID + " INTEGER REFERENCES insurance(_id),"
-                + ProductColumns.BARCODE + " TEXT," + ProductColumns.DATE_OF_PURCHASE + " TEXT,"
-                + ProductColumns.RATING + " INTEGER" + ");");
-        db.execSQL("CREATE TABLE " + Tables.INVOICE + " (" + InvoiceColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + InvoiceColumns.PHOTO + " BLOB, "
-                + InvoiceColumns.PLACE_PURCHASE + " TEXT, " + InvoiceColumns.AMOUNT + " TEXT,"
-                + InvoiceColumns.PRODUCT_ID + " INTEGER REFERENCES product(_id),"
-                + InvoiceColumns.RETAILER_ID + " INTEGER REFERENCES retailer(_id)" + ");");
-        db.execSQL("CREATE TABLE " + Tables.RETAILER + " (" + RetailerColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RetailerColumns.NAME + " TEXT, "
-                + InvoiceColumns.AMOUNT + " TEXT," + RetailerColumns.ADDRESS + " TEXT,"
-                + RetailerColumns.RATING + " INTEGER REFERENCES retailer(_id)" + ");");
-        db.execSQL("CREATE TABLE " + Tables.BRAND + " (" + BrandColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + BrandColumns.NAME + " TEXT" + ");");
-        db.execSQL("CREATE TABLE " + Tables.CATEGORIES + " (" + CategoryColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + CategoryColumns.NAME + " TEXT" + ");");
-        db.execSQL("CREATE TABLE " + Tables.WARRANTY + " (" + WarrantyColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + WarrantyColumns.BRAND_ID
-                + " INTEGER REFERENCES brand(_id), " + WarrantyColumns.START_DATE + " INTEGER, "
-                + WarrantyColumns.END_DATE + " INTEGER" + ");");
-        db.execSQL("CREATE TABLE " + Tables.INSURANCE + " (" + InsuranceColumns._ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + InsuranceColumns.BRAND_ID
-                + " INTEGER REFERENCES brand(_id), " + InsuranceColumns.RETAILER_ID
-                + " INTEGER REFERENCES retailer(_id), " + InsuranceColumns.START_DATE + " INTEGER, "
-                + InsuranceColumns.END_DATE + " INTEGER" + ");");
+        db.execSQL("CREATE TABLE " + GazetteContracts.User.TABLE_NAME + " (" + GazetteContracts.User._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.User.ACCOUNT_NAME + " TEXT, "
+                + GazetteContracts.User.ACCOUNT_TYPE + " TEXT, " +GazetteContracts.User.DATA_SET + " TEXT" + ");");
+
+        db.execSQL("CREATE TABLE " +  GazetteContracts.Product_Info.TABLE_NAME + " (" + GazetteContracts.Product_Info._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Product_Info.PRODUCT_CODE + " TEXT, "
+                + GazetteContracts.Product_Info.BRAND_ID + " INTEGER REFERENCES brand(_id),"
+                + GazetteContracts.Product_Info.CATEGORY_ID + " INTEGER REFERENCES category(_id),"
+                + GazetteContracts.Product_Info.USER_ID + " INTEGER REFERENCES user(_id),"
+                + GazetteContracts.Product_Info.INOVICE_ID + " INTEGER REFERENCES invoice(_id),"
+                + GazetteContracts.Product_Info.WARRANTY_ID + " INTEGER REFERENCES warranty(_id),"
+                + GazetteContracts.Product_Info.INSURANCE_ID + " INTEGER REFERENCES insurance(_id),"
+                + GazetteContracts.Product_Info.BARCODE + " TEXT," + GazetteContracts.Product_Info.DATE_OF_PURCHASE + " TEXT,"
+                + GazetteContracts.Product_Info.RATING + " INTEGER" + ");");
+
+        db.execSQL("CREATE TABLE " +  GazetteContracts.Invoice.TABLE_NAME + " (" + GazetteContracts.Invoice._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Invoice.PHOTO + " BLOB, "
+                + GazetteContracts.Invoice.PLACE_PURCHASE + " TEXT, " + GazetteContracts.Invoice.AMOUNT + " TEXT,"
+                + GazetteContracts.Invoice.PRODUCT_ID + " INTEGER REFERENCES product(_id),"
+                + GazetteContracts.Invoice.RETAILER_ID + " INTEGER REFERENCES retailer(_id)" + ");");
+
+        db.execSQL("CREATE TABLE " +  GazetteContracts.Retailer.TABLE_NAME + " (" + GazetteContracts.Retailer._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Retailer.NAME + " TEXT, "
+                + GazetteContracts.Invoice.AMOUNT + " TEXT," + GazetteContracts.Retailer.ADDRESS + " TEXT,"
+                + GazetteContracts.Retailer.RATING + " INTEGER REFERENCES retailer(_id)" + ");");
+
+        db.execSQL("CREATE TABLE " +  GazetteContracts.Brand.TABLE_NAME + " (" + GazetteContracts.Brand._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Brand.NAME + " TEXT" + ");");
+
+        db.execSQL("CREATE TABLE " + GazetteContracts.Category.TABLE_NAME + " (" + GazetteContracts.Category._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Category.NAME + " TEXT" + ");");
+
+        db.execSQL("CREATE TABLE " + GazetteContracts.Warranty.TABLE_NAME + " (" + GazetteContracts.Warranty._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Warranty.BRAND_ID
+                + " INTEGER REFERENCES brand(_id), " + GazetteContracts.Warranty.START_DATE + " INTEGER, "
+                + GazetteContracts.Warranty.END_DATE + " INTEGER" + ");");
+
+        db.execSQL("CREATE TABLE " + GazetteContracts.Insurance.TABLE_NAME + " (" + GazetteContracts.Insurance._ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT, " + GazetteContracts.Insurance.BRAND_ID
+                + " INTEGER REFERENCES brand(_id), " + GazetteContracts.Insurance.RETAILER_ID
+                + " INTEGER REFERENCES retailer(_id), " + GazetteContracts.Insurance.START_DATE + " INTEGER, "
+                + GazetteContracts.Insurance.END_DATE + " INTEGER" + ");");
 
         /**
          * CREATE INDEXES
          */
         createSearchIndexTable(db);
-        db.execSQL("CREATE INDEX product_lookup_index ON " + Tables.PRODUCT_INFO + " ("
-                + ProductColumns.RATING + "," + ProductColumns.PRODUCT_CODE + ","
-                + ProductColumns.CATEGORY_ID + ");");
-        db.execSQL("CREATE INDEX retailer_lookup_index ON " + Tables.RETAILER + " ("
-                + RetailerColumns.RATING + ");");
+        db.execSQL("CREATE INDEX product_lookup_index ON " + GazetteContracts.Product_Info.TABLE_NAME + " ("
+                + GazetteContracts.Product_Info.RATING + "," + GazetteContracts.Product_Info.PRODUCT_CODE + ","
+                + GazetteContracts.Product_Info.CATEGORY_ID + ");");
+        db.execSQL("CREATE INDEX retailer_lookup_index ON " + GazetteContracts.Retailer.TABLE_NAME + " ("
+                + GazetteContracts.Retailer.RATING + ");");
 
         /**
          * CREATE TRIGGERS
@@ -297,7 +183,7 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
         /**
          * CREATE VIEWS
          */
-        createProductView(db);
+        //createProductView(db);
         // createRetailerView(db);
 
     }
@@ -306,49 +192,49 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP VIEW IF EXISTS " + Views.PRODUCT_DATA + ";");
         String productSelect = "SELECT " + CATEGORY_CONCRETE_NAME + " AS category, "
                 + INVOICE_CONCRETE_PHOTO + " AS photo, " + INVOICE_CONCRETE_AMOUNT + " AS amount, "
-                + INVOICE_CONCRETE_PLACE + " AS purchase_place, " + ProductColumns.PRODUCT_CODE + ", "
+                + INVOICE_CONCRETE_PLACE + " AS purchase_place, " + GazetteContracts.Product_Info.PRODUCT_CODE + ", "
                 + INSURANCE_CONCRETE_STARTDATE + " AS insured_start_date, " + INSURANCE_CONCRETE_ENDDATE + " AS insured_end_date, "
                 + WARRANTY_CONCRETE_STARTDATE + " AS start_date, " + WARRANTY_CONCRETE_ENDDATE + " AS end_date, "
-                + ProductColumns.BARCODE + ", " + BRAND_CONCRETE_NAME + " AS brand, "
-                + ProductColumns.DATE_OF_PURCHASE + ", " + PRODUCT_CONCRETE_RATING + " FROM "
-                + Tables.PRODUCT_INFO + " JOIN " + Tables.CATEGORIES + " ON ("
-                + ProductColumns.CATEGORY_ID + "=" + CATEGORY_CONCRETE_ID + ")" + " LEFT OUTER JOIN "
-                + Tables.BRAND + " ON (" + PRODUCT_CONCRETE_BRAND_ID + "=" + BRAND_CONCRETE_ID + ")"
-                + " LEFT OUTER JOIN " + Tables.INSURANCE + " ON (" + PRODUCT_CONCRETE_INSURANCE_ID
-                + "=" + INSURANCE_CONCRETE_ID + ")" + " LEFT OUTER JOIN " + Tables.RETAILER + " ON ("
+                + GazetteContracts.Product_Info.BARCODE + ", " + BRAND_CONCRETE_NAME + " AS brand, "
+                + GazetteContracts.Product_Info.DATE_OF_PURCHASE + ", " + PRODUCT_CONCRETE_RATING + " FROM "
+                + GazetteContracts.Product_Info.TABLE_NAME + " JOIN " + GazetteContracts.Category.TABLE_NAME + " ON ("
+                + GazetteContracts.Product_Info.CATEGORY_ID + "=" + CATEGORY_CONCRETE_ID + ")" + " LEFT OUTER JOIN "
+                + GazetteContracts.Brand.TABLE_NAME + " ON (" + PRODUCT_CONCRETE_BRAND_ID + "=" + BRAND_CONCRETE_ID + ")"
+                + " LEFT OUTER JOIN " + GazetteContracts.Insurance.TABLE_NAME + " ON (" + PRODUCT_CONCRETE_INSURANCE_ID
+                + "=" + INSURANCE_CONCRETE_ID + ")" + " LEFT OUTER JOIN " + GazetteContracts.Retailer.TABLE_NAME + " ON ("
                 + INSURANCE_CONCRETE_RETAILER_ID + "=" + RETAILER_CONCRETE_ID + ")"
-                + " LEFT OUTER JOIN " + Tables.WARRANTY + " ON (" + PRODUCT_CONCRETE_WARRANTY_ID + "="
+                + " LEFT OUTER JOIN " + GazetteContracts.Warranty.TABLE_NAME + " ON (" + PRODUCT_CONCRETE_WARRANTY_ID + "="
                 + WARRANTY_CONCRETE_ID + ")"
-                + " LEFT OUTER JOIN " + Tables.INVOICE + " ON (" + PRODUCT_CONCRETE_INOVICE_ID
+                + " LEFT OUTER JOIN " + GazetteContracts.Insurance.TABLE_NAME + " ON (" + PRODUCT_CONCRETE_INOVICE_ID
                 + "=" + INVOICE_CONCRETE_ID + ")";
         db.execSQL("CREATE VIEW " + Views.PRODUCT_DATA + " AS " + productSelect);
     }
 
     private void createUserTriggers(SQLiteDatabase db) {
         // Automatically delete Data rows when a raw contact is deleted.
-        db.execSQL("DROP TRIGGER IF EXISTS " + Tables.USER + "_deleted;");
-        db.execSQL("CREATE TRIGGER " + Tables.USER + "_deleted " + "   BEFORE DELETE ON "
-                + Tables.USER + " BEGIN " + " DELETE FROM " + Tables.PRODUCT_INFO + " WHERE "
-                + ProductColumns.USER_ID + "=OLD." + UserColumns._ID + ";" + " END");
+        db.execSQL("DROP TRIGGER IF EXISTS " + GazetteContracts.User.TABLE_NAME + "_deleted;");
+        db.execSQL("CREATE TRIGGER " +GazetteContracts.User.TABLE_NAME + "_deleted " + "   BEFORE DELETE ON "
+                + GazetteContracts.User.TABLE_NAME + " BEGIN " + " DELETE FROM " + GazetteContracts.Product_Info.TABLE_NAME + " WHERE "
+                + GazetteContracts.Product_Info.USER_ID + "=OLD." + GazetteContracts.User._ID + ";" + " END");
     }
 
     private void createProductTriggers(SQLiteDatabase db) {
         // Automatically delete Data rows when a raw contact is deleted.
-        db.execSQL("DROP TRIGGER IF EXISTS " + Tables.PRODUCT_INFO + "_deleted;");
-        db.execSQL("CREATE TRIGGER " + Tables.PRODUCT_INFO + "_deleted " + "   BEFORE DELETE ON "
-                + Tables.PRODUCT_INFO + " BEGIN " + " DELETE FROM " + Tables.INSURANCE + " WHERE "
-                + InsuranceColumns._ID + "=OLD." + ProductColumns.INSURANCE_ID + ";"
-                + " DELETE FROM " + Tables.WARRANTY + " WHERE " + WarrantyColumns._ID + "=OLD."
-                + ProductColumns.WARRANTY_ID + ";" + " DELETE FROM " + Tables.INVOICE + " WHERE "
-                + InvoiceColumns._ID + "=OLD." + ProductColumns.INOVICE_ID + ";" + " END");
+        db.execSQL("DROP TRIGGER IF EXISTS " + GazetteContracts.Product_Info.TABLE_NAME + "_deleted;");
+        db.execSQL("CREATE TRIGGER " + GazetteContracts.Product_Info.TABLE_NAME + "_deleted " + "   BEFORE DELETE ON "
+                + GazetteContracts.Product_Info.TABLE_NAME + " BEGIN " + " DELETE FROM " + GazetteContracts.Insurance.TABLE_NAME + " WHERE "
+                + GazetteContracts.Insurance._ID + "=OLD." + GazetteContracts.Product_Info.INSURANCE_ID + ";"
+                + " DELETE FROM " + GazetteContracts.Warranty.TABLE_NAME + " WHERE " + GazetteContracts.Warranty._ID + "=OLD."
+                + GazetteContracts.Product_Info.WARRANTY_ID + ";" + " DELETE FROM " + GazetteContracts.Insurance.TABLE_NAME + " WHERE "
+                + GazetteContracts.Invoice._ID + "=OLD." + GazetteContracts.Product_Info.INOVICE_ID + ";" + " END");
     }
 
     public void createSearchIndexTable(SQLiteDatabase db) {
-        db.execSQL("DROP TABLE IF EXISTS " + Tables.SEARCH_INDEX);
-        db.execSQL("CREATE VIRTUAL TABLE " + Tables.SEARCH_INDEX + " USING FTS4 ("
-                + SearchIndexColumns.CONTACT_ID + " INTEGER REFERENCES contacts(_id) NOT NULL,"
-                + SearchIndexColumns.CONTENT + " TEXT, " + SearchIndexColumns.NAME + " TEXT, "
-                + SearchIndexColumns.TOKENS + " TEXT" + ")");
+        db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.SearchIndex.TABLE_NAME);
+        db.execSQL("CREATE VIRTUAL TABLE " + GazetteContracts.SearchIndex.TABLE_NAME + " USING FTS4 ("
+                + GazetteContracts.SearchIndex.CONTACT_ID + " INTEGER REFERENCES contacts(_id) NOT NULL,"
+                + GazetteContracts.SearchIndex.CONTENT + " TEXT, " + GazetteContracts.SearchIndex.NAME + " TEXT, "
+                + GazetteContracts.SearchIndex.TOKENS + " TEXT" + ")");
     }
 
     @Override
@@ -357,15 +243,15 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
             Log.i(TAG, "Upgrading to test version " + oldVersion + " to " + newVersion
                     + ", data will be lost!");
 
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.USER + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.INSURANCE + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.WARRANTY + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.CATEGORIES + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.BRAND + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.INVOICE + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.PRODUCT_INFO + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.RETAILER + ";");
-            db.execSQL("DROP TABLE IF EXISTS " + Tables.SEARCH_INDEX + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.User.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.Insurance.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.Warranty.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.Category.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.Brand.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.Invoice.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.Product_Info.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.Retailer.TABLE_NAME + ";");
+            db.execSQL("DROP TABLE IF EXISTS " + GazetteContracts.SearchIndex.TABLE_NAME + ";");
             onCreate(db);
             return;
         }
