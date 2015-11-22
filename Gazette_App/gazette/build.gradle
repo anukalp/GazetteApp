@@ -67,6 +67,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.+'
     compile 'com.journeyapps:zxing-android-embedded:3.0.+@aar'
     compile 'com.google.zxing:core:3.2.+'
+    compile 'com.wdullaer:materialdatetimepicker:2.0.+'
 }
 
 

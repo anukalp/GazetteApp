@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.R;
@@ -31,6 +32,7 @@ public class ProductInvoiceScanFragment extends Fragment {
     private Button mediaButton;
     private ImageView scannedImageView;
     private static final int REQUEST_CODE = 99;
+    private TextView skip_button;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +44,13 @@ public class ProductInvoiceScanFragment extends Fragment {
         mediaButton = (Button) rootView.findViewById(R.id.mediaButton);
         mediaButton.setOnClickListener(new ScanButtonClickListener(ScanConstants.OPEN_MEDIA));
         scannedImageView = (ImageView) rootView.findViewById(R.id.invoice_view);
+        skip_button = (TextView) rootView.findViewById(R.id.skip_button);
+        skip_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(3);
+            }
+        });
         return rootView;
     }
 

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteBarCodeScanActivity;
@@ -37,6 +38,7 @@ public class ProductScanBarCodeFragment extends Fragment {
     private boolean flashToggle = false;
     private ImageView imageView;
     private RetrofitManagerClass mRetrofitManagerClass;
+    private TextView skip_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,8 +65,15 @@ public class ProductScanBarCodeFragment extends Fragment {
         if (!hasFlash()) {
             fab.setVisibility(View.GONE);
         }
+        skip_button = (TextView) rootView.findViewById(R.id.skip_button);
         barcodeScannerView = (CompoundBarcodeView) rootView.findViewById(R.id.zxing_barcode_scanner);
         imageView = (ImageView) rootView.findViewById(R.id.barcodePreview);
+        skip_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(1);
+            }
+        });
         return rootView;
     }
 
@@ -166,6 +175,8 @@ public class ProductScanBarCodeFragment extends Fragment {
             public void success(ProductInfoResponse data, retrofit.client.Response response) {
                 Log.e("Anil", "success " + data.getName());
                 barcodeScannedConfimation(productUPC + "\n Product : " + data.getName());
+                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setTitle(data.getName());
+                GazetteApplication.getInstance().notifyAllProductScannerListener();
             }
 
             @Override

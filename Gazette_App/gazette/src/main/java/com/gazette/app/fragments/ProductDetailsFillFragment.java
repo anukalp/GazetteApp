@@ -50,6 +50,7 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
         if ((null != ((GazetteBarCodeScanActivity) getActivity()).getmProduct())) {
             Log.i("Anil", " getmProduct not null " + ((GazetteBarCodeScanActivity) getActivity()).getmProduct().getProductCode());
             product_barcode.setText(((GazetteBarCodeScanActivity) getActivity()).getmProduct().getProductCode());
+            product_name.setText(((GazetteBarCodeScanActivity) getActivity()).getmProduct().getTitle());
         }
 
     }
