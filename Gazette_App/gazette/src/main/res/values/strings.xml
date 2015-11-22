@@ -46,12 +46,15 @@
         <item>1 Year (12 months)</item>
         <item>2 Year (24 months)</item>
         <item>3 Year (36 months)</item>
+        <item>4 Year (48 months)</item>
+        <item>5 Year (60 months)</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="warranty_provider">
         <item>Select warranty provider</item>
         <item>Don\'t Know</item>
-        <item>XYZ</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="smartphone_images">

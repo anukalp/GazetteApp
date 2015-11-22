@@ -20,6 +20,7 @@ import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Anil Gudigar on 11/18/2015.
@@ -69,14 +70,15 @@ public class ProductWarrantyFragment extends Fragment implements ProductScannerL
                 dpd.setThemeDark(false);
                 dpd.vibrate(true);
                 dpd.dismissOnPause(true);
-                dpd.showYearPickerFirst(true);
+                dpd.showYearPickerFirst(false);
+                dpd.setMaxDate(now);
                 if (true) {
                     dpd.setAccentColor(getActivity().getResources().getColor(R.color.colorPrimaryDark));
                 }
                 if (true) {
-                    dpd.setTitle("DatePicker Title");
+                    dpd.setTitle("Purchase Date");
                 }
-                dpd.show(getActivity().getFragmentManager(), "Datepickerdialog");
+                dpd.show(getActivity().getFragmentManager(), getActivity().getResources().getString(R.string.app_name));
             }
         });
         return rootView;
@@ -89,7 +91,7 @@ public class ProductWarrantyFragment extends Fragment implements ProductScannerL
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        String date = dayOfMonth+"-"+(++monthOfYear)+"-"+year;
+        String date = dayOfMonth + "-" + (++monthOfYear) + "-" + year;
         purchase_date.setText(date);
     }
 
