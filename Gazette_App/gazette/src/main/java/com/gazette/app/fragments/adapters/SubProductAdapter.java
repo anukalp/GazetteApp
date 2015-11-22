@@ -61,12 +61,12 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
         Typeface font = Typeface.createFromAsset(mActivity.getAssets(), "fonts/ProximaNova-Semibold.otf");
         mName.setTypeface(font);
         if (null != mProductLists.get(position)) {
-            mName.setText(mProductLists.get(position).getTitle());
+            mName.setText(mProductLists.get(position).getProductName());
             if (null != mProductLists.get(position)) {
                 NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("en", "in"));
             }
-            if (null != mProductLists.get(position).getImages() && null != mProductLists.get(position).getImages().get(0)) {
-                mBaselineJpegView.setImageResource(mProductLists.get(position).getImages().get(0).getSrc());
+            if (null != mProductLists.get(position).getProductImage()) {
+                mBaselineJpegView.setImageResource(mProductLists.get(position).getProductImage().getSrc());
             }
             holder.mProductCard.setTag(mProductLists.get(position));
         }

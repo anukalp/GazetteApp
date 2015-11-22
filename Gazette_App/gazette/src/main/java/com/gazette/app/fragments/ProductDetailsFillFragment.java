@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteBarCodeScanActivity;
@@ -23,7 +25,7 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
     private EditText product_name;
     private EditText product_serial;
     private Button nextBtn;
-
+    private Spinner category_spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +37,13 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
         product_name = (EditText) rootView.findViewById(R.id.product_name);
         product_serial = (EditText) rootView.findViewById(R.id.product_serial);
         nextBtn = (Button) rootView.findViewById(R.id.nextBtn);
+        category_spinner = (Spinner) rootView.findViewById(R.id.category_spinner);
+        String[] category = getActivity().getResources().getStringArray(R.array.products);
+        ArrayAdapter<String> category_spinner_adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),
+                R.layout.spinner_item, category);
+        category_spinner_adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        category_spinner.setAdapter(category_spinner_adapter);
+
         GazetteApplication.getInstance().addProductScannerListener(this);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,9 +57,9 @@ public class ProductDetailsFillFragment extends Fragment implements ProductScann
     private void init() {
         Log.i("Anil", " init ");
         if ((null != ((GazetteBarCodeScanActivity) getActivity()).getmProduct())) {
-            Log.i("Anil", " getmProduct not null " + ((GazetteBarCodeScanActivity) getActivity()).getmProduct().getProductCode());
-            product_barcode.setText(((GazetteBarCodeScanActivity) getActivity()).getmProduct().getProductCode());
-            product_name.setText(((GazetteBarCodeScanActivity) getActivity()).getmProduct().getTitle());
+            Log.i("Anil", " getmProduct not null " + ((GazetteBarCodeScanActivity) getActivity()).getmProduct().getProductBarCode());
+            product_barcode.setText(((GazetteBarCodeScanActivity) getActivity()).getmProduct().getProductBarCode());
+            product_name.setText(((GazetteBarCodeScanActivity) getActivity()).getmProduct().getProductName());
         }
 
     }

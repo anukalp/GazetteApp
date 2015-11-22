@@ -17,44 +17,22 @@ import java.util.Set;
 public class Product {
 
     private int productId;
-    private String title;
-    private String vendor;
-    private String productType;
-    private String productCode;
+    private String productBarCode;
+    private String productBrand;
+    private String productName;
     private String productSerialNumber;
-    private List<Image> images;
-    private String tags;
-    private Set<String> tagSet;
+    private String productCategory;
+    private String productWarrantyDuration;
+    private String productWarrantyProvider;
+    private String productPurchaseDate;
+    private String productVendor;
+    private String productPrice;
+    private Image ProductInvoice;
+    private Image ProductImage;
 
     public void setProductId(int productId) {
         this.productId = productId;
     }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setVendor(String vendor) {
-        this.vendor = vendor;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
-
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
-
-    public Set<String> getTagSet() {
-        return tagSet;
-    }
-
-    public void setTagSet(Set<String> tagSet) {
-        this.tagSet = tagSet;
-    }
-
     /**
      * @return The unique identifier for this product.
      */
@@ -62,61 +40,92 @@ public class Product {
         return productId;
     }
 
-    /**
-     * @return The title of this product.
-     */
-    public String getTitle() {
-        return title;
+    public String getProductBarCode() {
+        return productBarCode;
     }
 
-    /**
-     * @return The name of the vendor of this product.
-     */
-    public String getVendor() {
-        return vendor;
+    public void setProductBarCode(String productBarCode) {
+        this.productBarCode = productBarCode;
     }
 
-    /**
-     * @return The categorization that this product was tagged with, commonly used for filtering and searching.
-     */
-    public String getProductType() {
-        return productType;
+    public String getProductBrand() {
+        return productBrand;
     }
 
-    /**
-     * @return A list of additional categorizations that a product can be tagged with, commonly used for filtering and searching. Each tag has a character limit of 255.
-     */
-    public Set<String> getTags() {
-        return tagSet;
+    public void setProductBrand(String productBrand) {
+        this.productBrand = productBrand;
     }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
+    public String getProductName() {
+        return productName;
     }
 
-    /**
-     * @return A list of {@link Image} objects, each one representing an image associated with this product.
-     */
-    public List<Image> getImages() {
-        if (null == images) {
-            this.images = new ArrayList<>();
-        }
-        return images;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    /**
-     * @return {code true} if this product has at least one image, {@code false} otherwise.
-     */
-    public boolean hasImage() {
-        return images != null && !images.isEmpty();
+    public String getProductCategory() {
+        return productCategory;
     }
 
-    public String getProductCode() {
-        return productCode;
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public String getProductWarrantyDuration() {
+        return productWarrantyDuration;
+    }
+
+    public void setProductWarrantyDuration(String productWarrantyDuration) {
+        this.productWarrantyDuration = productWarrantyDuration;
+    }
+
+    public String getProductWarrantyProvider() {
+        return productWarrantyProvider;
+    }
+
+    public void setProductWarrantyProvider(String productWarrantyProvider) {
+        this.productWarrantyProvider = productWarrantyProvider;
+    }
+
+    public String getProductPurchaseDate() {
+        return productPurchaseDate;
+    }
+
+    public void setProductPurchaseDate(String productPurchaseDate) {
+        this.productPurchaseDate = productPurchaseDate;
+    }
+
+    public String getProductVendor() {
+        return productVendor;
+    }
+
+    public void setProductVendor(String productVendor) {
+        this.productVendor = productVendor;
+    }
+
+    public String getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(String productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public Image getProductInvoice() {
+        return ProductInvoice;
+    }
+
+    public void setProductInvoice(Image productInvoice) {
+        ProductInvoice = productInvoice;
+    }
+
+    public Image getProductImage() {
+        return ProductImage;
+    }
+
+    public void setProductImage(Image productImage) {
+        ProductImage = productImage;
     }
 
     public String getProductSerialNumber() {

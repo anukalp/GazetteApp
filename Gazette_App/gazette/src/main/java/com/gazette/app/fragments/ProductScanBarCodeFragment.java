@@ -133,7 +133,7 @@ public class ProductScanBarCodeFragment extends Fragment {
                 if (flashToggle) {
                     barcodeScannerView.setTorchOff();
                 }
-                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductCode(result.getText());
+                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductBarCode(result.getText());
                 requestProductInfo(result.getText());
                 GazetteApplication.getInstance().notifyAllProductScannerListener();
             }
@@ -175,7 +175,7 @@ public class ProductScanBarCodeFragment extends Fragment {
             public void success(ProductInfoResponse data, retrofit.client.Response response) {
                 Log.e("Anil", "success " + data.getName());
                 barcodeScannedConfimation(productUPC + "\n Product : " + data.getName());
-                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setTitle(data.getName());
+                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductName(data.getName());
                 GazetteApplication.getInstance().notifyAllProductScannerListener();
             }
 

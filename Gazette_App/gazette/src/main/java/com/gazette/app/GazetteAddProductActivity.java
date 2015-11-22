@@ -61,14 +61,12 @@ public class GazetteAddProductActivity extends GazetteBaseActivity {
         if (null != products && null != images) {
             for (int i = 0; i < Products.length; i++) {
                 Product product = new Product();
-                product.setTitle(Products[i]);
+                product.setProductName(Products[i]);
                 product.setProductId(i);
                 Image image = new Image();
                 image.setProductId(product.getProductId());
                 image.setSrc(images.getResourceId(i, -1));
-                List<Image> imageList = new ArrayList<>();
-                imageList.add(image);
-                product.setImages(imageList);
+                product.setProductImage(image);
                 products.add(product);
             }
         }

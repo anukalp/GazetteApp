@@ -89,7 +89,7 @@ public class ProductInvoiceScanFragment extends Fragment {
                 getActivity().getContentResolver().delete(uri, null, null);
                 Image image = new Image();
                 image.setBitmap(bitmap);
-                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().getImages().add(image);
+                ((GazetteBarCodeScanActivity) getActivity()).getmProduct().setProductInvoice(image);
                 scannedImageView.setImageBitmap(bitmap);
                 ((GazetteBarCodeScanActivity) getActivity()).moveToNextPage(3);
             } catch (IOException e) {
