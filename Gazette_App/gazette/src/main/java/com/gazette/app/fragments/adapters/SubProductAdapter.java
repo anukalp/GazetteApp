@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.gazette.app.GazetteBarCodeScanActivity;
 import com.gazette.app.GazetteProductDetailActivity;
-import com.gazette.app.GazetteProductDetailFragment;
+import com.gazette.app.fragments.GazetteProductDetailFragment;
 import com.gazette.app.R;
 import com.gazette.app.model.Image;
 import com.gazette.app.model.Product;

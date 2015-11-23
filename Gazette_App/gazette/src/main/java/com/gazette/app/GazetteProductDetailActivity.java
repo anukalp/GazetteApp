@@ -7,7 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
-import android.view.MenuItem;
+
+import com.gazette.app.fragments.GazetteProductDetailFragment;
 
 /**
  * An activity representing a single Product detail screen. This
@@ -15,6 +16,8 @@ import android.view.MenuItem;
  * item details are presented side-by-side with a list of items
  */
 public class GazetteProductDetailActivity extends AppCompatActivity {
+    private GazetteProductDetailFragment fragment = null;
+    private boolean chatVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +30,15 @@ public class GazetteProductDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (null != fragment) {
+                    if (!chatVisible) {
+                        fragment.lunchChatview();
+                        chatVisible = true;
+                    }else{
+                        fragment.hideChatview();
+                        chatVisible = false;
+                    }
+                }
             }
         });
 
@@ -38,22 +48,14 @@ public class GazetteProductDetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        // savedInstanceState is non-null when there is fragment state
-        // saved from previous configurations of this activity
-        // (e.g. when rotating the screen from portrait to landscape).
-        // In this case, the fragment will automatically be re-added
-        // to its container so we don't need to manually add it.
-        // For more information, see the Fragments API guide at:
-        //
-        // http://developer.android.com/guide/components/fragments.html
-        //
+
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
             arguments.putString(GazetteProductDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(GazetteProductDetailFragment.ARG_ITEM_ID));
-            GazetteProductDetailFragment fragment = new GazetteProductDetailFragment();
+            fragment = new GazetteProductDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.product_detail_container, fragment)
@@ -61,13 +63,5 @@ public class GazetteProductDetailActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
 
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

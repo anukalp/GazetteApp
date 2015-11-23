@@ -1,4 +1,4 @@
-package com.gazette.app;
+package com.gazette.app.fragments;
 
 import android.app.Activity;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -7,8 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gazette.app.GazetteProductDetailActivity;
+import com.gazette.app.R;
 import com.gazette.app.model.Product;
 
 
@@ -25,7 +28,10 @@ public class GazetteProductDetailFragment extends Fragment {
      */
     public static final String ARG_ITEM_ID = "item_id";
 
-    private String  mTitle;
+    private String mTitle;
+    private LinearLayout product_details_layout;
+    private LinearLayout chat_layout;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -54,7 +60,19 @@ public class GazetteProductDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.product_detail, container, false);
 
         // Show the dummy content as text in a TextView.
+        chat_layout = (LinearLayout) rootView.findViewById(R.id.chat_layout);
+        product_details_layout = (LinearLayout) rootView.findViewById(R.id.product_details_layout);
 
         return rootView;
+    }
+
+    public void lunchChatview() {
+        product_details_layout.setVisibility(View.GONE);
+        chat_layout.setVisibility(View.VISIBLE);
+    }
+
+    public void hideChatview() {
+        product_details_layout.setVisibility(View.VISIBLE);
+        chat_layout.setVisibility(View.GONE);
     }
 }

@@ -1,12 +1,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/product_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GazetteProductDetailFragment">
+    tools:context=".fragments.GazetteProductDetailFragment">
 
-    <include layout="@layout/content_gazette_user_chat" />
+    <include android:id="@+id/chat_layout" layout="@layout/content_gazette_user_chat" />
 
-    <include layout="@layout/product_all_detail" />
+    <include android:id="@+id/product_details_layout" layout="@layout/product_all_detail" />
 
 </FrameLayout>

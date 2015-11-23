@@ -1,6 +1,7 @@
 package com.gazette.app;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +23,11 @@ public class GazetteAddProductActivity extends GazetteBaseActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         if (null != getIntent().getExtras()) {
             mProduct_type = getIntent().getExtras().getString(GazetteConstants.PRODUCT_ID);
             Log.i("Anil", "getProductId :" + mProduct_type);
@@ -39,5 +45,10 @@ public class GazetteAddProductActivity extends GazetteBaseActivity {
 
     private void _init() {
         mAdapter = new SubProductAdapter(this, mProduct_type);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
