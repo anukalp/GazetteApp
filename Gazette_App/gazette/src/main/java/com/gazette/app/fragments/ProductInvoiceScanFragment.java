@@ -100,7 +100,7 @@ public class ProductInvoiceScanFragment extends Fragment {
                 scannedImageView.setImageBitmap(bitmap);
                 if (null != bitmap) {
                     Snackbar.make(scannedImageView, "Invoice Scanned!", Snackbar.LENGTH_SHORT).show();
-                    uiHandler.sendEmptyMessageDelayed(1, 5000);
+                    uiHandler.sendEmptyMessageDelayed(1, 3000);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -108,9 +108,6 @@ public class ProductInvoiceScanFragment extends Fragment {
         }
     }
 
-    private Bitmap convertByteArrayToBitmap(byte[] data) {
-        return BitmapFactory.decodeByteArray(data, 0, data.length);
-    }
 
     class UIHandler extends Handler {
         @Override

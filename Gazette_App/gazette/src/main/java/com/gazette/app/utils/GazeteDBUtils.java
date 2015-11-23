@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.gazette.app.model.Product;
 import com.gazette.app.provider.GazetteContracts;
+import com.gazette.app.provider.GazetteDatabaseHelper;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
@@ -33,6 +34,10 @@ public class GazeteDBUtils {
 
     public static Cursor getCategory(Context context) {
         return context.getContentResolver().query(GazetteContracts.Category.CONTENT_URI, null, null, null, null);
+    }
+
+    public static Cursor getProductView(Context context) {
+        return context.getContentResolver().query(GazetteDatabaseHelper.Views.PRODUCT_DATA_CONTENT_URI, null, null, null, null);
     }
 
     public static Cursor getCategoryID(Context context, String Category) {
@@ -66,7 +71,9 @@ public class GazeteDBUtils {
 
     public static Uri addInvoice(Context context, byte[] photo, String place_of_purchase, String ammount, long product_id, long reatiler_id) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(GazetteContracts.Invoice.PHOTO, photo);
+        if (null != photo)
+            contentValues.put(GazetteContracts.Invoice.PHOTO, photo);
+
         contentValues.put(GazetteContracts.Invoice.PLACE_PURCHASE, place_of_purchase);
         contentValues.put(GazetteContracts.Invoice.AMOUNT, ammount);
         contentValues.put(GazetteContracts.Invoice.PRODUCT_ID, product_id);
@@ -115,9 +122,13 @@ public class GazeteDBUtils {
         Uri retailerUri = addRetailer(context, product.getProductVendor(), "", "");
 
         //Invoice
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        product.getProductInvoice().getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] InvoiceCopy = stream.toByteArray();
+        byte[] InvoiceCopy = null;
+        if (null != product.getProductInvoice() && null != product.getProductInvoice().getBitmap()) {
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            product.getProductInvoice().getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+            InvoiceCopy = stream.toByteArray();
+        }
+
         Uri invoiceUri = addInvoice(context, InvoiceCopy, product.getProductVendor(), product.getProductPrice(), -1, ContentUris.parseId(retailerUri));
 
         //Warranty

@@ -29,6 +29,7 @@ public class SharedPreferenceManager {
     private static final String KEY_MOBILE = "mobile";
     private static final  String NO_DATA = "no data";
     private static final String KEY_CURRENT_LOCATION = "LOCATION";
+    private static final String KEY_INITIAL_RUN = "init";
 
     public SharedPreferenceManager(Context context) {
         this._context = context;
@@ -39,6 +40,15 @@ public class SharedPreferenceManager {
     public void setIsWaitingForSms(boolean isWaiting) {
         editor.putBoolean(KEY_IS_WAITING_FOR_SMS, isWaiting);
         editor.commit();
+    }
+
+    public void setInitialRun(boolean init) {
+        editor.putBoolean(KEY_INITIAL_RUN, init);
+        editor.commit();
+    }
+
+    public boolean checkInitialRun() {
+        return mSharedPreferences.getBoolean(KEY_INITIAL_RUN, true);
     }
 
     public boolean isWaitingForSms() {

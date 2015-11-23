@@ -4,6 +4,7 @@ package com.gazette.app.provider;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.util.Log;
 
 /**
@@ -35,7 +36,7 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
             GazetteContracts.Warranty.TABLE_NAME + "." + GazetteContracts.Warranty._ID;
 
     public static final String INVOICE_CONCRETE_ID =
-            GazetteContracts.Insurance.TABLE_NAME + "." + GazetteContracts.Invoice._ID;
+            GazetteContracts.Invoice.TABLE_NAME + "." + GazetteContracts.Invoice._ID;
 
     public static final String CATEGORY_CONCRETE_NAME =
             GazetteContracts.Category.TABLE_NAME + "." + GazetteContracts.Category.NAME;
@@ -82,11 +83,19 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
     private static final String PRODUCT_CONCRETE_WARRANTY_ID =
             GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.WARRANTY_ID;
 
+    private static final String PRODUCT_CONCRETE_NAME =
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.NAME;
+
+    private static final String PRODUCT_CONCRETE_CODE =
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.PRODUCT_CODE;
+
     private final Context mContext;
 
 
     public interface Views {
         public static final String PRODUCT_DATA = "view_data";
+        public static final Uri PRODUCT_DATA_CONTENT_URI = Uri.withAppendedPath(
+                GazetteContracts.CONTENT_URI, "product_data");
 
         public static final String PRODUCT_ISSUER = "view_issuer";
 
@@ -184,16 +193,16 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
         /**
          * CREATE VIEWS
          */
-        //createProductView(db);
+          createProductView(db);
         // createRetailerView(db);
 
     }
 
-    private void createProductView(SQLiteDatabase db) {
+    public void createProductView(SQLiteDatabase db) {
         db.execSQL("DROP VIEW IF EXISTS " + Views.PRODUCT_DATA + ";");
         String productSelect = "SELECT " + CATEGORY_CONCRETE_NAME + " AS category, "
                 + INVOICE_CONCRETE_PHOTO + " AS photo, " + INVOICE_CONCRETE_AMOUNT + " AS amount, "
-                + INVOICE_CONCRETE_PLACE + " AS purchase_place, " + GazetteContracts.Product_Info.PRODUCT_CODE + ", "
+                + INVOICE_CONCRETE_PLACE + " AS purchase_place, " + PRODUCT_CONCRETE_NAME  + " AS product_name, "+ PRODUCT_CONCRETE_CODE+ " AS product_code, "
                 + INSURANCE_CONCRETE_STARTDATE + " AS insured_start_date, " + INSURANCE_CONCRETE_ENDDATE + " AS insured_end_date, "
                 + WARRANTY_CONCRETE_STARTDATE + " AS start_date, " + WARRANTY_CONCRETE_ENDDATE + " AS end_date, "
                 + GazetteContracts.Product_Info.BARCODE + ", " + BRAND_CONCRETE_NAME + " AS brand, "
@@ -206,7 +215,7 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
                 + INSURANCE_CONCRETE_RETAILER_ID + "=" + RETAILER_CONCRETE_ID + ")"
                 + " LEFT OUTER JOIN " + GazetteContracts.Warranty.TABLE_NAME + " ON (" + PRODUCT_CONCRETE_WARRANTY_ID + "="
                 + WARRANTY_CONCRETE_ID + ")"
-                + " LEFT OUTER JOIN " + GazetteContracts.Insurance.TABLE_NAME + " ON (" + PRODUCT_CONCRETE_INOVICE_ID
+                + " LEFT OUTER JOIN " + GazetteContracts.Invoice.TABLE_NAME + " ON (" + PRODUCT_CONCRETE_INOVICE_ID
                 + "=" + INVOICE_CONCRETE_ID + ")";
         db.execSQL("CREATE VIEW " + Views.PRODUCT_DATA + " AS " + productSelect);
     }

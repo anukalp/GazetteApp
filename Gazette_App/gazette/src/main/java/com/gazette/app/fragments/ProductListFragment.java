@@ -23,6 +23,7 @@ import com.gazette.app.model.Image;
 import com.gazette.app.utils.DividerItemDecoration;
 import com.gazette.app.utils.GazeteDBUtils;
 import com.gazette.app.utils.GazetteConstants;
+import com.gazette.app.utils.SharedPreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class ProductListFragment extends Fragment implements OnProductAddedListe
     private String mColletion_ID = null;
     private ProgressDialog progressDialog;
     private List<Category> products = null;
-
+    private SharedPreferenceManager pref;
     private static String TAG = ProductListFragment.class
             .getName();
 
@@ -45,6 +46,7 @@ public class ProductListFragment extends Fragment implements OnProductAddedListe
         super.onCreate(savedInstanceState);
         mColletion_ID = (String) getArguments().get(GazetteConstants.COLLECTION_ID);
         GazetteApplication.getInstance().addOnProductAddedListener(this);
+        pref = new SharedPreferenceManager(getActivity());
         _init();
         initializeProgressDialog();
     }
@@ -57,11 +59,16 @@ public class ProductListFragment extends Fragment implements OnProductAddedListe
             Category category = new Category();
             category.setName(Category[i]);
             long category_id = i + 1;
-            Cursor cursor = GazeteDBUtils.getProductByCategory(getActivity(), category_id);
-            if (null != cursor && cursor.getCount() > 0) {
-                category.setCount(cursor.getCount());
-            } else {
+            if (pref.checkInitialRun()) {
                 category.setCount(0);
+                pref.setInitialRun(false);
+            }else{
+                Cursor cursor = GazeteDBUtils.getProductByCategory(getActivity(), category_id);
+                if (null != cursor && cursor.getCount() > 0) {
+                    category.setCount(cursor.getCount());
+                } else {
+                    category.setCount(0);
+                }
             }
             category.setId(i);
             Image image = new Image();

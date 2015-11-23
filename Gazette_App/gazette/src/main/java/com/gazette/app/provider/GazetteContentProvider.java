@@ -101,6 +101,7 @@ public class GazetteContentProvider extends ContentProvider {
                     GazeteDBUtils.loadCategory(getContext(), Categories);
                 }
                 break;
+
         }
 
     }
@@ -177,6 +178,13 @@ public class GazetteContentProvider extends ContentProvider {
         SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
         Cursor cursor = null;
         switch (URI_MATCHER.match(uri)) {
+            case PRODUCT_VIEW:
+                sqLiteQueryBuilder.setTables(GazetteDatabaseHelper.Views.PRODUCT_DATA);
+                cursor = sqLiteQueryBuilder.query(sqLiteDatabase, projection, selection, selectionArgs,
+                        null, null, sortOrder);
+                cursor.setNotificationUri(getContext().getContentResolver(),
+                        GazetteDatabaseHelper.Views.PRODUCT_DATA_CONTENT_URI);
+                break;
             case BRANDS:
                 sqLiteQueryBuilder.setTables(GazetteContracts.Brand.TABLE_NAME);
                 cursor = sqLiteQueryBuilder.query(sqLiteDatabase, projection, selection, selectionArgs,
