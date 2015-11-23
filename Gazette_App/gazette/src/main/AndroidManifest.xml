@@ -87,18 +87,10 @@
             android:exported="false" />
 
         <activity
-            android:name=".ProductListActivity"
-            android:label="@string/title_product_list"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".GazetteProductDetailActivity"
             android:label="@string/title_product_detail"
-            android:parentActivityName=".ProductListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gazette.app.ProductListActivity" />
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
