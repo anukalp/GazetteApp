@@ -38,11 +38,13 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
     private Cursor dataCursor = null;
     private LinearLayout addProductLayout;
     private LinearLayout ProductLayout;
+    private String mCategory;
 
 
-    public SubProductAdapter(AppCompatActivity activity, List<Product> productsList) {
+    public SubProductAdapter(AppCompatActivity activity, String category) {
         mActivity = activity;
         mListener = new ListOnclickListener();
+        mCategory = category;
         mActivity.getSupportLoaderManager().initLoader(LOADER_ID_TABLE, null,
                 this);
     }
@@ -51,8 +53,10 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
     public Loader<Cursor> onCreateLoader(int Loaderid, Bundle args) {
         switch (Loaderid) {
             case LOADER_ID_TABLE:
+                String selection = "category = ?";
+                String[] selectionArgs = {mCategory};
                 return new CursorLoader(mActivity,
-                        GazetteDatabaseHelper.Views.PRODUCT_DATA_CONTENT_URI, null, null, null,
+                        GazetteDatabaseHelper.Views.PRODUCT_DATA_CONTENT_URI, null, selection, selectionArgs,
                         null);
         }
         return null;

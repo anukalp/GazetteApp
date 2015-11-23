@@ -23,8 +23,7 @@ public class GazetteAddProductActivity extends GazetteBaseActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private SubProductAdapter mAdapter;
-    private List<Product> products = null;
-    private int mProduct_type = -1;
+    private String mProduct_type = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class GazetteAddProductActivity extends GazetteBaseActivity {
         setSupportActionBar(toolbar);
 
         if (null != getIntent().getExtras()) {
-            mProduct_type = getIntent().getExtras().getInt(GazetteConstants.PRODUCT_ID);
+            mProduct_type = getIntent().getExtras().getString(GazetteConstants.PRODUCT_ID);
             Log.i("Anil", "getProductId :" + mProduct_type);
             _init();
             mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_add_product);
@@ -49,28 +48,6 @@ public class GazetteAddProductActivity extends GazetteBaseActivity {
 
 
     private void _init() {
-        products = new ArrayList<Product>();
-        String[] Products = null;
-        TypedArray images = null;
-        switch (mProduct_type) {
-            case 0:
-                Products = getResources().getStringArray(R.array.smartphone);
-                images = getResources().obtainTypedArray(R.array.smartphone_images);
-                break;
-        }
-        if (null != products && null != images) {
-            for (int i = 0; i < Products.length; i++) {
-                Product product = new Product();
-                product.setProductName(Products[i]);
-                product.setProductId(i);
-                Image image = new Image();
-                image.setProductId(product.getProductId());
-                image.setSrc(images.getResourceId(i, -1));
-                product.setProductImage(image);
-                products.add(product);
-            }
-        }
-
-        mAdapter = new SubProductAdapter(this, products);
+        mAdapter = new SubProductAdapter(this, mProduct_type);
     }
 }

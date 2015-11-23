@@ -46,8 +46,8 @@ public class GazetteApplication extends Application {
 
     public void launchAddProductDetailsActivity(Activity activity, Category category) {
         Intent intent = new Intent(this, GazetteAddProductActivity.class);
-        Log.i("Anil", "category id :" + category.getId());
-        intent.putExtra(GazetteConstants.PRODUCT_ID, category.getId());
+        Log.i("Anil", "category id :" + category.getName());
+        intent.putExtra(GazetteConstants.PRODUCT_ID, category.getName());
         activity.startActivity(intent);
     }
 
