@@ -152,4 +152,8 @@
     <string name="scan">Scan</string>
     <string name="cantCrop">Cant crop the image, change the points</string>
     <string name="ok">Ok</string>
+    <string name="title_product_list">Product</string>
+    <string name="title_product_detail">Product Detail</string>
+    <string name="title_activity_gazette_user_chat">GazetteUserChatActivity</string>
+    <string name="btn_send">Send</string>
 </resources>

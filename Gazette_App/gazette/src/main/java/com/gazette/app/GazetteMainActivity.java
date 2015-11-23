@@ -56,8 +56,6 @@ public class GazetteMainActivity extends GazetteBaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-               //         .setAction("Action", null).show();
                 launchScanner();
             }
         });
@@ -193,15 +191,6 @@ public class GazetteMainActivity extends GazetteBaseActivity
     }
 
     public void launchScanner() {
-        if (isCameraAvailable()) {
-            Intent intent = new Intent(this, GazetteBarCodeScanActivity.class);
-            startActivityForResult(intent, ZBAR_SCANNER_REQUEST);
-        } else {
-            Toast.makeText(this, "Rear Facing Camera Unavailable", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void launchQRScanner() {
         if (isCameraAvailable()) {
             Intent intent = new Intent(this, GazetteBarCodeScanActivity.class);
             startActivityForResult(intent, ZBAR_SCANNER_REQUEST);

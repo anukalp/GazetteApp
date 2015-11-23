@@ -17,4 +17,5 @@
     <!-- ScanPadding must be half of polygonViewCircleWidth -->
 
     <dimen name="bottom_bar_padding">15dp</dimen>
+    <dimen name="item_width">200dp</dimen>
 </resources>
