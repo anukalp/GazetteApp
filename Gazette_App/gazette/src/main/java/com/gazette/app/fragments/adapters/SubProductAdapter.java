@@ -36,6 +36,9 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
     private ImageView mBaselineJpegView;
     private static final int LOADER_ID_TABLE = 1;
     private Cursor dataCursor = null;
+    private LinearLayout addProductLayout;
+    private LinearLayout ProductLayout;
+
 
     public SubProductAdapter(AppCompatActivity activity, List<Product> productsList) {
         mActivity = activity;
@@ -59,10 +62,10 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         switch (loader.getId()) {
             case LOADER_ID_TABLE:
-                if(null != data){
+                if (null != data) {
                     Log.i("Anil", " onLoadFinished Table Count:" + data.getCount());
                     swapCursor(data);
-                }else{
+                } else {
                     Log.i("Anil", " onLoadFinished data null");
                 }
                 break;
@@ -100,24 +103,46 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return (dataCursor == null) ? 0 : dataCursor.getCount();
+        return (dataCursor == null) ? 0 : dataCursor.getCount() + 1;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        dataCursor.moveToPosition(position);
-        Product product = buildProductObject(dataCursor);
-        mBaselineJpegView = (ImageView) holder.mProductCard.findViewById(R.id.baseline_jpeg);
-        mName = (TextView) holder.mProductCard.findViewById(R.id.name);
+        Product product = null;
+        addProductLayout = (LinearLayout) holder.mProductCard.findViewById(R.id.add_product_layout);
+        ProductLayout = (LinearLayout) holder.mProductCard.findViewById(R.id.product_layout);
         Typeface font = Typeface.createFromAsset(mActivity.getAssets(), "fonts/ProximaNova-Semibold.otf");
-        mName.setTypeface(font);
-        if (null != product) {
-            mName.setText(product.getProductName());
-            if (null != product.getProductInvoice() && null != product.getProductInvoice().getBitmap()) {
-                mBaselineJpegView.setImageBitmap(product.getProductInvoice().getBitmap());
+        if (position < dataCursor.getCount()) {
+            dataCursor.moveToPosition(position);
+            product = buildProductObject(dataCursor);
+            addProductLayout.setVisibility(View.GONE);
+            mBaselineJpegView = (ImageView) ProductLayout.findViewById(R.id.baseline_jpeg);
+            mName = (TextView) ProductLayout.findViewById(R.id.name);
+            mName.setTypeface(font);
+            if (null != product) {
+                mName.setText(product.getProductName());
+                if (null != product.getProductInvoice() && null != product.getProductInvoice().getBitmap()) {
+                    mBaselineJpegView.setImageBitmap(product.getProductInvoice().getBitmap());
+                }
+                holder.mProductCard.setTag(product);
             }
-            holder.mProductCard.setTag(product);
+        } else {
+            ProductLayout.setVisibility(View.GONE);
+            product = new Product();
+            product.setProductName("Other");
+            Image img = new Image();
+            img.setSrc(R.drawable.ic_other_product);
+            product.setProductImage(img);
+            mBaselineJpegView = (ImageView) addProductLayout.findViewById(R.id.baseline_jpeg);
+            mName = (TextView) addProductLayout.findViewById(R.id.name);
+            mName.setTypeface(font);
+            if (null != product) {
+                mName.setText(product.getProductName());
+                mBaselineJpegView.setImageResource(product.getProductImage().getSrc());
+                holder.mProductCard.setTag(product);
+            }
         }
+
 
     }
 
