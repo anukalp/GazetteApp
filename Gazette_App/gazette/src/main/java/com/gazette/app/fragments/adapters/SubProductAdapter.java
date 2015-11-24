@@ -75,6 +75,7 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
             case LOADER_ID_TABLE:
                 if (null != data) {
                     Log.i("Anil", " onLoadFinished Table Count:" + data.getCount());
+                    data.moveToFirst();
                     swapCursor(data);
                 } else {
                     Log.i("Anil", " onLoadFinished data null");
@@ -166,6 +167,8 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
         product.setProductName(mTitle);
         byte[] byteArray = dataCursor.getBlob(dataCursor
                 .getColumnIndex("photo"));
+        product.setProductId(dataCursor.getInt(dataCursor
+                .getColumnIndex("product_id")));
         if (null != byteArray) {
             Bitmap bm = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
             Image productInvoice = new Image();
@@ -190,9 +193,11 @@ public class SubProductAdapter extends RecyclerView.Adapter<SubProductAdapter.Vi
         public void onClick(View v) {
             if (null != v.getTag()) {
                 Product product = (Product) v.getTag();
-                Intent intent = new Intent(mActivity, GazetteProductDetailActivity.class);
-                intent.putExtra(GazetteProductDetailFragment.ARG_ITEM_ID, product.getProductName());
-                mActivity.startActivity(intent);
+                if (!product.getProductName().equalsIgnoreCase("Other")) {
+                    Intent intent = new Intent(mActivity, GazetteProductDetailActivity.class);
+                    intent.putExtra(GazetteProductDetailFragment.ARG_ITEM_ID, String.valueOf(product.getProductId()));
+                    mActivity.startActivity(intent);
+                }
             }
         }
     }

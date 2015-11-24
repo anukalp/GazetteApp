@@ -16,7 +16,7 @@ import java.util.Set;
  */
 public class Product {
 
-    private int productId;
+    private long productId;
     private String productBarCode;
     private String productBrand;
     private String productName;
@@ -30,13 +30,13 @@ public class Product {
     private Image ProductInvoice;
     private Image ProductImage;
 
-    public void setProductId(int productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
     }
     /**
      * @return The unique identifier for this product.
      */
-    public int getProductId() {
+    public long getProductId() {
         return productId;
     }
 

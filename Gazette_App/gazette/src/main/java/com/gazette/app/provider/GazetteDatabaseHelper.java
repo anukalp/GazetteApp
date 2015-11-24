@@ -89,6 +89,9 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
     private static final String PRODUCT_CONCRETE_CODE =
             GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info.PRODUCT_CODE;
 
+    private static final String PRODUCT_CONCRETE_ID =
+            GazetteContracts.Product_Info.TABLE_NAME + "." + GazetteContracts.Product_Info._ID;
+
     private final Context mContext;
 
 
@@ -193,16 +196,16 @@ public class GazetteDatabaseHelper extends SQLiteOpenHelper {
         /**
          * CREATE VIEWS
          */
-          createProductView(db);
+        createProductView(db);
         // createRetailerView(db);
 
     }
 
     public void createProductView(SQLiteDatabase db) {
         db.execSQL("DROP VIEW IF EXISTS " + Views.PRODUCT_DATA + ";");
-        String productSelect = "SELECT " + CATEGORY_CONCRETE_NAME + " AS category, "
+        String productSelect = "SELECT " + CATEGORY_CONCRETE_ID + " AS category_id, " + PRODUCT_CONCRETE_ID + " AS product_id, " + CATEGORY_CONCRETE_NAME + " AS category, "
                 + INVOICE_CONCRETE_PHOTO + " AS photo, " + INVOICE_CONCRETE_AMOUNT + " AS amount, "
-                + INVOICE_CONCRETE_PLACE + " AS purchase_place, " + PRODUCT_CONCRETE_NAME  + " AS product_name, "+ PRODUCT_CONCRETE_CODE+ " AS product_code, "
+                + INVOICE_CONCRETE_PLACE + " AS purchase_place, " + PRODUCT_CONCRETE_NAME + " AS product_name, " + PRODUCT_CONCRETE_CODE + " AS product_code, "
                 + INSURANCE_CONCRETE_STARTDATE + " AS insured_start_date, " + INSURANCE_CONCRETE_ENDDATE + " AS insured_end_date, "
                 + WARRANTY_CONCRETE_STARTDATE + " AS start_date, " + WARRANTY_CONCRETE_ENDDATE + " AS end_date, "
                 + GazetteContracts.Product_Info.BARCODE + ", " + BRAND_CONCRETE_NAME + " AS brand, "
