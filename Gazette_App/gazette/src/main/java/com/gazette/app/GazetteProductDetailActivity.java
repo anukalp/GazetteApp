@@ -14,7 +14,7 @@ import com.gazette.app.fragments.GazetteProductDetailFragment;
  * activity is only used narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
  */
-public class GazetteProductDetailActivity extends AppCompatActivity  {
+public class GazetteProductDetailActivity extends GazetteBaseActivity  {
 
     private GazetteProductDetailFragment fragment = null;
     private boolean chatVisible = false;
