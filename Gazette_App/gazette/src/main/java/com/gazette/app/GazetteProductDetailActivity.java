@@ -1,6 +1,9 @@
 package com.gazette.app;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,18 +17,22 @@ import com.gazette.app.fragments.GazetteProductDetailFragment;
  * activity is only used narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
  */
-public class GazetteProductDetailActivity extends GazetteBaseActivity  {
+public class GazetteProductDetailActivity extends AppCompatActivity {
 
     private GazetteProductDetailFragment fragment = null;
     private boolean chatVisible = false;
-
+    private AppBarLayout mAppBarLayout = null;
+    private CoordinatorLayout coordinatorLayout = null;
+    private Toolbar toolbar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.productcoordinatorLayout);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +42,11 @@ public class GazetteProductDetailActivity extends GazetteBaseActivity  {
                     if (!chatVisible) {
                         fragment.lunchChatview();
                         chatVisible = true;
+                        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) mAppBarLayout.getLayoutParams();
+                        AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
+                        if (behavior != null) {
+                            behavior.onNestedFling(coordinatorLayout, mAppBarLayout, null, 0, 10000, true);
+                        }
                     } else {
                         fragment.hideChatview();
                         chatVisible = false;
@@ -63,7 +75,6 @@ public class GazetteProductDetailActivity extends GazetteBaseActivity  {
                     .commit();
         }
     }
-
 
 
 }

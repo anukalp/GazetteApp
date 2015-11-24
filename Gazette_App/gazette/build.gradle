@@ -19,6 +19,8 @@ android {
             keyPassword 'gazette_katyal_gudigar'
         }
     }
+    useLibrary 'org.apache.http.legacy'
+
     buildTypes {
         release {
             minifyEnabled false
@@ -68,6 +70,7 @@ dependencies {
     compile 'com.journeyapps:zxing-android-embedded:3.0.+@aar'
     compile 'com.google.zxing:core:3.2.+'
     compile 'com.wdullaer:materialdatetimepicker:2.0.+'
+    compile project(':androidwebsocketsmaster')
 }
 
 

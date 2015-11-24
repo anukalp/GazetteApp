@@ -4,8 +4,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.GazetteProductDetailFragment">
 
-    <include android:id="@+id/chat_layout" layout="@layout/content_gazette_user_chat" />
+    <include
+        android:id="@+id/chat_layout"
+        layout="@layout/content_gazette_user_chat" />
 
-    <include android:id="@+id/product_details_layout" layout="@layout/product_all_detail" />
+    <include
+        android:id="@+id/product_details_layout"
+        layout="@layout/product_all_detail" />
+
 
 </FrameLayout>

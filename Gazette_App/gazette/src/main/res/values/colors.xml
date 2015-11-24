@@ -13,4 +13,9 @@
 
     <color name="polygonViewCircleStrokeColor">#ff59a9ff</color>
     <color name="polygonViewCircleBackground">#90e5f8ff</color>
+
+    <color name="bg_msg_from">#12273d</color>
+    <color name="bg_msg_you">#ffffbb02</color>
+    <color name="lblFromName">#777777</color>
+    <color name="title_gray">#434343</color>
 </resources>

@@ -3,33 +3,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tile_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:visibility="visible">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chat_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.30"
-        android:background="@null"></android.support.v7.widget.RecyclerView>
+        android:layout_above="@+id/llMsgCompose"
+        android:layout_weight="0.70"
+        android:background="@null" />
 
     <LinearLayout
         android:id="@+id/llMsgCompose"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.03"
+        android:layout_height="50dp"
         android:background="@color/white"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCloud"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.10"
+            android:background="@drawable/ic_cloud"
+            android:drawableBottom="@android:color/transparent" />
 
         <EditText
             android:id="@+id/inputMsg"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:background="@color/accent_A100"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.80"
+            android:hint="Type your message here..."
             android:paddingLeft="6dp"
             android:paddingRight="6dp"
-            android:textColor="@android:color/white">
+            android:textColor="@android:color/black"
+            android:textSize="12sp">
 
             <requestFocus />
         </EditText>
@@ -37,18 +47,49 @@
         <Button
             android:id="@+id/btnSend"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorButton"
-            android:text="@string/btn_send"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.10"
+            android:background="@drawable/ic_happy_smily"
+            android:drawableBottom="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/pictureSend"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:layout_weight="0.10"
+            android:background="@drawable/ic_attach"
             android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.20"
-        android:background="@android:color/transparent"
-        android:orientation="horizontal"></LinearLayout>
+        android:layout_weight="0.25"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Need Raise Service Request." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Want check the status of ticket." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Need a service person urgently." />
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -90,7 +90,7 @@
             android:name=".GazetteProductDetailActivity"
             android:label="@string/title_product_detail"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="stateVisible|adjustPan" />
     </application>
 
 </manifest>
