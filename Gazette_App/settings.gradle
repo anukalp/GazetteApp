@@ -1,1 +1,1 @@
-include ':gazette', ':scanlibrary', ':androidwebsocketsmaster'
+include ':gazette', ':scanlibrary'

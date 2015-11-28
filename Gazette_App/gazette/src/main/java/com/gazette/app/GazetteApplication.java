@@ -12,7 +12,17 @@ import com.gazette.app.model.Category;
 import com.gazette.app.model.opt.OTPVerificationResponseModel;
 import com.gazette.app.utils.GazetteConstants;
 
+import org.jivesoftware.smack.ConnectionConfiguration;
+import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.tcp.XMPPTCPConnection;
+import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
+
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.net.ssl.SSLSocketFactory;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -24,6 +34,7 @@ public class GazetteApplication extends Application {
     private ArrayList<OTPVerifySuccessListener> otpVerifySuccessListenerList = null;
     private ArrayList<ProductScannerListener> productScannerListenersList = null;
     private ArrayList<OnProductAddedListener> onProductAddedListenersList = null;
+    private XMPPTCPConnection mJabberconnection = null;
 
     @Override
     public void onCreate() {
@@ -38,10 +49,32 @@ public class GazetteApplication extends Application {
         productScannerListenersList = new ArrayList<>();
         onProductAddedListenersList = new ArrayList<>();
         _instance = this;
+        init_Jabber("anil", "anil");
     }
 
     public static GazetteApplication getInstance() {
         return _instance;
+    }
+
+    private void init_Jabber(String USER_ID, String key) {
+        XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
+        config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
+        config.setUsernameAndPassword(USER_ID + "@" + GazetteConstants.Jabber.DOMAIN, key);
+        config.setServiceName(GazetteConstants.Jabber.DOMAIN);
+        config.setHost(GazetteConstants.Jabber.DOMAIN);
+        config.setPort(GazetteConstants.Jabber.PORT);
+        config.setDebuggerEnabled(true);
+        config.setSocketFactory(SSLSocketFactory.getDefault());
+
+        mJabberconnection = new XMPPTCPConnection(config.build());
+        try {
+            mJabberconnection.connect();
+            Log.i("XMPPClient", "[SettingsDialog] Connected to " + mJabberconnection.getHost());
+        } catch (SmackException | IOException | XMPPException e) {
+            Log.e("Anil", "[SettingsDialog] Failed to connect to " + mJabberconnection.getHost());
+            Log.e("Anil", e.toString());
+            e.printStackTrace();
+        }
     }
 
     public void launchAddProductDetailsActivity(Activity activity, Category category) {

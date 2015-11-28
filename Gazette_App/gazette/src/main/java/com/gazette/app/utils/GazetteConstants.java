@@ -25,4 +25,9 @@ public class GazetteConstants {
         public static final String MOBILE = "mobile";
         public static final String OTP = "otp";
     }
+
+    public static class Jabber {
+        public static final String DOMAIN ="";
+        public static final int PORT =5222;
+    }
 }
