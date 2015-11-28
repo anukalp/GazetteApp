@@ -3,6 +3,7 @@ package com.gazette.app;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import com.gazette.app.callbacks.OTPVerifySuccessListener;
@@ -16,6 +17,7 @@ import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
@@ -35,6 +37,7 @@ public class GazetteApplication extends Application {
     private ArrayList<ProductScannerListener> productScannerListenersList = null;
     private ArrayList<OnProductAddedListener> onProductAddedListenersList = null;
     private XMPPTCPConnection mJabberconnection = null;
+    private ConnectTOJabberTask mConnectTOJabberTask= null;
 
     @Override
     public void onCreate() {
@@ -48,8 +51,9 @@ public class GazetteApplication extends Application {
         otpVerifySuccessListenerList = new ArrayList<>();
         productScannerListenersList = new ArrayList<>();
         onProductAddedListenersList = new ArrayList<>();
+        mConnectTOJabberTask = new ConnectTOJabberTask();
+        mConnectTOJabberTask.execute();
         _instance = this;
-        init_Jabber("anil", "anil");
     }
 
     public static GazetteApplication getInstance() {
@@ -61,19 +65,35 @@ public class GazetteApplication extends Application {
         config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
         config.setUsernameAndPassword(USER_ID + "@" + GazetteConstants.Jabber.DOMAIN, key);
         config.setServiceName(GazetteConstants.Jabber.DOMAIN);
-        config.setHost(GazetteConstants.Jabber.DOMAIN);
+        config.setHost(GazetteConstants.Jabber.HOST);
         config.setPort(GazetteConstants.Jabber.PORT);
         config.setDebuggerEnabled(true);
-        config.setSocketFactory(SSLSocketFactory.getDefault());
+        //config.setSocketFactory(SSLSocketFactory.getDefault());
 
         mJabberconnection = new XMPPTCPConnection(config.build());
         try {
             mJabberconnection.connect();
-            Log.i("XMPPClient", "[SettingsDialog] Connected to " + mJabberconnection.getHost());
+            Log.i("Anil", "Connected to " + mJabberconnection.getHost());
+            login_to_Jabber();
         } catch (SmackException | IOException | XMPPException e) {
-            Log.e("Anil", "[SettingsDialog] Failed to connect to " + mJabberconnection.getHost());
+            Log.e("Anil", "Failed to connect to " + mJabberconnection.getHost());
             Log.e("Anil", e.toString());
             e.printStackTrace();
+        }
+    }
+
+    private void login_to_Jabber(){
+        try {
+            mJabberconnection.login("anil", "anil");
+            Log.i("Anil", "Logged in as " + mJabberconnection.getUser());
+
+            // Set the status to available
+            Presence presence = new Presence(Presence.Type.available);
+            mJabberconnection.sendPacket(presence);
+        } catch (SmackException | IOException | XMPPException ex) {
+            Log.e("Anil", "[SettingsDialog] Failed to log in as anil");
+            Log.e("Anil", ex.toString());
+
         }
     }
 
@@ -140,6 +160,19 @@ public class GazetteApplication extends Application {
     public void notifyAllonProductAddedListenerr() {
         for (OnProductAddedListener callback : onProductAddedListenersList) {
             callback.OnProductAdded();
+        }
+    }
+
+    class ConnectTOJabberTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            init_Jabber("anil","anil");
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
         }
     }
 }
