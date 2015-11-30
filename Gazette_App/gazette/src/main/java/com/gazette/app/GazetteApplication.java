@@ -12,6 +12,7 @@ import com.gazette.app.callbacks.ProductScannerListener;
 import com.gazette.app.model.Category;
 import com.gazette.app.model.opt.OTPVerificationResponseModel;
 import com.gazette.app.utils.GazetteConstants;
+import com.gazette.app.utils.NoSSLv3SocketFactory;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.SASLAuthentication;
@@ -24,10 +25,21 @@ import org.jivesoftware.smack.sasl.provided.SASLDigestMD5Mechanism;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.util.ArrayList;
 
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManagerFactory;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -63,20 +75,29 @@ public class GazetteApplication extends Application {
         return _instance;
     }
 
-    private void init_Jabber(String USER_ID, String key) {
+    private void init_Jabber(String USER_ID, String key) throws CertificateException,KeyStoreException,NoSuchAlgorithmException,IOException,KeyManagementException{
         XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
         config.setSecurityMode(ConnectionConfiguration.SecurityMode.required);
-        SASLMechanism mechanism = new SASLDigestMD5Mechanism();
-        SASLAuthentication.registerSASLMechanism(mechanism);
-        SASLAuthentication.blacklistSASLMechanism("SCRAM-SHA-1");
-        SASLAuthentication.unBlacklistSASLMechanism("DIGEST-MD5");
-
         config.setUsernameAndPassword(USER_ID + "@" + GazetteConstants.Jabber.DOMAIN, key);
         config.setServiceName(GazetteConstants.Jabber.DOMAIN);
         config.setHost(GazetteConstants.Jabber.HOST);
         config.setPort(GazetteConstants.Jabber.PORT);
         config.setDebuggerEnabled(true);
-        //config.setSocketFactory(SSLSocketFactory.getDefault());
+        CertificateFactory cf = CertificateFactory.getInstance("X.509");
+        InputStream caInput = new BufferedInputStream(getResources().openRawResource(R.raw.client));// i copy public CA cert in res/raw
+        Certificate ca=cf.generateCertificate(caInput);
+        String keyStoreType = KeyStore.getDefaultType();
+        KeyStore keyStore = KeyStore.getInstance(keyStoreType);
+        keyStore.load(null, null);
+        keyStore.setCertificateEntry("ca", ca);
+        String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
+        TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
+        tmf.init(keyStore);
+        SSLContext context = SSLContext.getInstance("TLSv1");
+        context.init(null, tmf.getTrustManagers(), null);
+        SSLSocketFactory NoSSLv3Factory = new NoSSLv3SocketFactory(context.getSocketFactory());
+        config.setSocketFactory(NoSSLv3Factory);
+
 
         mJabberconnection = new XMPPTCPConnection(config.build());
         try {
@@ -174,7 +195,12 @@ public class GazetteApplication extends Application {
     class ConnectTOJabberTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
-            init_Jabber("anil","anil");
+            try{
+                init_Jabber("anil","anil");
+            }catch (CertificateException|KeyStoreException | NoSuchAlgorithmException| IOException |KeyManagementException ex){
+            Log.i("Anil","exception Ex:"+ex.getMessage());
+            }
+
             return null;
         }
 
