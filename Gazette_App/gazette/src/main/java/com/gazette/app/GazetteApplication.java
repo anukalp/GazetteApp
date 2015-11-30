@@ -14,10 +14,13 @@ import com.gazette.app.model.opt.OTPVerificationResponseModel;
 import com.gazette.app.utils.GazetteConstants;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
+import org.jivesoftware.smack.SASLAuthentication;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smack.sasl.SASLMechanism;
+import org.jivesoftware.smack.sasl.provided.SASLDigestMD5Mechanism;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 
@@ -62,7 +65,12 @@ public class GazetteApplication extends Application {
 
     private void init_Jabber(String USER_ID, String key) {
         XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
-        config.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
+        config.setSecurityMode(ConnectionConfiguration.SecurityMode.required);
+        SASLMechanism mechanism = new SASLDigestMD5Mechanism();
+        SASLAuthentication.registerSASLMechanism(mechanism);
+        SASLAuthentication.blacklistSASLMechanism("SCRAM-SHA-1");
+        SASLAuthentication.unBlacklistSASLMechanism("DIGEST-MD5");
+
         config.setUsernameAndPassword(USER_ID + "@" + GazetteConstants.Jabber.DOMAIN, key);
         config.setServiceName(GazetteConstants.Jabber.DOMAIN);
         config.setHost(GazetteConstants.Jabber.HOST);
@@ -84,7 +92,7 @@ public class GazetteApplication extends Application {
 
     private void login_to_Jabber(){
         try {
-            mJabberconnection.login("anil", "anil");
+            mJabberconnection.login("70906069857", "anil@123");
             Log.i("Anil", "Logged in as " + mJabberconnection.getUser());
 
             // Set the status to available

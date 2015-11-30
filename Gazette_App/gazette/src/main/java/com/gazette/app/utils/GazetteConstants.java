@@ -27,8 +27,8 @@ public class GazetteConstants {
     }
 
     public static class Jabber {
-        public static final String HOST ="192.168.1.43";
-        public static final String DOMAIN ="ibm754-r9zwm5t";
+        public static final String HOST ="ec2-52-11-139-107.us-west-2.compute.amazonaws.com";
+        public static final String DOMAIN ="ec2-52-11-139-107.us-west-2.compute.amazonaws.com";
         public static final int PORT =5222;
     }
 }
