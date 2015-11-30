@@ -14,7 +14,7 @@ public class GazetteConstants {
     public static final String PRODUCT_ID = "product_id";
     public static final String COLLECTION_ID = "collectionid";
 
-    public static final String SERVICE_API_BASE_URL = "http://192.168.1.47:8080/GazetteWebApp/api/v1";
+    public static final String SERVICE_API_BASE_URL = "http://ec2-52-11-139-107.us-west-2.compute.amazonaws.com/GazetteWebApp/api/rest";
 
     public static final String OUTPAN_SERVICE_API_BASE_URL = "https://api.outpan.com/";
     public static final String OUTPAN_APIKEY = "840331c0a3841485828e10b7e521dbf4";

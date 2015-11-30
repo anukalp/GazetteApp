@@ -16,11 +16,11 @@ import retrofit.http.POST;
  */
 public interface OTPRequestInterface {
 
-    @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @POST("/OTP/requestOTP")
+    @Headers({"Content-Type: application/json;"})
+    @POST("/requestOTP")
     public void requestOTP(@Body OTPRequestModel request, Callback<JSONObject> callback);
 
-    @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @POST("/OTP/verifyOTP")
+    @Headers({"Content-Type: application/json;"})
+    @POST("/verifyOTP")
     public void verifyOTP(@Body OTPVerificationRequestModel request, Callback<OTPVerificationResponseModel> callback);
 }
