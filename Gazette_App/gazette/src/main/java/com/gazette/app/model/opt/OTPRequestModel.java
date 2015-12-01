@@ -10,7 +10,7 @@ public class OTPRequestModel {
     private String name;
     private String email;
     private String mobile;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
 
     /**
      * @return The name
@@ -54,11 +54,5 @@ public class OTPRequestModel {
         this.mobile = mobile;
     }
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
 
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 }

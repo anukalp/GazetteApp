@@ -9,7 +9,7 @@ public class GazetteConstants {
     public static final String SCAN_RESULT_TYPE = "SCAN_RESULT_TYPE";
     public static final String ERROR_INFO = "ERROR_INFO";
     public static final String SMS_ORIGIN = "MM-GAZETE";
-    public static final String OTP_DELIMITER = ":";
+    public static final String OTP_DELIMITER = "\\)";
 
     public static final String PRODUCT_ID = "product_id";
     public static final String COLLECTION_ID = "collectionid";

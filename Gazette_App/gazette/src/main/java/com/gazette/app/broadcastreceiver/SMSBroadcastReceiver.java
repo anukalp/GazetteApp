@@ -64,19 +64,30 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
     /**
      * Getting the OTP from sms message body
-     * ':' is the separator of OTP from the message
+     * ')' is the separator of OTP from the message
      *
      * @param message
      * @return
      */
     private String getVerificationCode(String message) {
         String code = null;
+        String opt = null;
         String[] codes = message.split(GazetteConstants.OTP_DELIMITER);
-        if(codes.length > 1 && null !=  codes[1]){
-            code =  codes[1];
-        }else{
+        if (codes.length > 1 && null != codes[1]) {
+            code = codes[1];
+
+            if (null != code) {
+                code = code.trim();
+                Log.e("Anil", "code : " + code);
+                String[] smscode = code.split("\\s+");
+                if (null != smscode[0]) {
+                    opt = smscode[0].trim();
+                    Log.e("Anil", "code : " + opt);
+                }
+            }
+        } else {
             Log.e("Anil", "Empty Message: ");
         }
-        return code;
+        return opt;
     }
 }

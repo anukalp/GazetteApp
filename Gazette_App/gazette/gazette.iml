@@ -96,9 +96,9 @@
     <orderEntry type="library" exported="" name="jxmpp-util-cache-0.4.2-beta1" level="project" />
     <orderEntry type="library" exported="" name="okhttp-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="retrofit-1.9.0" level="project" />
+    <orderEntry type="library" exported="" name="smack-resolver-minidns-4.1.0-rc1" level="project" />
     <orderEntry type="library" exported="" name="smack-extensions-4.1.0-rc1" level="project" />
     <orderEntry type="library" exported="" name="smack-tcp-4.1.0-rc1" level="project" />
-    <orderEntry type="library" exported="" name="smack-resolver-minidns-4.1.0-rc1" level="project" />
     <orderEntry type="library" exported="" name="core-3.2.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.1.1" level="project" />

@@ -59,7 +59,7 @@ public class OTPVerificationService extends IntentService {
             @Override
             public void success(OTPVerificationResponseModel verificationResposeModel, retrofit.client.Response response) {
               //  Toast.makeText(getApplicationContext(), "Verified " + verificationResposeModel.getName(), Toast.LENGTH_SHORT).show();
-                Log.i("Anil", " verifyOtp Verified :"+verificationResposeModel.getName());
+                //Log.i("Anil", " verifyOtp Verified :"+verificationResposeModel.getName());
                 pref.createLogin(verificationResposeModel.getName(), verificationResposeModel.getEmail(), verificationResposeModel.getMobil(), verificationResposeModel.getApikey());
                 GazetteApplication.getInstance().notifyAllonotpVerifySuccessListener(verificationResposeModel);
             }
