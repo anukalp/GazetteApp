@@ -24,6 +24,8 @@ import org.jivesoftware.smack.sasl.SASLMechanism;
 import org.jivesoftware.smack.sasl.provided.SASLDigestMD5Mechanism;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
+import org.jxmpp.jid.DomainBareJid;
+import org.jxmpp.jid.impl.JidCreate;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -79,7 +81,8 @@ public class GazetteApplication extends Application {
         XMPPTCPConnectionConfiguration.Builder config = XMPPTCPConnectionConfiguration.builder();
         config.setSecurityMode(ConnectionConfiguration.SecurityMode.required);
         config.setUsernameAndPassword(USER_ID + "@" + GazetteConstants.Jabber.DOMAIN, key);
-        config.setServiceName(GazetteConstants.Jabber.DOMAIN);
+        DomainBareJid serviceName = JidCreate.domainBareFrom(GazetteConstants.Jabber.DOMAIN);
+        config.setXmppDomain(serviceName);
         config.setHost(GazetteConstants.Jabber.HOST);
         config.setPort(GazetteConstants.Jabber.PORT);
         config.setDebuggerEnabled(true);
@@ -104,7 +107,7 @@ public class GazetteApplication extends Application {
             mJabberconnection.connect();
             Log.i("Anil", "Connected to " + mJabberconnection.getHost());
             login_to_Jabber();
-        } catch (SmackException | IOException | XMPPException e) {
+        } catch (SmackException | IOException | XMPPException | InterruptedException e) {
             Log.e("Anil", "Failed to connect to " + mJabberconnection.getHost());
             Log.e("Anil", e.toString());
             e.printStackTrace();
@@ -119,7 +122,7 @@ public class GazetteApplication extends Application {
             // Set the status to available
             Presence presence = new Presence(Presence.Type.available);
             mJabberconnection.sendPacket(presence);
-        } catch (SmackException | IOException | XMPPException ex) {
+        } catch (SmackException | IOException | XMPPException | InterruptedException ex) {
             Log.e("Anil", "[SettingsDialog] Failed to log in as anil");
             Log.e("Anil", ex.toString());
 

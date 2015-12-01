@@ -70,10 +70,10 @@ dependencies {
     compile 'com.journeyapps:zxing-android-embedded:3.0.+@aar'
     compile 'com.google.zxing:core:3.2.+'
     compile 'com.wdullaer:materialdatetimepicker:2.0.+'
-    compile "org.igniterealtime.smack:smack-android:4.1.0-rc1"
-    compile "org.igniterealtime.smack:smack-tcp:4.1.0-rc1"
+    compile "org.igniterealtime.smack:smack-android:4.2.+"
+    compile "org.igniterealtime.smack:smack-tcp:4.2.+"
     // optional features
-    compile "org.igniterealtime.smack:smack-android-extensions:4.1.0-rc1"
+    compile "org.igniterealtime.smack:smack-android-extensions:4.2.+"
 }
 
 
