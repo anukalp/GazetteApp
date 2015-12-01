@@ -1,127 +1,62 @@
 package com.gazette.app.model.opt;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by Anil Gudigar on 11/16/2015.
  */
 public class OTPVerificationResponseModel {
 
-    private String Name;
-    private String Email;
-    private String Mobil;
-    private String Apikey;
-    private Integer Status;
-    private String CreatedAt;
+    private String name;
+    private String email;
+    private String mobile;
+    private String apikey;
+    private Integer status;
+    private String createdAt;
 
-    /**
-     *
-     * @return
-     * The Name
-     */
     public String getName() {
-        return Name;
+        return name;
     }
 
-    /**
-     *
-     * @param Name
-     * The Name
-     */
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     *
-     * @return
-     * The Email
-     */
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    /**
-     *
-     * @param Email
-     * The Email
-     */
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    /**
-     *
-     * @return
-     * The Mobil
-     */
-    public String getMobil() {
-        return Mobil;
+    public String getMobile() {
+        return mobile;
     }
 
-    /**
-     *
-     * @param Mobil
-     * The Mobil
-     */
-    public void setMobil(String Mobil) {
-        this.Mobil = Mobil;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
-    /**
-     *
-     * @return
-     * The Apikey
-     */
     public String getApikey() {
-        return Apikey;
+        return apikey;
     }
 
-    /**
-     *
-     * @param Apikey
-     * The Apikey
-     */
-    public void setApikey(String Apikey) {
-        this.Apikey = Apikey;
+    public void setApikey(String apikey) {
+        this.apikey = apikey;
     }
 
-    /**
-     *
-     * @return
-     * The Status
-     */
     public Integer getStatus() {
-        return Status;
+        return status;
     }
 
-    /**
-     *
-     * @param Status
-     * The Status
-     */
-    public void setStatus(Integer Status) {
-        this.Status = Status;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    /**
-     *
-     * @return
-     * The CreatedAt
-     */
     public String getCreatedAt() {
-        return CreatedAt;
+        return createdAt;
     }
 
-    /**
-     *
-     * @param CreatedAt
-     * The CreatedAt
-     */
-    public void setCreatedAt(String CreatedAt) {
-        this.CreatedAt = CreatedAt;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
-
-
 }

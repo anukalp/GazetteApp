@@ -58,18 +58,20 @@ public class OTPVerificationService extends IntentService {
 
             @Override
             public void success(OTPVerificationResponseModel verificationResposeModel, retrofit.client.Response response) {
-              //  Toast.makeText(getApplicationContext(), "Verified " + verificationResposeModel.getName(), Toast.LENGTH_SHORT).show();
-                //Log.i("Anil", " verifyOtp Verified :"+verificationResposeModel.getName());
-                pref.createLogin(verificationResposeModel.getName(), verificationResposeModel.getEmail(), verificationResposeModel.getMobil(), verificationResposeModel.getApikey());
-                GazetteApplication.getInstance().notifyAllonotpVerifySuccessListener(verificationResposeModel);
+                if(null != verificationResposeModel){
+                    Log.i("Anil", " verifyOtp Verified :"+verificationResposeModel.getName());
+                    pref.createLogin(verificationResposeModel.getName(), verificationResposeModel.getEmail(), verificationResposeModel.getMobile(), verificationResposeModel.getApikey());
+                    GazetteApplication.getInstance().notifyAllonotpVerifySuccessListener(verificationResposeModel);
+                }else{
+                    //notify error.
+                }
+
             }
 
             @Override
             public void failure(RetrofitError retrofitError) {
                 // Log error here since request failed
                 Log.e("Anil", " verifyOtp Failed ", retrofitError);
-                //Toast.makeText(getApplicationContext(), "Failed " + retrofitError, Toast.LENGTH_SHORT).show();
-                //Dialog.dismiss();
             }
         });
     }

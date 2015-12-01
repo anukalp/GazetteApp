@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -117,7 +118,9 @@ public class GazetteMainActivity extends GazetteBaseActivity
                 mTabLayout.setupWithViewPager(mPager);
                 LinearLayout tabOne = (LinearLayout) LayoutInflater.from(GazetteMainActivity.this).inflate(R.layout.custom_tab, null);
                 username = (TextView) tabOne.findViewById(R.id.username);
+                Log.i("Anil","logged in :"+pref.isLoggedIn()+"Username :"+pref.getName());
                 if (pref.isLoggedIn() && null != pref.getName()) {
+                    Log.i("Anil","Username :"+pref.getName());
                     username.setText(pref.getName());
                 }
                 mTabLayout.getTabAt(0).setCustomView(tabOne);
