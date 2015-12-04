@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Gazette_App.iml" filepath="$PROJECT_DIR$/Gazette_App.iml" />
       <module fileurl="file://$PROJECT_DIR$/gazette/gazette.iml" filepath="$PROJECT_DIR$/gazette/gazette.iml" />
+      <module fileurl="file://$PROJECT_DIR$/memorizingtrustmanager/memorizingtrustmanager.iml" filepath="$PROJECT_DIR$/memorizingtrustmanager/memorizingtrustmanager.iml" />
       <module fileurl="file://$PROJECT_DIR$/scanlibrary/scanlibrary.iml" filepath="$PROJECT_DIR$/scanlibrary/scanlibrary.iml" />
     </modules>
   </component>
