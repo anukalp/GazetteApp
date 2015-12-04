@@ -11,29 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2880f787-1581-45d1-b486-b53e249ea9ef" name="Default" comment="Adding new Product Flow Complete.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/AndroidManifest.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/test/java/de/duenndns/ssl/ExampleUnitTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/java/de/duenndns/ssl/MTMDecision.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/java/de/duenndns/ssl/MemorizingActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/java/de/duenndns/ssl/MemorizingTrustManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/values/colors.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/memorizingtrustmanager.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/memorizingtrustmanager/src/main/res/values/styles.xml" />
-      <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\.idea\libraries\calligraphy_2_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\.idea\libraries\gson_2_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\.idea\libraries\library_2_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\.idea\libraries\okio_1_6_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\.idea\libraries\retrofit_1_9_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\.idea\libraries\scviewpager_0_0_4.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\gazette\build\generated\source\buildConfig\release\com\gazette\app\BuildConfig.java" afterPath="" />
       <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\gazette\build\generated\source\r\debug\me\dm7\barcodescanner\core\R.java" afterPath="" />
       <change type="DELETED" beforePath="C:\AndroidStudioProjects\gazetteandroidapp\Gazette_App\gazette\build\generated\source\r\debug\me\dm7\barcodescanner\zbar\R.java" afterPath="" />
@@ -2028,7 +2007,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/dotted_circle.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/dotted_circle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/fragment_productlist.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/fragment_productlist.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/gazette_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/line_divider.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/line_divider.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/gazette/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/menu_gazette_wizard_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/menu_gazette_wizard_main.xml" />
@@ -2036,7 +2014,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/nav_header_gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/nav_header_gazette_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/notification_media_action.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/notification_media_action.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml" />
@@ -2058,7 +2035,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_item.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_layout.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_layout.xml" />
@@ -5945,7 +5921,19 @@
       <option name="project" value="LOCAL" />
       <updated>1449220058433</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Adding jabber support.">
+      <created>1449220102299</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1449220102299</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Adding jabber support.">
+      <created>1449220171686</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1449220171686</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -6054,7 +6042,8 @@
     <MESSAGE value="Jabber smack 4.2" />
     <MESSAGE value="Added support for Jabber." />
     <MESSAGE value="Adding Jabber Support." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Jabber Support." />
+    <MESSAGE value="Adding jabber support." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding jabber support." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -6105,6 +6094,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.13333334">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
