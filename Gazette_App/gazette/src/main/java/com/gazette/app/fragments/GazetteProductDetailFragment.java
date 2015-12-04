@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteProductDetailActivity;
 import com.gazette.app.R;
 import com.gazette.app.fragments.adapters.ConversationAdapter;
@@ -129,7 +130,12 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
-
+                    Message message = new Message();
+                    message.setSelf(true);
+                    message.setFromName("Me");
+                    message.setMessage(inputMsg.getText().toString());
+                    appendMessage(message);
+                    GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "9968713449@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
                     inputMsg.setText("");
                     return true;
                 }

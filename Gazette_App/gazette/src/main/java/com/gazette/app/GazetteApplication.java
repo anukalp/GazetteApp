@@ -20,7 +20,9 @@ import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.StanzaListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.filter.StanzaFilter;
+import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Stanza;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
@@ -55,6 +57,7 @@ public class GazetteApplication extends Application implements ConnectionListene
     private final ArrayList<Object> registeredManagers;
     private final AcceptAll ACCEPT_ALL = new AcceptAll();
     private  XMPPTCPConnection mXmpptcpConnection;
+    private  XMPPConnection mXmppConnection;
     /**
      * Thread to execute tasks in background..
      */
@@ -135,6 +138,22 @@ public class GazetteApplication extends Application implements ConnectionListene
         } catch (NoSuchAlgorithmException | KeyManagementException | IOException | SmackException | XMPPException ex) {
             Log.i("Anil", "XMPP Connection exception :" + ex.getMessage());
         }
+
+    }
+
+    public void sendMessage(String message, String to)
+    {
+        Log.i("XMPPClient", "Sending text [" + message + "] to [" + to + "]");
+        Message msg = new Message(to, Message.Type.chat);
+        msg.setBody(message);
+        try{
+            mXmppConnection.sendPacket(msg);
+        }catch (SmackException.NotConnectedException ex){
+            Log.i("Anil","Send message exception:"+ex.getMessage());
+        }
+
+        //messages.add(connection.getUser() + ":");
+        //messages.add(text);
 
     }
 
@@ -269,6 +288,7 @@ public class GazetteApplication extends Application implements ConnectionListene
     @Override
     public void connected(XMPPConnection connection) {
         Log.i("Anil", "connected");
+        mXmppConnection = connection;
         try {
             mXmpptcpConnection.login();
         } catch (XMPPException e) {
@@ -284,6 +304,7 @@ public class GazetteApplication extends Application implements ConnectionListene
     @Override
     public void authenticated(XMPPConnection connection, boolean resumed) {
         Log.i("Anil", "authenticated");
+        mXmppConnection = connection;
     }
 
     @Override
