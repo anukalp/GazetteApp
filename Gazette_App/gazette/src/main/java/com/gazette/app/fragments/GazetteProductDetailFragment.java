@@ -40,6 +40,7 @@ import com.gazette.app.utils.ChatUtils;
 
 import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smackx.receipts.DeliveryReceipt;
 import org.jivesoftware.smackx.receipts.DeliveryReceiptManager;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ import java.util.List;
  * in two-pane mode (on tablets) or a {@link GazetteProductDetailActivity}
  * on handsets.
  */
-public class GazetteProductDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,OnXMPPPacketReceivedListener {
+public class GazetteProductDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, OnXMPPPacketReceivedListener {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -83,7 +84,8 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
     private RecyclerView listViewMessages;
     private RecyclerView.LayoutManager mLayoutManager;
     private ConversationAdapter adapter;
-    private  String delegate = "hh:mm aaa";
+    private String delegate = "hh:mm aaa";
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -146,9 +148,9 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
                     message.setFromName("Me");
                     message.setMessage(inputMsg.getText().toString());
                     message.setTime(time);
-
+                    String msgId = GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "9968713449@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
+                    message.setMsgID(msgId);
                     appendMessage(message);
-                    GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "9968713449@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
                     inputMsg.setText("");
                     return true;
                 }
@@ -320,9 +322,9 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         Message currentmessage = new Message();
         currentmessage.setSelf(false);
         String[] From = message.getFrom().split("@");
-        if(null != From && From.length >1){
+        if (null != From && From.length > 1) {
             currentmessage.setFromName(From[0]);
-        }else{
+        } else {
             currentmessage.setFromName("Service Person");
         }
 
@@ -339,5 +341,20 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
     @Override
     public void onIQReceived(IQ iq) {
 
+    }
+
+    @Override
+    public void onMessageDelivered(org.jivesoftware.smack.packet.Message msg) {
+        DeliveryReceipt receiptdata = msg.getExtension(DeliveryReceipt.ELEMENT, DeliveryReceipt.NAMESPACE);
+        Log.i("Anil", "ID:" + receiptdata.getId());
+        Log.i("Anil", "Send Message :" + listMessages.get(listMessages.size() - 1).getMsgID());
+
+        for (Message message : listMessages) {
+            if (receiptdata.getId().equalsIgnoreCase(message.getMsgID())) {
+                Log.i("Anil", "ID:"+message.getMsgID()+"  equal "+receiptdata.getId());
+                message.setIsDelivered(true);
+            }
+        }
+        adapter.notifyDataSetChanged();
     }
 }

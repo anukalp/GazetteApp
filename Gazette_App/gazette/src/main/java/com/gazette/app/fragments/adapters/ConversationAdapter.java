@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -41,7 +43,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemViewType(int position) {
-        Log.i("Anil", "ViewType :" + position);
+        //Log.i("Anil", "position :" + position);
         if (messagesItems.get(position).isSelf()) {
             return 0;
         } else {
@@ -61,7 +63,7 @@ public class ConversationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.i("Anil", "ViewType :" + viewType);
+       // Log.i("Anil", "ViewType :" + viewType);
         switch (viewType) {
             case 0:
                 View rightView = LayoutInflater.from(parent.getContext()).inflate(
@@ -83,14 +85,26 @@ public class ConversationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         TextView lblFrom = null;
         TextView txtMsg = null;
         TextView message_time= null;
+        ProgressBar message_progress_bar= null;
+        ImageView message_status_icon = null;
         if (messagesItems.get(position).isSelf()) {
             lblFrom = (TextView) ((ViewHolderChatFromRight) holder).mChatCard.findViewById(R.id.message_header);
             txtMsg = (TextView) ((ViewHolderChatFromRight) holder).mChatCard.findViewById(R.id.message_text);
             message_time = (TextView) ((ViewHolderChatFromRight) holder).mChatCard.findViewById(R.id.message_time);
+            message_status_icon = (ImageView) ((ViewHolderChatFromRight) holder).mChatCard.findViewById(R.id.message_status_icon);
+            message_progress_bar = (ProgressBar) ((ViewHolderChatFromRight) holder).mChatCard.findViewById(R.id.message_progress_bar);
+            if(m.isDelivered()){
+                Log.i("Anil", "ID:"+m.getMsgID()+"  delevivered");
+                message_progress_bar.setVisibility(View.GONE);
+                message_status_icon.setImageResource(R.drawable.double_tick);
+            }else{
+                Log.i("Anil", "ID:"+m.getMsgID()+"Not  delevivered");
+            }
         } else {
             lblFrom = (TextView) ((ViewHolderChatFromLeft) holder).mChatCard.findViewById(R.id.message_header);
             txtMsg = (TextView) ((ViewHolderChatFromLeft) holder).mChatCard.findViewById(R.id.message_text);
             message_time = (TextView) ((ViewHolderChatFromLeft) holder).mChatCard.findViewById(R.id.message_time);
+
         }
         txtMsg.setText(m.getMessage());
         lblFrom.setText(m.getFromName());

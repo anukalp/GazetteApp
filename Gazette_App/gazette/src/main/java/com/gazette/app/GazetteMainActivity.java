@@ -3,6 +3,9 @@ package com.gazette.app;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -161,6 +164,24 @@ public class GazetteMainActivity extends GazetteBaseActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (pref.isLoggedIn() && null != pref.getName()) {
+            Log.i("Anil", "Username :" + pref.getName());
+
+           MenuItem username =menu.findItem(R.id.username);
+            username.setTitle(pref.getName());
+            /* ShapeDrawable circle = new ShapeDrawable(new OvalShape());
+            circle.getPaint().setColor(Color.GREEN);
+            circle.setIntrinsicHeight(120);
+            circle.setIntrinsicWidth(120);
+            circle.setBounds(0, 0, 120, 120);*/
+
+            //username.setIcon(circle);
+        }
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

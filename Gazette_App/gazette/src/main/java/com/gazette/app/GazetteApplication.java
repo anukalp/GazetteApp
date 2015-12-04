@@ -152,7 +152,7 @@ public class GazetteApplication extends Application implements ConnectionListene
 
     }
 
-    public void sendMessage(String message, String to)
+    public String  sendMessage(String message, String to)
     {
         Log.i("XMPPClient", "Sending text [" + message + "] to [" + to + "]");
         Message msg = new Message(to, Message.Type.chat);
@@ -164,6 +164,7 @@ public class GazetteApplication extends Application implements ConnectionListene
         }catch (SmackException.NotConnectedException ex){
             Log.i("Anil","Send message exception:"+ex.getMessage());
         }
+        return msg.getStanzaId();
     }
 
     public void launchAddProductDetailsActivity(Activity activity, Category category) {
@@ -231,6 +232,11 @@ public class GazetteApplication extends Application implements ConnectionListene
         }
     }
 
+    public void notifyAllonReceiptRecived(Message message) {
+        for (OnXMPPPacketReceivedListener callback : OnXMPPPacketRecivedList) {
+            callback.onMessageDelivered(message);
+        }
+    }
 
     public void addOnProductAddedListener(OnProductAddedListener onProductAddedListener) {
         onProductAddedListenersList.add(onProductAddedListener);
@@ -262,7 +268,8 @@ public class GazetteApplication extends Application implements ConnectionListene
         }
         if (stanza instanceof Message){
             Message message = (Message) stanza;
-            Log.i("Anil", "process Packet Message : "+message.getTo()+":"+message.getFrom()+":"+message.getBody());
+            Log.i("Anil", "process Packet Message : " + message.getTo() + ":" + message.getFrom() + ":" + message.getBody());
+            if(null != message.getBody())
             notifyAllXMPPPacketMessageReceivedListener(message);
         }
 
@@ -346,11 +353,18 @@ public class GazetteApplication extends Application implements ConnectionListene
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DeliveryReceiptManager.setDefaultAutoReceiptMode(DeliveryReceiptManager.AutoReceiptMode.always);
         DeliveryReceiptManager.getInstanceFor(connection).autoAddDeliveryReceiptRequests();
         DeliveryReceiptManager.getInstanceFor(connection).addReceiptReceivedListener(new ReceiptReceivedListener() {
             @Override
             public void onReceiptReceived(String fromJid, String toJid, String receiptId, Stanza receipt) {
                 Log.i("Anil", "onReceiptReceived :" + fromJid + "-> " + toJid + " :" + receiptId);
+                DeliveryReceipt receiptdata = receipt.getExtension(DeliveryReceipt.ELEMENT, DeliveryReceipt.NAMESPACE);
+
+                if (receiptdata == null) {
+                    return;
+                }
+                notifyAllonReceiptRecived((Message)receipt);
             }
         });
 

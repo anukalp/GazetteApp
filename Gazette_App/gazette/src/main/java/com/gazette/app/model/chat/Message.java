@@ -1,9 +1,11 @@
 package com.gazette.app.model.chat;
 
 public class Message {
+    private String msgID;
     private String fromName, message;
     private boolean isSelf;
     private String time;
+    private boolean isDelivered = false;
 
     public Message() {
     }
@@ -49,5 +51,21 @@ public class Message {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public boolean isDelivered() {
+        return isDelivered;
+    }
+
+    public void setIsDelivered(boolean isDelivered) {
+        this.isDelivered = isDelivered;
+    }
+
+    public String getMsgID() {
+        return msgID;
+    }
+
+    public void setMsgID(String msgID) {
+        this.msgID = msgID;
     }
 }

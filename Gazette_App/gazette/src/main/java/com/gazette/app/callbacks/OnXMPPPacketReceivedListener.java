@@ -12,4 +12,5 @@ public interface OnXMPPPacketReceivedListener {
     public void onMessageReceived(Message message);
     public void onPresenceReceived(Presence presence);
     public void onIQReceived(IQ iq);
+    public void onMessageDelivered(Message msg);
 }

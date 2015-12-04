@@ -1,4 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".GazetteMainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".GazetteMainActivity">
+    <item
+        android:id="@+id/username"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_person_white_24dp"
+        android:title="Welcome!"
+        android:showAsAction="always|withText"
+        android:actionLayout="@layout/custom_tab" />
 </menu>
