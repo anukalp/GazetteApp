@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.gazette.app.callbacks.OTPVerifySuccessListener;
 import com.gazette.app.callbacks.OnProductAddedListener;
+import com.gazette.app.callbacks.OnXMPPPacketReceivedListener;
 import com.gazette.app.callbacks.ProductScannerListener;
 import com.gazette.app.model.Category;
 import com.gazette.app.model.opt.OTPVerificationResponseModel;
@@ -20,14 +21,20 @@ import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.StanzaListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.filter.StanzaFilter;
+import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Message;
+import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Stanza;
+import org.jivesoftware.smack.provider.ProviderManager;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 import org.jivesoftware.smack.util.TLSUtils;
 import org.jivesoftware.smackx.ping.PingFailedListener;
+import org.jivesoftware.smackx.receipts.DeliveryReceipt;
+import org.jivesoftware.smackx.receipts.DeliveryReceiptManager;
+import org.jivesoftware.smackx.receipts.DeliveryReceiptRequest;
+import org.jivesoftware.smackx.receipts.ReceiptReceivedListener;
 
 import java.io.IOException;
 import java.security.KeyManagementException;
@@ -53,6 +60,7 @@ public class GazetteApplication extends Application implements ConnectionListene
     private ArrayList<OTPVerifySuccessListener> otpVerifySuccessListenerList = null;
     private ArrayList<ProductScannerListener> productScannerListenersList = null;
     private ArrayList<OnProductAddedListener> onProductAddedListenersList = null;
+    private ArrayList<OnXMPPPacketReceivedListener> OnXMPPPacketRecivedList = null;
     private ConnectTOJabberTask mConnectTOJabberTask = null;
     private final ArrayList<Object> registeredManagers;
     private final AcceptAll ACCEPT_ALL = new AcceptAll();
@@ -95,6 +103,7 @@ public class GazetteApplication extends Application implements ConnectionListene
         otpVerifySuccessListenerList = new ArrayList<>();
         productScannerListenersList = new ArrayList<>();
         onProductAddedListenersList = new ArrayList<>();
+        OnXMPPPacketRecivedList = new ArrayList<>();
         mConnectTOJabberTask = new ConnectTOJabberTask();
 
         _instance = this;
@@ -121,7 +130,7 @@ public class GazetteApplication extends Application implements ConnectionListene
             connectionConfiguration.setCompressionEnabled(true);
             TLSUtils.acceptAllCertificates(connectionConfiguration);
 
-            connectionConfiguration.setResource("sender");
+            connectionConfiguration.setResource("Gazette");
 
             SSLContext sc = SSLContext.getInstance("TLS");
             MemorizingTrustManager mtm = new MemorizingTrustManager(this);
@@ -134,6 +143,8 @@ public class GazetteApplication extends Application implements ConnectionListene
             mXmpptcpConnection.addAsyncStanzaListener(this, ACCEPT_ALL);
             mXmpptcpConnection.addConnectionListener(this);
             mXmpptcpConnection.setPacketReplyTimeout(30000);
+            ProviderManager.addExtensionProvider(DeliveryReceipt.ELEMENT, DeliveryReceipt.NAMESPACE, new DeliveryReceipt.Provider());
+            ProviderManager.addExtensionProvider(DeliveryReceiptRequest.ELEMENT, new DeliveryReceiptRequest().getNamespace(), new DeliveryReceiptRequest.Provider());
             mXmpptcpConnection.connect();
         } catch (NoSuchAlgorithmException | KeyManagementException | IOException | SmackException | XMPPException ex) {
             Log.i("Anil", "XMPP Connection exception :" + ex.getMessage());
@@ -146,15 +157,13 @@ public class GazetteApplication extends Application implements ConnectionListene
         Log.i("XMPPClient", "Sending text [" + message + "] to [" + to + "]");
         Message msg = new Message(to, Message.Type.chat);
         msg.setBody(message);
+        msg.addExtension(new DeliveryReceipt(msg.getPacketID()));
         try{
-            mXmppConnection.sendPacket(msg);
+            mXmppConnection.sendStanza(msg);
+            DeliveryReceiptManager.addDeliveryReceiptRequest(msg);
         }catch (SmackException.NotConnectedException ex){
             Log.i("Anil","Send message exception:"+ex.getMessage());
         }
-
-        //messages.add(connection.getUser() + ":");
-        //messages.add(text);
-
     }
 
     public void launchAddProductDetailsActivity(Activity activity, Category category) {
@@ -208,6 +217,20 @@ public class GazetteApplication extends Application implements ConnectionListene
         }
     }
 
+    public void addXMPPPacketReceivedListener(OnXMPPPacketReceivedListener onXMPPPacketReceivedListener) {
+        OnXMPPPacketRecivedList.add(onXMPPPacketReceivedListener);
+    }
+
+    public void removeXMPPPacketReceivedListener(OnXMPPPacketReceivedListener onXMPPPacketReceivedListener) {
+        OnXMPPPacketRecivedList.remove(onXMPPPacketReceivedListener);
+    }
+
+    public void notifyAllXMPPPacketMessageReceivedListener(Message message) {
+        for (OnXMPPPacketReceivedListener callback : OnXMPPPacketRecivedList) {
+            callback.onMessageReceived(message);
+        }
+    }
+
 
     public void addOnProductAddedListener(OnProductAddedListener onProductAddedListener) {
         onProductAddedListenersList.add(onProductAddedListener);
@@ -223,14 +246,39 @@ public class GazetteApplication extends Application implements ConnectionListene
         }
     }
 
+
+
     @Override
     public void pingFailed() {
         Log.i("Anil", "pingFailed");
     }
 
     @Override
-    public void processPacket(Stanza packet) throws SmackException.NotConnectedException {
+    public void processPacket(Stanza stanza) throws SmackException.NotConnectedException {
+        Log.i("Anil", "process Packet Received: "+stanza.getFrom());
+        Log.i("Anil", "process Packet Received: "+stanza.getTo());
+        if(stanza instanceof Presence){
+            Log.i("Anil", "process Packet Presence");
+        }
+        if (stanza instanceof Message){
+            Message message = (Message) stanza;
+            Log.i("Anil", "process Packet Message : "+message.getTo()+":"+message.getFrom()+":"+message.getBody());
+            notifyAllXMPPPacketMessageReceivedListener(message);
+        }
 
+        if (stanza instanceof IQ ) {
+            Log.i("Anil", "process Packet IQ : ");
+            IQ iq = (IQ) stanza;
+            String packetId = iq.getStanzaId();
+            if (packetId != null && (iq.getType() == IQ.Type.result || iq.getType() == IQ.Type.error)) {
+                if (iq.getType() == IQ.Type.result) {
+                    Log.i("Anil", "process Packet IQ result :"+packetId);
+                } else {
+                    Log.i("Anil", "process Packet IQ Error :" +packetId);
+                }
+
+            }
+        }
     }
 
     class ConnectTOJabberTask extends AsyncTask<Void, Void, Void> {
@@ -298,6 +346,13 @@ public class GazetteApplication extends Application implements ConnectionListene
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DeliveryReceiptManager.getInstanceFor(connection).autoAddDeliveryReceiptRequests();
+        DeliveryReceiptManager.getInstanceFor(connection).addReceiptReceivedListener(new ReceiptReceivedListener() {
+            @Override
+            public void onReceiptReceived(String fromJid, String toJid, String receiptId, Stanza receipt) {
+                Log.i("Anil", "onReceiptReceived :" + fromJid + "-> " + toJid + " :" + receiptId);
+            }
+        });
 
     }
 

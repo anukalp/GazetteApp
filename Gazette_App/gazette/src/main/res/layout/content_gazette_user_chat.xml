@@ -15,52 +15,66 @@
         android:background="@null" />
 
     <LinearLayout
-        android:id="@+id/llMsgCompose"
+        android:id="@+id/input_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@color/white"
+        android:elevation="8dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnCloud"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:layout_margin="5dp"
-            android:layout_weight="0.10"
-            android:background="@drawable/ic_cloud"
-            android:drawableBottom="@android:color/transparent" />
+        <ImageButton
+            android:id="@+id/button_emoticon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:alpha="0.5"
+            android:background="@drawable/ripple_background"
+            android:padding="8dp"
+            android:src="@drawable/ic_emoticon_grey600_24dp" />
+
 
         <EditText
             android:id="@+id/inputMsg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.80"
-            android:hint="Type your message here..."
+            android:layout_weight="1"
+            android:cursorVisible="true"
+            android:fadingEdge="vertical"
+            android:gravity="center_vertical"
+            android:hint="@string/chat_input_hint"
+            android:imeOptions="flagNoExtractUi"
+            android:maxLines="4"
+            android:minHeight="40dp"
             android:paddingLeft="6dp"
             android:paddingRight="6dp"
             android:textColor="@android:color/black"
+            android:background="@android:color/transparent"
+            android:inputType="textAutoCorrect|textCapSentences|textMultiLine"
+            android:scrollbars="vertical"
             android:textSize="12sp">
 
             <requestFocus />
         </EditText>
 
-        <Button
-            android:id="@+id/btnSend"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:layout_margin="5dp"
-            android:layout_weight="0.10"
-            android:background="@drawable/ic_happy_smily"
-            android:drawableBottom="@android:color/transparent" />
+        <ImageButton
+            android:id="@+id/button_attach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:background="@drawable/ripple_background"
+            android:padding="8dp"
+            android:src="@drawable/ic_paperclip_grey600_24dp" />
 
-        <Button
-            android:id="@+id/pictureSend"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:layout_margin="5dp"
-            android:layout_weight="0.10"
-            android:background="@drawable/ic_attach"
-            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/button_send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/ripple_background"
+            android:padding="8dp"
+            android:src="@drawable/ic_button_send" />
     </LinearLayout>
 
     <LinearLayout

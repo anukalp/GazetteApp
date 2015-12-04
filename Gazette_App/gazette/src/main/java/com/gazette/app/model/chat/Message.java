@@ -3,14 +3,16 @@ package com.gazette.app.model.chat;
 public class Message {
     private String fromName, message;
     private boolean isSelf;
+    private String time;
 
     public Message() {
     }
 
-    public Message(String fromName, String message, boolean isSelf) {
+    public Message(String fromName, String message,String time, boolean isSelf) {
         this.fromName = fromName;
         this.message = message;
         this.isSelf = isSelf;
+        this.time = time;
     }
 
     public String getFromName() {
@@ -37,4 +39,15 @@ public class Message {
         this.isSelf = isSelf;
     }
 
+    public void setIsSelf(boolean isSelf) {
+        this.isSelf = isSelf;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 }

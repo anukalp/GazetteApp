@@ -16,6 +16,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ import android.widget.TextView;
 import com.gazette.app.GazetteApplication;
 import com.gazette.app.GazetteProductDetailActivity;
 import com.gazette.app.R;
+import com.gazette.app.callbacks.OnXMPPPacketReceivedListener;
 import com.gazette.app.fragments.adapters.ConversationAdapter;
 import com.gazette.app.model.Image;
 import com.gazette.app.model.Product;
@@ -36,7 +38,12 @@ import com.gazette.app.model.chat.Message;
 import com.gazette.app.provider.GazetteDatabaseHelper;
 import com.gazette.app.utils.ChatUtils;
 
+import org.jivesoftware.smack.packet.IQ;
+import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smackx.receipts.DeliveryReceiptManager;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -46,7 +53,7 @@ import java.util.List;
  * in two-pane mode (on tablets) or a {@link GazetteProductDetailActivity}
  * on handsets.
  */
-public class GazetteProductDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class GazetteProductDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,OnXMPPPacketReceivedListener {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -76,6 +83,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
     private RecyclerView listViewMessages;
     private RecyclerView.LayoutManager mLayoutManager;
     private ConversationAdapter adapter;
+    private  String delegate = "hh:mm aaa";
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -91,6 +99,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             mTitle = getArguments().getString(ARG_ITEM_ID);
         }
+        GazetteApplication.getInstance().addXMPPPacketReceivedListener(this);
         utils = new ChatUtils(getActivity().getApplicationContext());
         getActivity().getSupportLoaderManager().initLoader(LOADER_ID_TABLE, null,
                 this);
@@ -119,7 +128,8 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         listViewMessages.setLayoutManager(mLayoutManager);
 
         listMessages = new ArrayList<Message>();
-        Message m = new Message("Service Person", "Hello Sir, \nHow could i assist you today.\n", false);
+        String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
+        final Message m = new Message("Service Person", "Hello Sir, \nHow could i assist you today.\n", time, false);
         listMessages.add(m);
         adapter = new ConversationAdapter(getActivity(), listMessages);
         listViewMessages.setAdapter(adapter);
@@ -130,10 +140,13 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
                     Message message = new Message();
                     message.setSelf(true);
                     message.setFromName("Me");
                     message.setMessage(inputMsg.getText().toString());
+                    message.setTime(time);
+
                     appendMessage(message);
                     GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "9968713449@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
                     inputMsg.setText("");
@@ -295,5 +308,36 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        GazetteApplication.getInstance().removeXMPPPacketReceivedListener(this);
+    }
 
+    @Override
+    public void onMessageReceived(org.jivesoftware.smack.packet.Message message) {
+        String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
+        Message currentmessage = new Message();
+        currentmessage.setSelf(false);
+        String[] From = message.getFrom().split("@");
+        if(null != From && From.length >1){
+            currentmessage.setFromName(From[0]);
+        }else{
+            currentmessage.setFromName("Service Person");
+        }
+
+        currentmessage.setMessage(message.getBody());
+        currentmessage.setTime(time);
+        appendMessage(currentmessage);
+    }
+
+    @Override
+    public void onPresenceReceived(Presence presence) {
+
+    }
+
+    @Override
+    public void onIQReceived(IQ iq) {
+
+    }
 }
