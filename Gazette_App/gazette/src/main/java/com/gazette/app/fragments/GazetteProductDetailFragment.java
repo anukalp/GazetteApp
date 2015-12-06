@@ -1,6 +1,7 @@
 package com.gazette.app.fragments;
 
 import android.app.Activity;
+import android.app.Application;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +17,8 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -23,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,12 +45,15 @@ import com.gazette.app.utils.SharedPreferenceManager;
 
 import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smackx.chatstates.ChatStateManager;
 import org.jivesoftware.smackx.receipts.DeliveryReceipt;
 import org.jivesoftware.smackx.receipts.DeliveryReceiptManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -87,6 +94,12 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
     private ConversationAdapter adapter;
     private String delegate = "hh:mm aaa";
     private SharedPreferenceManager pref;
+    private ImageButton sendButton;
+    private boolean isInputEmpty = true;
+    private boolean sendByEnter = false;
+    private Timer stopTypingTimer = new Timer();
+    private final long STOP_TYPING_DELAY = 4000; // in ms
+    private boolean skipOnTextChanges = false;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -130,6 +143,8 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         mLayoutManager = new LinearLayoutManager(getActivity());
         ((LinearLayoutManager) mLayoutManager).setStackFromEnd(true);
         listViewMessages.setLayoutManager(mLayoutManager);
+        sendButton = (ImageButton) chat_layout.findViewById(R.id.button_send_message);
+        sendButton.setImageResource(R.drawable.ic_button_send_inactive_24dp);
 
         listMessages = new ArrayList<Message>();
         String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
@@ -139,27 +154,80 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         listViewMessages.setAdapter(adapter);
 
         inputMsg = (EditText) rootView.findViewById(R.id.inputMsg);
+        sendButton.setOnClickListener(
+                new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        sendMessage();
+                    }
+
+                });
         inputMsg.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                // If the event is a key-down event on the "enter" button
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
-                    Message message = new Message();
-                    message.setSelf(true);
-                    message.setFromName("Me");
-                    message.setMessage(inputMsg.getText().toString());
-                    message.setTime(time);
-                    String msgId = GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "gazette@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
-                    message.setMsgID(msgId);
-                    appendMessage(message);
-                    inputMsg.setText("");
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent event) {
+                if (sendByEnter
+                        && event.getAction() == KeyEvent.ACTION_DOWN
+                        && keyCode == KeyEvent.KEYCODE_ENTER) {
+                    sendMessage();
                     return true;
                 }
                 return false;
             }
         });
+
+        inputMsg.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!skipOnTextChanges && stopTypingTimer != null) {
+                    stopTypingTimer.cancel();
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable text) {
+                setUpInputViewButtons();
+
+                if (skipOnTextChanges) {
+                    return;
+                }
+
+
+                stopTypingTimer = new Timer();
+                stopTypingTimer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        GazetteApplication.getInstance().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                               //Pause
+                            }
+                        });
+                    }
+
+                }, STOP_TYPING_DELAY);
+            }
+
+        });
         return rootView;
+    }
+
+    private void sendMessage(){
+        String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
+        Message message = new Message();
+        message.setSelf(true);
+        message.setFromName("Me");
+        message.setMessage(inputMsg.getText().toString());
+        message.setTime(time);
+        String msgId = GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "gazette@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
+        message.setMsgID(msgId);
+        appendMessage(message);
+        inputMsg.setText("");
     }
 
     public void lunchChatview() {
@@ -172,6 +240,21 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         product_details_layout.setVisibility(View.VISIBLE);
         chat_layout.setVisibility(View.GONE);
 
+    }
+
+    private void setUpInputViewButtons() {
+        boolean empty = inputMsg.getText().toString().trim().isEmpty();
+
+        if (empty != isInputEmpty) {
+            isInputEmpty = empty;
+        }
+
+        if (isInputEmpty) {
+            sendButton.setImageResource(R.drawable.ic_button_send_inactive_24dp);
+        } else {
+            sendButton.setImageResource(R.drawable.ic_button_send);
+            sendButton.setImageLevel(0);
+        }
     }
 
     @Override
