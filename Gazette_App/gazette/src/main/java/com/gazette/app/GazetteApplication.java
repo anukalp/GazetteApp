@@ -14,6 +14,7 @@ import com.gazette.app.callbacks.ProductScannerListener;
 import com.gazette.app.model.Category;
 import com.gazette.app.model.opt.OTPVerificationResponseModel;
 import com.gazette.app.utils.GazetteConstants;
+import com.gazette.app.utils.SharedPreferenceManager;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.ConnectionListener;
@@ -74,10 +75,12 @@ public class GazetteApplication extends Application implements ConnectionListene
      * Handler to execute runnable in UI thread.
      */
     private final Handler handler;
+    private SharedPreferenceManager pref;
 
     public GazetteApplication() {
         registeredManagers = new ArrayList<>();
         handler = new Handler();
+
         backgroundExecutor = Executors.newSingleThreadExecutor(new ThreadFactory() {
             @Override
             public Thread newThread(Runnable runnable) {
@@ -104,8 +107,8 @@ public class GazetteApplication extends Application implements ConnectionListene
         productScannerListenersList = new ArrayList<>();
         onProductAddedListenersList = new ArrayList<>();
         OnXMPPPacketRecivedList = new ArrayList<>();
+        pref = new SharedPreferenceManager(getApplicationContext());
         mConnectTOJabberTask = new ConnectTOJabberTask();
-
         _instance = this;
     }
 
@@ -124,7 +127,8 @@ public class GazetteApplication extends Application implements ConnectionListene
             connectionConfiguration.setServiceName(GazetteConstants.Jabber.DOMAIN);
             connectionConfiguration.setPort(GazetteConstants.Jabber.PORT);
             connectionConfiguration.setHost(GazetteConstants.Jabber.HOST);
-            connectionConfiguration.setUsernameAndPassword("7090606857", "anil@123");
+            Log.i("Anil", "Username :" + pref.getName() + " Mobile:" + pref.getMobileNumber());
+            connectionConfiguration.setUsernameAndPassword(pref.getName() + "-" + pref.getMobileNumber(), pref.getMobileNumber());
             connectionConfiguration.setSecurityMode(ConnectionConfiguration.SecurityMode.ifpossible);
             connectionConfiguration.setDebuggerEnabled(true);
             connectionConfiguration.setCompressionEnabled(true);

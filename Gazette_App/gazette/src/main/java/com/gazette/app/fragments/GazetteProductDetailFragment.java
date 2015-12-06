@@ -148,7 +148,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
                     message.setFromName("Me");
                     message.setMessage(inputMsg.getText().toString());
                     message.setTime(time);
-                    String msgId = GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "9968713449@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
+                    String msgId = GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "samsung@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
                     message.setMsgID(msgId);
                     appendMessage(message);
                     inputMsg.setText("");
