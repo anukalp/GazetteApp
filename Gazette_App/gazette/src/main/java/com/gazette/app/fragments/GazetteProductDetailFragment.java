@@ -37,6 +37,7 @@ import com.gazette.app.model.Product;
 import com.gazette.app.model.chat.Message;
 import com.gazette.app.provider.GazetteDatabaseHelper;
 import com.gazette.app.utils.ChatUtils;
+import com.gazette.app.utils.SharedPreferenceManager;
 
 import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Presence;
@@ -85,7 +86,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
     private RecyclerView.LayoutManager mLayoutManager;
     private ConversationAdapter adapter;
     private String delegate = "hh:mm aaa";
-
+    private SharedPreferenceManager pref;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -101,6 +102,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             mTitle = getArguments().getString(ARG_ITEM_ID);
         }
+        pref = new SharedPreferenceManager(getActivity());
         GazetteApplication.getInstance().addXMPPPacketReceivedListener(this);
         utils = new ChatUtils(getActivity().getApplicationContext());
         getActivity().getSupportLoaderManager().initLoader(LOADER_ID_TABLE, null,
@@ -131,7 +133,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
 
         listMessages = new ArrayList<Message>();
         String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
-        final Message m = new Message("Gazette", "Hello Sir, \nHow could i assist you today.\n", time, false);
+        final Message m = new Message("Gazette", "Hi "+pref.getName()+", \nHow could i assist you today.", time, false);
         listMessages.add(m);
         adapter = new ConversationAdapter(getActivity(), listMessages);
         listViewMessages.setAdapter(adapter);
