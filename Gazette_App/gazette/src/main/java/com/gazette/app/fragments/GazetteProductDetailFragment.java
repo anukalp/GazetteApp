@@ -131,7 +131,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
 
         listMessages = new ArrayList<Message>();
         String time = (String) DateFormat.format(delegate, Calendar.getInstance().getTime());
-        final Message m = new Message("Service Person", "Hello Sir, \nHow could i assist you today.\n", time, false);
+        final Message m = new Message("Gazette", "Hello Sir, \nHow could i assist you today.\n", time, false);
         listMessages.add(m);
         adapter = new ConversationAdapter(getActivity(), listMessages);
         listViewMessages.setAdapter(adapter);
@@ -148,7 +148,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
                     message.setFromName("Me");
                     message.setMessage(inputMsg.getText().toString());
                     message.setTime(time);
-                    String msgId = GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "samsung@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
+                    String msgId = GazetteApplication.getInstance().sendMessage(inputMsg.getText().toString(), "gazette@ec2-52-11-139-107.us-west-2.compute.amazonaws.com");
                     message.setMsgID(msgId);
                     appendMessage(message);
                     inputMsg.setText("");
