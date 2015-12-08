@@ -97,8 +97,8 @@ public class ProductListFragment extends Fragment implements OnProductAddedListe
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
 
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
-        mLayoutManager =   new GridLayoutManager(getActivity(), 2);
+       // mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        mLayoutManager =   new GridLayoutManager(getActivity(), 3);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
         return view;

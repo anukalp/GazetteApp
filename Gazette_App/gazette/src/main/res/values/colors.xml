@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff1d3247</color>
-    <color name="colorPrimaryDark">#12273d</color>
-    <color name="colorAccent">#2a4055</color>
-    <color name="colorWizard">#ff1d3247</color>
+    <color name="colorPrimary">#662145</color>
+    <color name="colorPrimaryDark">#5a1f3e</color>
+    <color name="colorAccent">#975476</color>
+    <color name="colorWizard">#5a1f3e</color>
     <color name="colorWizard_bottom">#f1f5f8</color>
     <color name="colorButton">#ffffbb02</color>
 
@@ -19,4 +19,7 @@
     <color name="lblFromName">#777777</color>
     <color name="title_gray">#434343</color>
     <color name="grey_300">#e0e0e0</color>
+
+    <color name="grid_back_main">#75305a</color>
+    <color name="grid_background">#975072</color>
 </resources>
