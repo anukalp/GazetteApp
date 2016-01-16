@@ -15,6 +15,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.view.ScrollingView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -29,6 +30,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.gazette.app.GazetteApplication;
@@ -70,7 +72,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
     private static final String TAG = "Anil";
     public static final String ARG_ITEM_ID = "item_id";
     private String mTitle;
-    private LinearLayout product_details_layout;
+    private ScrollView product_details_layout;
     private LinearLayout chat_layout;
     private static final int LOADER_ID_TABLE = 1;
     private Product mProduct;
@@ -129,7 +131,7 @@ public class GazetteProductDetailFragment extends Fragment implements LoaderMana
 
         // Show the dummy content as text in a TextView.
         chat_layout = (LinearLayout) rootView.findViewById(R.id.chat_layout);
-        product_details_layout = (LinearLayout) rootView.findViewById(R.id.product_details_layout);
+        product_details_layout = (ScrollView) rootView.findViewById(R.id.product_details_layout);
         product_name = (TextView) rootView.findViewById(R.id.product_name);
         invoice_image = (ImageView) rootView.findViewById(R.id.invoice_image);
         purchase_date = (TextView) rootView.findViewById(R.id.purchase_date);

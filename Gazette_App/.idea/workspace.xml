@@ -13,37 +13,10 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Anil" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79707dba-0946-42ba-9eb8-9b904bc6d23c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/assets/fonts/Muli-Italic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/assets/fonts/Muli-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/assets/fonts/Muli-LightItalic.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/assets/fonts/Muli-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/emailid_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/emailid_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/emailid_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/emailid_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/emailid_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_chevron_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_chevron_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_chevron_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_chevron_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_chevron_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/mobile_number_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/mobile_number_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/mobile_number_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/mobile_number_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/mobile_number_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable/pagination_dot_selected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable/pagination_dot_unselected.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/username_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/username_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/username_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/username_icon.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+    <list default="true" id="79707dba-0946-42ba-9eb8-9b904bc6d23c" name="Default" comment="Updated UI For Gazette">
       <change type="DELETED" beforePath="$PROJECT_DIR$/gazette/build/generated/source/buildConfig/release/com/gazette/app/BuildConfig.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/me/dm7/barcodescanner/core/R.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/me/dm7/barcodescanner/zbar/R.java" afterPath="" />
@@ -1774,9 +1747,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/gazette/build/intermediates/symbols/release/R.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gazette/build/outputs/apk/gazette-release-1.0.apk" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gazette/build/outputs/logs/manifest-merger-release-report.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gazette/gazette.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/memorizingtrustmanager/memorizingtrustmanager.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scanlibrary/scanlibrary.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/classes/debug/com/gazette/app/views/CameraPreview.class" afterPath="$PROJECT_DIR$/gazette/build/intermediates/classes/debug/com/gazette/app/views/CameraPreview.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/classes/debug/com/gazette/app/utils/DividerItemDecoration.class" afterPath="$PROJECT_DIR$/gazette/build/intermediates/classes/debug/com/gazette/app/utils/DividerItemDecoration.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/classes/debug/com/gazette/app/fragments/adapters/FragmentAdapter.class" afterPath="$PROJECT_DIR$/gazette/build/intermediates/classes/debug/com/gazette/app/fragments/adapters/FragmentAdapter.class" />
@@ -1920,17 +1890,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/gazette/build/intermediates/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/outputs/apk/gazette-debug-1.0.apk" afterPath="$PROJECT_DIR$/gazette/build/outputs/apk/gazette-debug-1.0.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/gazette_logo.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/gazette_logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable/gazette_logo.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable/gazette_logo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_automative.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_automative.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_automative.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_automative.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_automative.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_automative.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_automative.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_automative.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_automative.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_automative.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_automative.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_beauty.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_beauty.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_beauty.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_beauty.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_beauty.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_beauty.png" />
@@ -1946,21 +1910,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_health.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_health.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_health.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_health.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_health.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_health.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_health.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_health.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_health.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_home.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_home.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_home.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_home.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_home.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_home.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_home.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_home.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_home.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_home.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_home.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_jewellery.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_jewellery.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_jewellery.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_jewellery.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_jewellery.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_jewellery.png" />
@@ -1976,52 +1930,27 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/mipmap-xhdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_other_product.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_other_product.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_other_product.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_other_product.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_other_product.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_other_product.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_other_product.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_other_product.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_other_product.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_other_product.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_other_product.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_smartphone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_smartphone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_smartphone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_smartphone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_smartphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_smartphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_smartphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_smartphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_smartphone.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_smartphone.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_smartphone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-hdpi/ic_widescreen_tv.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-mdpi/ic_widescreen_tv.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xhdpi/ic_widescreen_tv.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_widescreen_tv.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_widescreen_tv.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-hdpi/ic_widescreen_tv.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-mdpi/ic_widescreen_tv.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xhdpi/ic_widescreen_tv.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxhdpi/ic_widescreen_tv.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_widescreen_tv.png" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable-xxxhdpi/ic_widescreen_tv.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/exploded-aar/com.dev.sacot41/scviewpager/0.0.4/AndroidManifest.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/exploded-aar/com.dev.sacot41/scviewpager/0.0.4/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/exploded-aar/com.dev.sacot41/scviewpager/0.0.4/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/exploded-aar/com.dev.sacot41/scviewpager/0.0.4/aapt/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/gazette/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/fragments/adapters/CategoryAdapter.java" afterPath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/fragments/adapters/CategoryAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteApplication.java" afterPath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/utils/GazetteConstants.java" afterPath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/utils/GazetteConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteLoginActivity.java" afterPath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteLoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteWizardMainActivity.java" afterPath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteWizardMainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/fragments/GazetteProductDetailFragment.java" afterPath="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/fragments/GazetteProductDetailFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/android/support/design/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/android/support/v7/cardview/R.java" afterPath="$PROJECT_DIR$/gazette/build/generated/source/r/debug/android/support/v7/cardview/R.java" />
@@ -2106,19 +2035,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_add_product.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_add_product.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_bar_code_scan.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_bar_code_scan.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_login.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/layout/activity_gazette_login.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/layout/activity_gazette_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/activity_gazette_main_drawer.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/activity_gazette_main_drawer.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_wizard_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_gazette_wizard_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/layout/activity_gazette_wizard_main.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/layout/activity_gazette_wizard_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_splash_gazette.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/activity_splash_gazette.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/layout/activity_splash_gazette.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/layout/activity_splash_gazette.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/app_bar_gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/app_bar_gazette_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/layout/app_bar_gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/layout/app_bar_gazette_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build.gradle" afterPath="$PROJECT_DIR$/gazette/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/button_background.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/button_background.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/layout/category_item.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/layout/category_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/values/colors.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/content_add_product.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/content_add_product.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/content_gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/content_gazette_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/custom_tab.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/custom_tab.xml" />
@@ -2140,10 +2063,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/dotted_circle.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/dotted_circle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/fragment_productlist.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/fragment_productlist.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/layout/fragment_productlist.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/layout/fragment_productlist.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/gazette_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/menu/gazette_main.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/menu/gazette_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable/grid_gradient.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable/grid_gradient.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/line_divider.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/line_divider.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/gazette/build/outputs/logs/manifest-merger-debug-report.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/menu_gazette_wizard_main.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/menu/menu_gazette_wizard_main.xml" />
@@ -2168,23 +2088,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/xml/pref_general.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/xml/pref_general.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/xml/pref_headers.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/xml/pref_headers.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/xml/pref_notification.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/xml/pref_notification.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/layout/product_all_detail.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/layout/product_all_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/product_layout.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/product_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable/rounded_corner_grid.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable/rounded_corner_grid.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable/rounded_corner_yellow.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable/rounded_corner_yellow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/scviewpager_0_0_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/scviewpager_0_0_4.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/side_nav_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_item.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_layout.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/subproduct_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/text_color_selector.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/drawable/text_color_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/src/main/res/drawable/tikker_gradient.xml" afterPath="$PROJECT_DIR$/gazette/src/main/res/drawable/tikker_gradient.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/values-af/values-af.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/values-af/values-af.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/values-am/values-am.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/values-am/values-am.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/values-ar/values-ar.xml" afterPath="$PROJECT_DIR$/gazette/build/intermediates/res/merged/debug/values-ar/values-ar.xml" />
@@ -2305,7 +2219,20 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Gazette_App" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+            </PATH>
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -2313,47 +2240,16 @@
     <favorites_list name="Gazette_App" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="activity_product_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gazette/src/main/res/layout/activity_product_detail.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.354838">
-              <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-              <folding>
-                <element signature="e#1824#1864#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product_all_detail.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gazette/src/main/res/layout/product_all_detail.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.85955054">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-              <folding>
-                <element signature="e#981#998#0" expanded="true" />
-                <element signature="e#2801#2818#0" expanded="true" />
-                <element signature="e#3868#3885#0" expanded="true" />
-                <element signature="e#5347#5364#0" expanded="true" />
-                <element signature="e#6417#6434#0" expanded="true" />
-                <element signature="e#9315#9332#0" expanded="true" />
-                <element signature="e#10392#10409#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -5360,13 +5256,14 @@
         <option value="$PROJECT_DIR$/gazette/src/main/res/layout/app_bar_gazette_main.xml" />
         <option value="$PROJECT_DIR$/gazette/src/main/res/menu/gazette_main.xml" />
         <option value="$PROJECT_DIR$/gazette/src/main/res/layout/fragment_productlist.xml" />
-        <option value="$PROJECT_DIR$/gazette/src/main/res/layout/category_item.xml" />
         <option value="$PROJECT_DIR$/gazette/src/main/res/drawable/rounded_corner_grid.xml" />
         <option value="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/utils/GazetteConstants.java" />
         <option value="$PROJECT_DIR$/gazette/src/main/res/layout/activity_gazette_login.xml" />
         <option value="$PROJECT_DIR$/gazette/src/main/res/layout/activity_splash_gazette.xml" />
         <option value="$PROJECT_DIR$/gazette/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/gazette/src/main/res/layout/product_all_detail.xml" />
+        <option value="$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/fragments/GazetteProductDetailFragment.java" />
+        <option value="$PROJECT_DIR$/gazette/src/main/res/layout/category_item.xml" />
       </list>
     </option>
   </component>
@@ -5376,6 +5273,9 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="NamedScopeManager">
     <order />
@@ -5409,43 +5309,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gazette_App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gazette_App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gazette_App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gazette_App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gazette_App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gazette" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -5496,8 +5359,85 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gazette_App" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gazette" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gazette_App" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gazette" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gazette_App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gazette_App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gazette_App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gazette_App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gazette_App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gazette" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -5686,6 +5626,13 @@
       <option name="number" value="Default" />
       <updated>1452786644985</updated>
     </task>
+    <task id="LOCAL-00001" summary="Updated UI For Gazette">
+      <created>1452956759798</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1452956759798</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -5704,25 +5651,25 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.4972419" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.4972419" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.5125786" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48814228" sideWeight="0.4783294" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4879227" sideWeight="0.48463356" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5027581" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4879227" sideWeight="0.51536644" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.4972419" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.4874214" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.4972419" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.4874214" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2671395" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2671395" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.48305753" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
@@ -5734,25 +5681,25 @@
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4009662" sideWeight="0.49408984" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5074862" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4879227" sideWeight="0.48463356" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4879227" sideWeight="0.51536644" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.4972419" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.4874214" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.4972419" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23167849" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.49251378" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2671395" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.48305753" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.5125786" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.4972419" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -5760,8 +5707,8 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3268921" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939324" sideWeight="0.4874214" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -5776,35 +5723,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated UI For Gazette" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated UI For Gazette" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gazette/src/main/res/layout/activity_gazette_wizard_main.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="193" column="15" selection-start-line="193" selection-start-column="15" selection-end-line="193" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="67" selection-start-line="101" selection-start-column="67" selection-end-line="101" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gazette/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/GazetteWizardMainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -6063,16 +5990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gazette/src/main/res/layout/category_item.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gazette/src/main/res/drawable/rounded_corner_grid.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2741117">
@@ -6181,11 +6098,29 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.354838">
+        <state vertical-scroll-proportion="1.6108949">
           <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
           <folding>
             <element signature="e#1824#1864#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/fragments/ProductDetailsFillFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gazette/src/main/res/layout/product_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8404669">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -6194,17 +6129,27 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85955054">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-          <folding>
-            <element signature="e#981#998#0" expanded="true" />
-            <element signature="e#2801#2818#0" expanded="true" />
-            <element signature="e#3868#3885#0" expanded="true" />
-            <element signature="e#5347#5364#0" expanded="true" />
-            <element signature="e#6417#6434#0" expanded="true" />
-            <element signature="e#9315#9332#0" expanded="true" />
-            <element signature="e#10392#10409#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.07003891">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gazette/src/main/java/com/gazette/app/fragments/GazetteProductDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7708333">
+          <caret line="133" column="42" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gazette/src/main/res/layout/category_item.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
