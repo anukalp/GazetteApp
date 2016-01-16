@@ -60,7 +60,7 @@ public class CategoryAdapter extends
         mName = (TextView) holder.mCategoryCard.findViewById(R.id.name);
         mCounter_layout = (RelativeLayout) holder.mCategoryCard.findViewById(R.id.count_layout);
         mCounterText = (TextView) holder.mCategoryCard.findViewById(R.id.count);
-        Typeface font = Typeface.createFromAsset(mActivity.getAssets(), "fonts/ProximaNova-Semibold.otf");
+        Typeface font = Typeface.createFromAsset(mActivity.getAssets(), "fonts/Muli-Regular.ttf");
         mName.setTypeface(font);
         Category category = mCategoriesLists.get(position);
         if (null != category) {

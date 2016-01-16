@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gazette</string>
+    <string name="app_name">Consumer Companion</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -12,15 +12,11 @@
     </string-array>
 
     <string-array name="categories">
-        <item>Mobile Products</item>
+        <item>SmartPhone</item>
         <item>Electronics</item>
-        <item>Home Kitchen</item>
-        <item>Kids Baby</item>
+        <item>Household</item>
         <item>Automotive</item>
-        <item>Beauty Appliances</item>
-        <item>Jewelery</item>
-        <item>Health Personal Care</item>
-        <item>Patio Garden</item>
+        <item>Health Care</item>
         <item>Others</item>
     </string-array>
 
@@ -28,17 +24,13 @@
         <item>@drawable/ic_smartphone</item>
         <item>@drawable/ic_widescreen_tv</item>
         <item>@drawable/ic_home</item>
-        <item>@drawable/ic_kids</item>
         <item>@drawable/ic_automative</item>
-        <item>@drawable/ic_beauty</item>
-        <item>@drawable/ic_jewellery</item>
         <item>@drawable/ic_health</item>
-        <item>@drawable/ic_garden</item>
         <item>@drawable/ic_other_product</item>
     </string-array>
 
     <string-array name="smartphone">
-        <item>Mobile Products</item>
+        <item>SmartPhone</item>
         <item>Others</item>
     </string-array>
 
@@ -132,7 +124,7 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_name">Name</string>
-    <string name="prompt_mobile">Mobile</string>
+    <string name="prompt_mobile">Mobile No.</string>
     <string name="action_sign_in">Register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>

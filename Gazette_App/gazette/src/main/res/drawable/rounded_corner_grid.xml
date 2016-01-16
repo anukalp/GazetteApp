@@ -6,8 +6,8 @@
             <solid android:color="@color/colorPrimaryDark" />
 
             <size
-                android:width="11dp"
-                android:height="11dp" />
+                android:width="12dp"
+                android:height="12dp" />
             <padding
                 android:bottom="1dp"
                 android:left="1dp"
@@ -18,7 +18,7 @@
     <item>
         <shape android:shape="oval">
 
-            <solid android:color="@color/grid_back_main" />
+            <solid android:color="@android:color/white" />
 
             <size
                 android:width="10dp"

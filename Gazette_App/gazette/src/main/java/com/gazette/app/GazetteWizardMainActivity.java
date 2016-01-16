@@ -22,7 +22,6 @@ public class GazetteWizardMainActivity extends GazetteBaseActivity {
 
     private SCViewPager mViewPager;
     private SCViewPagerAdapter mPageAdapter;
-    private DotsView mDotsView;
     private Button mGetStarted;
     private SharedPreferenceManager pref;
 
@@ -37,9 +36,7 @@ public class GazetteWizardMainActivity extends GazetteBaseActivity {
         setContentView(R.layout.activity_gazette_wizard_main);
         mGetStarted = (Button) findViewById(R.id.get_started);
         mViewPager = (SCViewPager) findViewById(R.id.viewpager_main_activity);
-        mDotsView = (DotsView) findViewById(R.id.dotsview_main);
-        mDotsView.setDotRessource(R.drawable.page_indicator_selected_layer, R.drawable.page_indicator_normal_layer);
-        mDotsView.setNumberOfPage(NUM_PAGES);
+
         mPageAdapter = new SCViewPagerAdapter(getSupportFragmentManager());
         mPageAdapter.setNumberOfPage(NUM_PAGES);
         mPageAdapter.setFragmentBackgroundColor(R.color.colorWizard);
@@ -53,7 +50,6 @@ public class GazetteWizardMainActivity extends GazetteBaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                mDotsView.selectDot(position);
             }
 
             @Override

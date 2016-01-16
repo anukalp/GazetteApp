@@ -99,7 +99,7 @@ public class GazetteApplication extends Application implements ConnectionListene
 
         Log.i("Anil", "GazetteApplication onCreate");
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                        .setDefaultFontPath("fonts/ProximaNovaregular.otf")
+                        .setDefaultFontPath("fonts/Muli-Regular.ttf")
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );

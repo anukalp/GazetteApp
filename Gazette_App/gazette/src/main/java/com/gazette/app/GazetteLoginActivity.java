@@ -103,7 +103,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
+        mLoginFormView = findViewById(R.id.email_login_form);
         loadingView = (RelativeLayout) findViewById(R.id.loadingView);
         mVerifyMobile = (TextView)findViewById(R.id.verify_number);
     }

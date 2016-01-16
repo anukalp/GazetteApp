@@ -59,9 +59,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".GazetteLoginActivity"
-            android:label="Sign In"
+            android:label="Sign Up"
             android:screenOrientation="portrait"
-            android:theme="@style/SplsahAppTheme" />
+            android:theme="@style/AppTheme" />
 
         <provider
             android:name=".provider.GazetteContentProvider"
