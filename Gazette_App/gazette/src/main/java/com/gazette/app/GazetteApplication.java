@@ -65,8 +65,9 @@ public class GazetteApplication extends Application implements ConnectionListene
     private ConnectTOJabberTask mConnectTOJabberTask = null;
     private final ArrayList<Object> registeredManagers;
     private final AcceptAll ACCEPT_ALL = new AcceptAll();
-    private  XMPPTCPConnection mXmpptcpConnection;
-    private  XMPPConnection mXmppConnection;
+    private XMPPTCPConnection mXmpptcpConnection;
+    private XMPPConnection mXmppConnection;
+    private boolean isJabberSetupDone = false;
     /**
      * Thread to execute tasks in background..
      */
@@ -117,6 +118,7 @@ public class GazetteApplication extends Application implements ConnectionListene
     }
 
     public void setupJabber() {
+        if(!isJabberSetupDone)
         mConnectTOJabberTask.execute();
     }
 
@@ -156,17 +158,16 @@ public class GazetteApplication extends Application implements ConnectionListene
 
     }
 
-    public String  sendMessage(String message, String to)
-    {
+    public String sendMessage(String message, String to) {
         Log.i("XMPPClient", "Sending text [" + message + "] to [" + to + "]");
         Message msg = new Message(to, Message.Type.chat);
         msg.setBody(message);
         msg.addExtension(new DeliveryReceipt(msg.getPacketID()));
-        try{
+        try {
             mXmppConnection.sendStanza(msg);
             DeliveryReceiptManager.addDeliveryReceiptRequest(msg);
-        }catch (SmackException.NotConnectedException ex){
-            Log.i("Anil","Send message exception:"+ex.getMessage());
+        } catch (SmackException.NotConnectedException ex) {
+            Log.i("Anil", "Send message exception:" + ex.getMessage());
         }
         return msg.getStanzaId();
     }
@@ -257,7 +258,6 @@ public class GazetteApplication extends Application implements ConnectionListene
     }
 
 
-
     @Override
     public void pingFailed() {
         Log.i("Anil", "pingFailed");
@@ -265,27 +265,27 @@ public class GazetteApplication extends Application implements ConnectionListene
 
     @Override
     public void processPacket(Stanza stanza) throws SmackException.NotConnectedException {
-        Log.i("Anil", "process Packet Received: "+stanza.getFrom());
-        Log.i("Anil", "process Packet Received: "+stanza.getTo());
-        if(stanza instanceof Presence){
+        Log.i("Anil", "process Packet Received: " + stanza.getFrom());
+        Log.i("Anil", "process Packet Received: " + stanza.getTo());
+        if (stanza instanceof Presence) {
             Log.i("Anil", "process Packet Presence");
         }
-        if (stanza instanceof Message){
+        if (stanza instanceof Message) {
             Message message = (Message) stanza;
             Log.i("Anil", "process Packet Message : " + message.getTo() + ":" + message.getFrom() + ":" + message.getBody());
-            if(null != message.getBody())
-            notifyAllXMPPPacketMessageReceivedListener(message);
+            if (null != message.getBody())
+                notifyAllXMPPPacketMessageReceivedListener(message);
         }
 
-        if (stanza instanceof IQ ) {
+        if (stanza instanceof IQ) {
             Log.i("Anil", "process Packet IQ : ");
             IQ iq = (IQ) stanza;
             String packetId = iq.getStanzaId();
             if (packetId != null && (iq.getType() == IQ.Type.result || iq.getType() == IQ.Type.error)) {
                 if (iq.getType() == IQ.Type.result) {
-                    Log.i("Anil", "process Packet IQ result :"+packetId);
+                    Log.i("Anil", "process Packet IQ result :" + packetId);
                 } else {
-                    Log.i("Anil", "process Packet IQ Error :" +packetId);
+                    Log.i("Anil", "process Packet IQ Error :" + packetId);
                 }
 
             }
@@ -302,6 +302,7 @@ public class GazetteApplication extends Application implements ConnectionListene
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            isJabberSetupDone = true;
         }
     }
 
@@ -368,7 +369,7 @@ public class GazetteApplication extends Application implements ConnectionListene
                 if (receiptdata == null) {
                     return;
                 }
-                notifyAllonReceiptRecived((Message)receipt);
+                notifyAllonReceiptRecived((Message) receipt);
             }
         });
 
