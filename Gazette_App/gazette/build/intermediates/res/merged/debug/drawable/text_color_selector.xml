@@ -5,4 +5,4 @@
     <item android:state_focused="false" android:state_pressed="true" android:color="@android:color/white"/>
     <item android:state_focused="false" android:state_enabled="false" android:color="@android:color/darker_gray"/>
     <item android:color="@android:color/white" />
-</selector><!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/drawable/text_color_selector.xml -->
+</selector><!-- From: file:/C:/Users/IBM_ADMIN/Documents/gazetteandroidapp/Gazette_App/gazette/src/main/res/drawable/text_color_selector.xml -->

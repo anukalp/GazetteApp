@@ -9,22 +9,30 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/profile_placeholder" />
+        android:background="@drawable/page_indicator_selected_layer">
+
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/profile_placeholder" />
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/headerusername"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15sp"
-        android:textColor="@android:color/white" />
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
 
 </LinearLayout>
-<!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/layout/nav_header_gazette_main.xml -->
+<!-- From: file:/C:/Users/IBM_ADMIN/Documents/gazetteandroidapp/Gazette_App/gazette/src/main/res/layout/nav_header_gazette_main.xml -->

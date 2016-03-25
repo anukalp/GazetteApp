@@ -14,4 +14,4 @@
         android:layout_height="wrap_content"
         android:minHeight="400dp"></android.support.v7.widget.RecyclerView>
 
-</android.support.v4.widget.NestedScrollView><!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/layout/content_add_product.xml -->
+</android.support.v4.widget.NestedScrollView><!-- From: file:/C:/Users/IBM_ADMIN/Documents/gazetteandroidapp/Gazette_App/gazette/src/main/res/layout/content_add_product.xml -->

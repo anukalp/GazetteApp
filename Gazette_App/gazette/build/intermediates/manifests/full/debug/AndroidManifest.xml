@@ -8,9 +8,9 @@
         android:minSdkVersion="20"
         android:targetSdkVersion="23" />
 
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature
         android:name="android.hardware.camera.front"
@@ -24,6 +24,22 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
 
     <application
         android:name="com.gazette.app.GazetteApplication"
@@ -35,27 +51,33 @@
         <activity
             android:name="com.gazette.app.GazetteSplashActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/SplsahAppTheme" >
         </activity>
         <activity
             android:name="com.gazette.app.GazetteMainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.gazette.app.GazetteBarCodeScanActivity"
-            android:label=""
+            android:label="Product Details"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.gazette.app.GazetteAddProductActivity"
             android:label=""
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.gazette.app.GazetteSettingsActivity"
-            android:label="" />
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.gazette.app.GazetteLoginActivity"
-            android:label="Sign In"
-            android:theme="@style/SplsahAppTheme" />
+            android:label="Sign Up"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
 
         <provider
             android:name="com.gazette.app.provider.GazetteContentProvider"
@@ -66,6 +88,7 @@
         <activity
             android:name="com.gazette.app.GazetteWizardMainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/SplsahAppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -83,6 +106,26 @@
         <service
             android:name="com.gazette.app.services.OTPVerificationService"
             android:exported="false" />
+
+        <activity
+            android:name="de.duenndns.ssl.MemorizingActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.gazette.app.GazetteProductDetailActivity"
+            android:label="@string/title_product_detail"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.scanlibrary.ScanActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>

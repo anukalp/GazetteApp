@@ -10,9 +10,9 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="0.90"
-        android:elevation="10dp"
         android:clipChildren="true"
         android:clipToPadding="true"
+        android:elevation="10dp"
         tools:context=".MainActivity">
 
         <com.dev.sacot41.scviewpager.SCViewPager
@@ -22,14 +22,7 @@
 
         </com.dev.sacot41.scviewpager.SCViewPager>
 
-        <com.dev.sacot41.scviewpager.DotsView
-            android:id="@+id/dotsview_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal" />
+
 
 
         <ImageView
@@ -51,8 +44,7 @@
             android:layout_below="@+id/imageview_main_activity_name_tag"
             android:layout_marginLeft="10dp"
             android:text="We are Happy Family"
-            android:textColor="@android:color/white"
-            android:textSize="28sp" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/imageview_main_activity_commonly"
@@ -62,8 +54,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="55dp"
             android:text="Family has lots of household devices and documents "
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/imageview_main_activity_django_python"
@@ -89,8 +80,7 @@
             android:layout_alignStart="@+id/imageview_main_activity_diploma"
             android:layout_below="@+id/imageview_main_activity_commonly"
             android:text="If Something broke we need suffer"
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/imageview_main_activity_diploma"
@@ -108,8 +98,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="50dp"
             android:text="Why?"
-            android:textColor="@android:color/white"
-            android:textSize="75sp" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/imageview_main_future"
@@ -119,8 +108,7 @@
             android:layout_alignTop="@+id/imageview_main_check_out"
             android:layout_toEndOf="@+id/textview_main_github_link"
             android:text="Because we wont organize our products and get warranty or insurance."
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+            android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/imageview_main_arduino"
@@ -148,8 +136,7 @@
             android:layout_marginLeft="50dp"
             android:layout_toStartOf="@+id/imageview_main_raspberry_pi"
             android:text="But no Worries we organize your products and get warranty or insurance."
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/imageview_main_check_out"
@@ -158,8 +145,7 @@
             android:layout_above="@+id/imageview_main_arduino"
             android:layout_alignStart="@+id/imageview_main_activity_commonly"
             android:text="Checkout Gazette Applictaion which takecare of warranty Expiry and keep you updated."
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/textview_main_github_link"
@@ -187,25 +173,22 @@
             android:src="@drawable/wizard55" />
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/varification_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/colorWizard"
         android:layout_alignParentBottom="true"
         android:layout_weight="0.10"
-        android:background="@color/colorWizard_bottom"
         android:orientation="vertical"
         android:padding="10dp">
-        <Button
-            android:id="@+id/get_started"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/button_background"
-            android:elevation="10dp"
-            android:text="Get Started"
-            android:textAllCaps="false"
-            android:textColor="@drawable/text_color_selector" />
 
-    </LinearLayout>
-</LinearLayout><!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/layout/activity_gazette_wizard_main.xml -->
+        <Button
+            android:layout_alignParentRight="true"
+            android:id="@+id/get_started"
+            android:layout_width="69dp"
+            android:layout_height="22dp"
+            android:background="@drawable/ic_chevron_right" />
+
+    </RelativeLayout>
+</LinearLayout><!-- From: file:/C:/Users/IBM_ADMIN/Documents/gazetteandroidapp/Gazette_App/gazette/src/main/res/layout/activity_gazette_wizard_main.xml -->

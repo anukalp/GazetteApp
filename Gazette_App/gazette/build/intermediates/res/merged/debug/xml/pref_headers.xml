@@ -14,4 +14,4 @@
         android:title="@string/pref_header_data_sync" android:icon="@drawable/ic_sync_black_24dp" />
 
 </preference-headers>
-<!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/xml/pref_headers.xml -->
+<!-- From: file:/C:/Users/IBM_ADMIN/Documents/gazetteandroidapp/Gazette_App/gazette/src/main/res/xml/pref_headers.xml -->

@@ -1,7 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".GazetteMainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="always" />
+    tools:context=".GazetteMainActivity">
+    <item
+        android:id="@+id/username"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_person_white_24dp"
+        android:title="Welcome!"
+        app:showAsAction="always"
+        android:actionLayout="@layout/custom_tab" />
 </menu>
-<!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/menu/gazette_main.xml -->
+<!-- From: file:/C:/Users/IBM_ADMIN/Documents/gazetteandroidapp/Gazette_App/gazette/src/main/res/menu/gazette_main.xml -->

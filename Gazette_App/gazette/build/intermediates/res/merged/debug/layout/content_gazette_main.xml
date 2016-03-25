@@ -14,4 +14,4 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </RelativeLayout>
-<!-- From: file:/D:/Gazette/Android_App/Gazette_App/gazette/src/main/res/layout/content_gazette_main.xml -->
+<!-- From: file:/C:/Users/IBM_ADMIN/Documents/gazetteandroidapp/Gazette_App/gazette/src/main/res/layout/content_gazette_main.xml -->

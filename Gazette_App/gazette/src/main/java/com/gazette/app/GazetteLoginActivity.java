@@ -37,17 +37,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gazette.app.callbacks.OTPVerifySuccessListener;
+import com.gazette.app.model.APIResponse;
 import com.gazette.app.model.opt.OTPRequestModel;
 import com.gazette.app.model.opt.OTPVerificationResponseModel;
 import com.gazette.app.utils.RetrofitManagerClass;
 import com.gazette.app.utils.SharedPreferenceManager;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import org.apache.http.HttpStatus;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -105,7 +109,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
 
         mLoginFormView = findViewById(R.id.email_login_form);
         loadingView = (RelativeLayout) findViewById(R.id.loadingView);
-        mVerifyMobile = (TextView)findViewById(R.id.verify_number);
+        mVerifyMobile = (TextView) findViewById(R.id.verify_number);
     }
 
     private void populateAutoComplete() {
@@ -204,7 +208,7 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            mVerifyMobile.setText("+91 "+mobile);
+            mVerifyMobile.setText("+91 " + mobile);
             InputMethodManager inputManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
             showProgress(true);
@@ -330,12 +334,39 @@ public class GazetteLoginActivity extends GazetteBaseActivity implements LoaderC
 
 
     private void requestForSMS(final OTPRequestModel request) {
-        mRetrofitManagerClass.getmOtpRequestInterface().requestOTP(request, new Callback<JSONObject>() {
+        mRetrofitManagerClass.getmOtpRequestInterface().requestOTP(request, new Callback<APIResponse>() {
             @Override
-            public void success(JSONObject data, retrofit.client.Response response) {
-                pref.setIsWaitingForSms(true);
-                Log.e("Anil", "success ");
-                //Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+            public void success(APIResponse data, retrofit.client.Response response) {
+                if (data.isSuccess()) {
+                    pref.setIsWaitingForSms(true);
+                    Log.e("Anil", " new User ");
+                } else if (data.getCode() == 2) {
+                    Log.e("Anil", " user exists ");
+                    getUserDetail(request);
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError retrofitError) {
+                Log.e("Anil", "Failed ", retrofitError);
+                showProgress(false);
+                mMobileView.setError(getString(R.string.error_invalid_mobile));
+            }
+        });
+    }
+
+    private void getUserDetail(final OTPRequestModel request) {
+        mRetrofitManagerClass.getmOtpRequestInterface().requestUserDetail(request.getMobile(), new Callback<OTPVerificationResponseModel>() {
+            @Override
+            public void success(OTPVerificationResponseModel verificationResposeModel, retrofit.client.Response response) {
+                if (response.getStatus() == HttpsURLConnection.HTTP_OK) {
+                    if (null != verificationResposeModel) {
+                        Log.e("Anil", "success ");
+                        Log.i("Anil", " verifyOtp Verified :" + verificationResposeModel.getName());
+                        pref.createLogin(verificationResposeModel.getName(), verificationResposeModel.getEmail(), verificationResposeModel.getMobile(), verificationResposeModel.getApikey());
+                        GazetteApplication.getInstance().notifyAllonotpVerifySuccessListener(verificationResposeModel);
+                    }
+                }
             }
 
             @Override
